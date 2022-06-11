@@ -9,9 +9,12 @@ header {
   width: 80%;
   margin: 0 auto;
   padding-top: 20px;
-  border: 1px solid;
 }
 
 .logo-container img {
   width: 70px;
+}
+
+.links-container a:first-child{
+  margin-right: 50px;
 }

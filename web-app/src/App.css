@@ -12,21 +12,6 @@
   --main-border-radius: 3px;
   --main-box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
   --main-sub-cancelled-color: #d36a6a;
-  /* --main-box-shadow: rgb(233 233 235 / 70%) 0px 2px 40px 5px; */
-  --header-height-lg: 70px;
-  --header-height-md: 100px;
-  --header-height-sm: 100px;
-  --h1-large-font-size: 1.8rem;
-  --h1-medium-font-size: 1.6rem;
-  --h1-small-font-size: 1.4rem;
-  --h2-large-font-size: 1.5rem;
-  --h2-medium-font-size: 1.4rem;
-  --h2-small-font-size: 1.3rem;
-  --p-large-font-size: 20px;
-  --p-medium-font-size: 18px;
-  --p-small-font-size: 15px;
-  --input-large-font-size: 19px;
-  --input-small-font-size: 18px;
 }
 
 body {
@@ -45,20 +30,11 @@ h1, h2, h3, h4 {
 
 h1 {
   font-weight: bold;
-  font-size: var(--h1-large-font-size);
-}
-
-h2 {
-  font-size: var(--h2-large-font-size);
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  font-size: 40px;
 }
 
 a {
+  font-size: 18px;
   text-decoration: none;
   color: var(--main-grey-color);
 }
@@ -105,8 +81,8 @@ input:focus, textarea:focus {
 
 .App {
   min-height: 100vh;
-  background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
-  /* background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); */
+  background-image: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 
 .separator {
