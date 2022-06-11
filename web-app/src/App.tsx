@@ -5,7 +5,7 @@ import { MantineProvider } from "@mantine/core";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import Header from "./components/header/Header";
-import Main from "./components/main/Main";
+import Main from "./components/Main/Main";
 
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import OverPageLoader from "./components/over-page-loader/OverPageLoader";
@@ -26,34 +26,35 @@ export default function App(): JSX.Element {
     <React.StrictMode>
       <Router>
         <QueryClientProvider client={queryClient}>
-            <Context>
-              <MantineProvider
-                theme={{
-                  colors: {
-                    "eb-main-color": [
-                      "#00B7AD",
-                      "#00B7AD",
-                      "#00B7AD",
-                      "#00B7AD",
-                      "#00B7AD",
-                      "#00B7AD",
-                      "#00B7AD",
-                      "#00B7AD",
-                      "#00B7AD",
-                    ],
-                  },
-                  primaryColor: "eb-main-color",
-                }}
-              >
-                <div className="App">
-                  <Header />
-                  <Switch>
-                    <Route component={NotFoundPage} />
-                  </Switch>
-                  <OverPageLoader />
-                </div>
-              </MantineProvider>
-            </Context>
+          <Context>
+            <MantineProvider
+              theme={{
+                colors: {
+                  "eb-main-color": [
+                    "#00B7AD",
+                    "#00B7AD",
+                    "#00B7AD",
+                    "#00B7AD",
+                    "#00B7AD",
+                    "#00B7AD",
+                    "#00B7AD",
+                    "#00B7AD",
+                    "#00B7AD",
+                  ],
+                },
+                primaryColor: "eb-main-color",
+              }}
+            >
+              <div className="App">
+                <Header />
+                <Switch>
+                  <Route exact path="/" component={Main} />
+                  <Route component={NotFoundPage} />
+                </Switch>
+                <OverPageLoader />
+              </div>
+            </MantineProvider>
+          </Context>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </Router>

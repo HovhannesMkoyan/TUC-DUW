@@ -15,7 +15,7 @@ header {
   padding: 0 30px;
   background-color: transparent;
   z-index: 99;
-  background-color: var(--main-eb-white-color);
+  background-color: var(--main-white-color);
   -webkit-transition: -webkit-box-shadow .2s linear;
   transition: -webkit-box-shadow .2s linear;
   -o-transition: box-shadow .2s linear;
@@ -28,14 +28,14 @@ header {
   box-shadow: var(--main-box-shadow);
 }
 
-.eb-logo_container {
+.logo_container {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.eb-logo_container a {
+.logo_container a {
   text-decoration: none;
   font-size: 45px;
   text-shadow: 0 2px 0px #408c87;
@@ -43,15 +43,15 @@ header {
   font-weight: 400;
 }
 
-.eb-logo_container a span {
-  color: var(--main-eb-color);
+.logo_container a span {
+  color: var(--main-color);
   font-family: 'Pacifico', 'cursive';
   letter-spacing: 1px;
 }
 
-.eb-header-menuIcon {
+.header-menuIcon {
   font-size: 50px;
-  color: var(--main-eb-color);
+  color: var(--main-color);
   cursor: pointer;
   margin-left: 20px;
   -webkit-tap-highlight-color: transparent;
@@ -112,7 +112,7 @@ header {
   transition: all .1s linear;
 }
 
-.eb-header-userIcon_container {
+.header-userIcon_container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -130,12 +130,12 @@ header {
   border-radius: 50%;
   padding: 5px;
   margin-left: 20px;
-  border: 2px solid var(--main-eb-white-color);
+  border: 2px solid var(--main-white-color);
   background-color: lightseagreen;
   cursor: pointer;
 }
 
-.eb-header-userIcon_container::after {
+.header-userIcon_container::after {
   content: "";
   position: absolute;
   width: 46px;
@@ -151,7 +151,7 @@ header {
   -o-transition: border .1s linear;
 }
 
-.eb-header-userIcon_container:hover::after {
+.header-userIcon_container:hover::after {
   border: 2px solid lightseagreen;
 
 }
@@ -162,7 +162,7 @@ header {
     padding: 0 10px;
   }
 
-  .eb-logo_container a {
+  .logo_container a {
     font-size: 38px;
   }
 
@@ -178,7 +178,7 @@ header {
     padding-top: 10px;
   }
 
-  .eb-logo_container {
+  .logo_container {
     display: none;
   }
 

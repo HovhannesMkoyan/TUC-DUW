@@ -5,8 +5,8 @@
           box-sizing: border-box;
   font-family: 'Noto Sans', sans-serif;
   /* -- Custom variables ---------------------- */
-  --main-eb-color: #00b7ad;
-  --main-eb-white-color: #f9f9f9;
+  --main-color: #00b7ad;
+  --main-white-color: #f9f9f9;
   --main-grey-color: #4a5656;
   --main-border-radius: 3px;
   --main-box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
@@ -79,7 +79,7 @@ button {
   cursor: pointer;
 }
 
-input, textarea, .eb-input {
+input, textarea, .input {
   display: block;
   width: 100%;
   margin: 0 auto;

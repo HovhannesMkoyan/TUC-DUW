@@ -37,14 +37,13 @@ function Header(): JSX.Element {
         >
           <div className="eb-logo_container">
             <Link to="/">
-              <span>ebooks.am</span>
+              <span>Datenbanken und Webtechniken Project</span>
             </Link>
           </div>
 
           {!state.ui.headerWithOnlyLogo && (
             <>
               <div className="df df-ac">
-
                 {state?.auth.isLoggedIn ? (
                   <span
                     className="eb-header-userIcon_container"

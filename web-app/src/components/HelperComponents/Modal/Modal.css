@@ -1,17 +1,17 @@
-.eb-modal-content_container {
+.modal-content_container {
   padding: 0 5px;
   text-align: center;
 }
 
-.eb-modal-content_container  h3 {
+.modal-content_container  h3 {
   margin-top: 0;
 }
 
-.eb-modal-link_container {
+.modal-link_container {
   margin-top: 15px;
 }
 
-.eb-modal-link_container a {
+.modal-link_container a {
  text-decoration: underline;
 }
 
