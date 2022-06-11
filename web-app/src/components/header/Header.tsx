@@ -4,9 +4,7 @@ import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 
-import Search from "./Search";
 import { StateContext } from "../../Context";
-import DropdownMenu from "./DropdownMenu/DropdownMenu";
 import "./Header.css";
 
 function shadowOnScroll() {
@@ -46,7 +44,6 @@ function Header(): JSX.Element {
           {!state.ui.headerWithOnlyLogo && (
             <>
               <div className="df df-ac">
-                <Search />
 
                 {state?.auth.isLoggedIn ? (
                   <span
@@ -65,10 +62,6 @@ function Header(): JSX.Element {
                   />
                 )}
               </div>
-
-              {openNav && (
-                <DropdownMenu toggleMenu={() => setOpenNav(!openNav)} />
-              )}
             </>
           )}
         </header>
