@@ -16,6 +16,7 @@ export default function Main(): JSX.Element {
 
   return (
     <section className="main_container">
+      <h1>Secure & Easy File Sharing</h1>
       <Dropzone>
         {(dropzoneProps) => {
           return (

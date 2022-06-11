@@ -10,7 +10,7 @@ export default function Context(props: PropsWithChildren<any>) {
       hiddenHeader: false,
     },
   });
-  
+
   const providerValue = React.useMemo(
     () => ({ state, setState }),
     [state, setState]

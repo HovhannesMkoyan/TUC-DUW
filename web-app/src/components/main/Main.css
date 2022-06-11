@@ -2,30 +2,7 @@
     position: relative;
     margin-top: var(--header-height-lg);
     padding: 80px 0;
-    min-height: calc(100vh + 50px);
-    transition: all .1s linear;
-}
-
-.mainPage_container {
-    width: 1165px;
-    margin: 0 auto;
-    margin-top: var(--header-height-lg);
-}
-
-.main-downloads_container {
     text-align: center;
-    font-size: 25px;
-    margin-bottom: 120px;
-}
-
-.main-downloads_container p {
-    color: lightgray;
-}
-
-@media only screen and (max-width: 1200px) {
-    .mainPage_container {
-        width: 90%;
-    }
 }
 
 @media only screen and (max-width: 850px) {

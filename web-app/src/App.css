@@ -2,8 +2,9 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Noto Sans', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+
   /* -- Custom variables ---------------------- */
   --main-color: #00b7ad;
   --main-white-color: #f9f9f9;
@@ -90,7 +91,7 @@ input, textarea, .input {
   color: var(--main-grey-color);
   border-radius: var(--main-border-radius);
   -webkit-box-shadow: var(--main-box-shadow);
-          box-shadow: var(--main-box-shadow);
+  box-shadow: var(--main-box-shadow);
   resize: none;
   -webkit-transition: all .1s linear;
   -o-transition: all .1s linear;
@@ -99,7 +100,13 @@ input, textarea, .input {
 
 input:focus, textarea:focus {
   -webkit-box-shadow: 1px 4px 20px 4px rgb(50 50 93 / 6%), 0 2px 5px rgb(0 0 0 / 8%);
-          box-shadow: 1px 4px 20px 4px rgb(50 50 93 / 6%), 0 2px 5px rgb(0 0 0 / 8%);
+  box-shadow: 1px 4px 20px 4px rgb(50 50 93 / 6%), 0 2px 5px rgb(0 0 0 / 8%);
+}
+
+.App {
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+  /* background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); */
 }
 
 .separator {
@@ -113,38 +120,38 @@ input:focus, textarea:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .df-column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .df-fs {
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 .df-ac {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .df-center {
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .df-wrap {
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .bold {
@@ -174,7 +181,7 @@ input:focus, textarea:focus {
 
 .no-shadow {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .bold {
