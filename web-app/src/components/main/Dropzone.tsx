@@ -2,16 +2,25 @@ import { useDropzone } from "react-dropzone";
 
 export default function Dropzone(props: any) {
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone({});
+  
   const files = acceptedFiles.map((file: any) => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
     </li>
   ));
+
   return (
-    <div className="container">
+    <div className="dropzone-container">
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here</p>
+        <div>
+          <div style={{position: "relative"}}>
+            <img src="/images/dropzone-image-shadowed.png" alt="" className="dropzone-img dropzone-img-effect dropzone-img-effect-left" />
+            <img src="/images/dropzone-image.png" alt="" className="dropzone-img" />
+            {/* <img src="/images/dropzone-image-shadowed.png" alt="" className="dropzone-img dropzone-img-effect dropzone-img-effect-right" /> */}
+          </div>
+          <p>Drop your files here, or browse</p>
+        </div>
       </div>
       <aside>
         <ul>{files}</ul>
