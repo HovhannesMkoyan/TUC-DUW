@@ -1,0 +1,26 @@
+.eb-faq_container {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.mantine-Accordion-label {
+    font-size: 18px;
+}
+
+.mantine-Accordion-contentInner {
+    font-size: 17px;
+}
+
+@media only screen and (max-width: 850px) {
+    .eb-faq_container {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .eb-faq_container {
+        width: 100%;
+        margin-top: 30px;
+    }
+}

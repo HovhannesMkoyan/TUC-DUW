@@ -1,0 +1,14 @@
+.eb_not-found_continer {
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.eb_not-found_continer img {
+    width: 750px;
+}
+
+.eb_not-found_continer a {
+   display: block;
+   color: #263438;
+   margin-top: 70px;
+}

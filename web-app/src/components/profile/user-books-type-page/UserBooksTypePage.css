@@ -1,0 +1,32 @@
+.eb-profile-main {
+    width: 650px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.eb-user-book_container {
+    padding: 10px 30px;
+    margin-bottom: 5px;
+}
+
+.eb-user-book_container:not(:last-child) {
+    border-bottom: 2px solid #d3d3d35c;
+}
+
+.eb-user-book_container img {
+    width: 50px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.eb-user-books-see-more-icon_container {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.eb-user-books-see-more-icon_container svg {
+    font-size: 30px;
+    color: var(--main-grey-color);
+    cursor: pointer;
+}

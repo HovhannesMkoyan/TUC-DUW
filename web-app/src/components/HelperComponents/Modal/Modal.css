@@ -1,0 +1,29 @@
+.eb-modal-content_container {
+  padding: 0 5px;
+  text-align: center;
+}
+
+.eb-modal-content_container  h3 {
+  margin-top: 0;
+}
+
+.eb-modal-link_container {
+  margin-top: 15px;
+}
+
+.eb-modal-link_container a {
+ text-decoration: underline;
+}
+
+.mantine-Modal-modal {
+  box-shadow: 0 1px 3px rgb(0 0 0 / 5%), rgb(0 0 0 / 5%) 0px 28px 23px -7px, rgb(0 0 0 / 4%) 0px 12px 12px -7px !important;
+} 
+
+.mantine-Modal-header {
+  margin-bottom: 10px;
+}
+
+.mantine-Modal-header button, .mantine-Modal-header button:focus {
+  box-shadow: none;
+  outline: none;
+}

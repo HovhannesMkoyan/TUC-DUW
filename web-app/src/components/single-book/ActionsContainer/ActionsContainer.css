@@ -1,0 +1,130 @@
+
+.eb-single-book-actions_container {
+    font-weight: bold;
+}
+
+.eb-single-book-actions_container > div {
+    position: relative;
+    padding: 20px;
+    cursor: pointer;
+    color: var(--main-grey-color);
+    border-bottom: 1px solid #d3d3d35c;
+    transition: all .1s linear;
+}
+
+.eb-single-book-actions_container > div:first-child {
+    background-color: #00b7ac !important;
+    color: white;
+    text-align: center;
+    border-radius: var(--main-border-radius);
+    box-shadow: 0 2px 5px lightgray !important;
+}
+
+.eb-single-book-actions_container svg {
+    font-size: 20px;
+    margin-right: 9px;
+}
+
+.eb-single-book-further-actions {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    border-left: 1px solid #d3d3d35c;
+}
+
+.eb-social-link-copying {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.link_container {
+    font-size: 15px;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 10px;
+    box-shadow: 0 2px 3px lightgrey;
+}
+
+.eb-social-link-copying svg {
+    cursor: pointer;
+    font-size: 23px;
+}
+
+.eb-socials_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.eb-socials_container button {
+    box-shadow: none;
+    min-width: auto;    
+}
+
+.social-share-modal {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.user-book-status_container {
+    width: 190px;
+    margin: 0 auto;
+}
+
+.user-book-status_container div {
+    position: relative;
+    font-size: 18px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: var(--main-grey-color);
+    transition: all .1s linear;
+}
+
+.user-book-status_container div:hover {
+    /* transform: scale(1.02); */
+    color: var(--main-eb-color)
+}
+
+.user-book-status_container div svg {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.remove-activity-status-btn {
+    position: absolute;
+    right: -30px;
+}
+
+.eb-modal-goals_container {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.eb-modal-goals_container > p {
+    cursor: pointer;
+}
+
+.eb-modal-goals_container > p:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.eb-modal-goals_container > p:hover{
+   color: var(--main-eb-color);
+}
+
+.download-options-modal {
+    padding: 3px 0;
+}
+
+.download-options-modal img {
+    width: 70px;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px grey;
+}
+
+.download-options-modal > img {
+    margin-right: 30px;
+    cursor: pointer;
+}

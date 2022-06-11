@@ -1,0 +1,40 @@
+.recommendations_container {
+    max-width: 800px;
+    width: 70%;
+    margin: 100px auto;
+}
+
+.recommendations_container h2 {
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 1090px) {
+    .recommendations_container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .recommendations_container {
+        width: 95%;
+    }
+
+    .recommendations_container img {
+        width: 170px;
+        height: 240px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .recommendations_container {
+        text-align: center;
+    }
+    .recommendations_container > div {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .recommendations_container > div a {
+        margin-bottom: 40px;
+    }
+}

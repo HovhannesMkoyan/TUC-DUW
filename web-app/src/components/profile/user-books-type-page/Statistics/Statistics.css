@@ -1,0 +1,50 @@
+.eb-readBooks-stats_container {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.mantine-Switch-root {
+    display: inline-block;
+}
+
+.mantine-Switch-root input {
+    width: 103px;
+}
+
+.eb-readBooks-stats-switch {
+    margin-top: 20px;
+}
+
+.eb-readBooks-stats-switch:last-child {
+    margin-left: 50px;
+}
+
+.eb-stats-switch-bar {
+    position: absolute;
+    right: 13px;
+    color: white;
+    top: -3.5px;
+    font-size: 25px;
+}
+
+.eb-stats-switch-line {
+    position: absolute;
+    right: 7px;
+    color: white;
+    top: -2px;
+    font-size: 20px;
+    transform: rotate(35deg);
+}
+
+.eb-stats-switch-grid {
+    position: absolute;
+    font-size: 23px;
+    top: -2px;
+    left: 3.5px;
+    color: white;
+}
+
+.eb-stats-switch-grid-checked {
+    left: 6px;
+}

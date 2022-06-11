@@ -1,0 +1,16 @@
+api/books?category="..." -> on latest books category page - toEntity()
+api/books?adjusted="..." -> 
+            true for header search -> toEntityAdjusted()
+
+
+
+
+
+
+------ Reading time calculator ------
+https://capitalizemytitle.com/reading-time/100-pages/
+
+300 WPM on average
+
+Time to Read (H) = Words Per Page * Pages number / WPM / 60
+                 = 500 * Pages number / 300 / 60

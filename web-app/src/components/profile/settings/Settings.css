@@ -1,0 +1,76 @@
+.eb-profile-settings_container {
+    margin-top: 100px;
+}
+
+.eb-profile-settings-form {
+    width: 100%;
+}
+
+.eb-settings-input_container {
+    width: 400px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.eb-settings-input_container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.eb-settings-input_container div {
+    cursor: not-allowed;
+}
+
+.eb-profile-settings-form input, .eb-profile-settings-form select {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.eb-settings-auth-info {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.eb-settings-auth-info p {
+    align-items: center;
+    margin: 0 auto;
+}
+
+.eb-settings-auth-info img {
+    width: 30px;
+    margin-left: 7px;
+    margin-right: 2px;
+}
+
+.eb-settings-form-submit_container {
+    margin-top: 50px;
+}
+
+.eb-settings-form-submit_container button {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 0;
+    background-color: white;
+    color: var(--main-grey-color);
+    font-weight: bold;
+}
+
+.previous-invoices-modal_container {
+    text-align: center;
+}
+
+.previous-invoices-modal_container span {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.invoices-modal .eb-subscribed-invoices_container{
+    margin: 0;
+}
+
+.invoices-modal .eb-subscribed-invoices_container h3 {
+    margin-bottom: 30px;
+}

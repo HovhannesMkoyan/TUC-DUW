@@ -1,0 +1,159 @@
+.payment-modal {
+  width: 570px;
+}
+
+.payment-header_container {
+  margin-bottom: 80px;
+}
+
+.payment-header_container h2, .payment-header_container h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.payment-info_container {
+  text-align: left;
+  margin-top: 80px;
+  font-size: 13px;
+}
+
+.AppWrapper {
+  width: 500px;
+  height: 400px;
+  position: relative;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale3D(0.95, 0.95, 0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3D(1, 1, 1);
+  }
+}
+
+.Form {
+  position: relative;
+  /* top: 170px; */
+  animation: fade 200ms ease-out;
+}
+
+.FormGroup {
+  margin-top: 20px;
+  padding: 15px;
+  border-style: none;
+  background-color: white;
+  will-change: opacity, transform;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08);
+  border-radius: var(--main-border-radius);
+}
+
+.StripeElement--webkit-autofill {
+  background: transparent !important;
+}
+
+.StripeElement {
+  width: 100%;
+  padding: 11px 15px 11px 0;
+}
+
+.SubmitButton {
+  width: 100%;
+  padding: 20px 0;
+  font-size: 16px;
+  margin-top: 10px;
+  color: white;
+  border: 0;
+  font-weight: 600;
+  background-color: var(--main-eb-color);
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08);
+  border-radius: var(--main-border-radius);
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  will-change: transform, background-color, box-shadow;
+}
+
+.SubmitButton:active {
+  background-color: #adadad94;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #adadad94;
+  transform: scale(0.99);
+}
+
+.SubmitButton.SubmitButton--error {
+  transform: translateY(15px);
+}
+
+.SubmitButton.SubmitButton--error:active {
+  transform: scale(0.99) translateY(15px);
+}
+
+.SubmitButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background-color: #06080f;
+  box-shadow: none;
+}
+
+.ErrorMessage {
+  display: flex;
+  margin-top: 10px;
+  opacity: 0;
+  text-align: left;
+  animation: fade 150ms ease-out;
+  animation-delay: 50ms;
+  animation-fill-mode: forwards;
+  will-change: opacity, transform;
+}
+
+.ErrorMessage svg {
+  margin-right: 3px;
+  transform: translateY(1px);
+}
+
+.ErrorMessage p {
+  color: #c16767;
+  font-size: 14px;
+}
+
+.lds-ring {
+  position: relative;
+  left: -27px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

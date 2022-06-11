@@ -1,0 +1,186 @@
+.eb-intro_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    /* border: 1px solid; */
+}
+
+.eb-intro-content_container {
+    max-width: 31rem;
+    /* border: 1px solid; */
+}
+
+.eb-intro-content_container h1 {
+    font-size: 2.3rem;
+}
+
+.eb-intro-image_container {
+    width: 100%;
+    max-width: 33rem;
+}
+
+.eb-intro-image_container img {
+    width: 100%;
+}
+
+.eb-intro-features_container {
+    margin: 30px 0;
+}
+
+.eb-intro-feature_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.eb-intro-cta_container a {
+    display: inline-block;
+    padding: 10px 30px;
+    color: white;
+    background-color: var(--main-eb-color);
+    border-radius: var(--main-border-radius);
+    border: 1px solid var(--main-eb-color);
+    box-shadow: var(--main-box-shadow);
+}
+
+.eb-intro-cta_container a:last-child {
+    margin-left: 30px;
+    background-color: white;
+    color: var(--main-eb-color);
+}
+
+/* Checkbox */
+.checkbox {
+    --border-default: #bbbbc1;
+    --border-hover: #9898a3;
+    --active: var(--main-eb-color);
+    --active-tick: #fff;
+    display: block;
+    width: 19px;
+    height: 19px;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.checkbox svg {
+    display: block;
+    position: absolute;
+}
+
+.checkbox input {
+    display: block;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    width: 19px;
+    height: 19px;
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--main-box-shadow);
+    background: var(--background, transparent);
+    transition: background 0.25s linear, box-shadow 0.25s linear;
+    cursor: pointer;
+}
+
+.checkbox input+svg {
+    width: 18px;
+    height: 16px;
+    left: 1px;
+    top: 3px;
+    color: var(--active);
+}
+
+.checkbox input+svg .tick {
+    stroke-dasharray: 20;
+    stroke-dashoffset: var(--stroke-dashoffset, 20);
+    transition: stroke-dashoffset 0.2s;
+}
+
+.checkbox input+svg .tick.mask {
+    stroke: var(--active-tick);
+}
+
+.checkbox input+svg+svg {
+    width: 11px;
+    height: 11px;
+    fill: none;
+    stroke: var(--active);
+    stroke-width: 1.25;
+    stroke-linecap: round;
+    top: -6px;
+    right: -10px;
+    stroke-dasharray: 4.5px;
+    stroke-dashoffset: 13.5px;
+    pointer-events: none;
+    animation: var(--animation, none) .7s ease 0.175s;
+}
+
+.checkbox input:checked {
+    --background: var(--active);
+    --border: var(--active);
+}
+
+.checkbox input:checked+svg {
+    --stroke-dashoffset: 0;
+}
+
+.checkbox input:checked+svg+svg {
+    --animation: check;
+}
+
+.checkbox:hover input:not(:checked) {
+    --border: var(--border-hover);
+}
+
+@keyframes check {
+    100% {
+        stroke-dashoffset: 4.5px;
+    }
+}
+
+
+@media only screen and (max-width: 1250px) {
+    .eb-intro_container {
+        justify-content: center;
+    }
+
+    .eb-intro-content_container h1 {
+        font-size: 30px;
+    }
+
+    .eb-intro-image_container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .eb-intro_container {
+        flex-direction: column;
+    }
+
+    .eb-intro-content_container {
+        text-align: center;
+        max-width: auto;
+        margin-bottom: 50px;
+    }
+
+    .eb-intro-features_container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .eb-intro-content_container {
+        max-width: 100%;
+    }
+
+    .eb-intro-features_container {
+       display: inline-block;
+    }
+}

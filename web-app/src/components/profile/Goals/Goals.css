@@ -1,0 +1,63 @@
+.single-goal_container {
+    padding: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.single-goal_container:not(:last-child) {
+    border-bottom: 2px solid #d3d3d35c;
+}
+
+.single-goal-title{
+    width: 150px;
+}
+
+.eb-newGoal_container > div {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.eb-newGoal_container > div label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.eb-newGoal_container > div input {
+    color: var(--main-grey-color);
+    border: 0 !important;
+    transition: all .1s linear;
+}
+
+.eb-newGoal_container > div input::placeholder {
+    color: var(--main-grey-color);
+}
+
+.eb-goal-add-icon_container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.eb-goal-add-icon_container svg {
+    font-size: 30px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 0 0px 20px 9px #efefef;
+    transition: box-shadow .1s linear;
+}
+
+.eb-goal-add-icon_container svg:hover {
+    box-shadow: 0 0px 4px 8px #efefef;
+}
+
+.eb-goal-status-icon {
+    font-size: 20px;
+}
+
+.eb-modal-single-goal_container > div {
+    margin-top: 30px;
+}
+
+.eb-modal-single-goal_container > div > p {
+    text-align: left;
+    margin-bottom: 10px;
+}
