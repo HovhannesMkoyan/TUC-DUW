@@ -77,7 +77,10 @@
 }
 
 .selected-files-container {
+    height: 300px;
+    overflow: scroll;
     margin-top: 20px;
+    padding: 3px 10px;
     text-align: left;
 }
 
@@ -94,6 +97,11 @@
 .selected-file img {
     width: 25px;
     height: 25px;
+}
+
+.selected-file img:nth-child(2) {
+    width: 22px;
+    height: 22px;
 }
 
 @media only screen and (max-width: 850px) {

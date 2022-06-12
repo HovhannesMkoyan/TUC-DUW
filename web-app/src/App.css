@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: #ededed4a;
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   min-height: 100vh;
 }
 
@@ -81,7 +81,6 @@ input:focus, textarea:focus {
 
 .App {
   min-height: 100vh;
-  background-image: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 
