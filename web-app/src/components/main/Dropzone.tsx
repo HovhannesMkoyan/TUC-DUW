@@ -34,9 +34,9 @@ export default function Dropzone(props: any) {
           <p>Drop your files here, or browse</p>
         </div>
       </div>
-      <aside>
+      <div className="selected-files-container">
         <ul>{files}</ul>
-      </aside>
+      </div>
     </div>
   );
 }

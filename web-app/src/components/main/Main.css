@@ -10,19 +10,22 @@
     height: 200px;
     margin: 0 auto;
     margin-top: 150px;
-    background-color: #E9F3FE;
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='black' stroke-width='5' stroke-dasharray='6%2c 14' stroke-dashoffset='50' stroke-linecap='square'/%3e%3c/svg%3e");
-    border-radius: 4px;
-    transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -ms-transition: all .2s linear;
-    -o-transition: all .2s linear;
 }
 
-.dropzone-container:hover {
+.dropzone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
     background-color: #CADEF5;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='black' stroke-width='5' stroke-dasharray='6%2c 14' stroke-dashoffset='50' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 4px;
+    transition: all .15s linear;
+}
+
+.dropzone:hover {
+    background-color: #E9F3FE; 
 }
 
 .dropzone-img {
@@ -37,7 +40,7 @@
     z-index: 9;
 }
 
-.dropzone-container:hover .dropzone-img {
+.dropzone:hover .dropzone-img {
     transform: translateY(-18px);
     -webkit-transform: translateY(-18px);
     -moz-transform: translateY(-18px);
@@ -57,7 +60,7 @@
     -o-transform: translateX(-50%);
 }
 
-.dropzone-container:hover .dropzone-img-effect-left {
+.dropzone:hover .dropzone-img-effect-left {
     transform: translate(-65px, 0px) rotate(-15deg);
     -webkit-transform: translate(-65px, 0px) rotate(-15deg);
     -moz-transform: translate(-65px, 0px) rotate(-15deg);
@@ -65,7 +68,7 @@
     -o-transform: translate(-65px, 0px) rotate(-15deg);
 }
 
-.dropzone-container:hover .dropzone-img-effect-right {
+.dropzone:hover .dropzone-img-effect-right {
     transform: translate(15px, 0px) rotate(15deg);
     -webkit-transform: translate(15px, 0px) rotate(15deg);
     -moz-transform: translate(15px, 0px) rotate(15deg);
@@ -73,15 +76,14 @@
     -o-transform: translate(15px, 0px) rotate(15deg);
 }
 
-.dropzone {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+.selected-files-container {
+    /* border: 1px solid; */
+    text-align: left;
 }
 
-.dropzone p {
-    display: block;
+.selected-files-container li {
+    list-style: none;
+    margin-top: 5px;
 }
 
 @media only screen and (max-width: 850px) {
