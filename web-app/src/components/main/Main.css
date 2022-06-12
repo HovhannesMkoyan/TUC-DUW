@@ -32,7 +32,7 @@
     position: relative;
     width: 65px;
     margin-bottom: 20px;
-    transition: all .1s linear;
+    transition: all .15s linear;
     -webkit-transition: all .15s linear;
     -moz-transition: all .15s linear;
     -ms-transition: all .15s linear;
@@ -77,13 +77,23 @@
 }
 
 .selected-files-container {
-    /* border: 1px solid; */
+    margin-top: 20px;
     text-align: left;
 }
 
-.selected-files-container li {
-    list-style: none;
-    margin-top: 5px;
+.selected-file {
+    margin-bottom: 7px;
+    padding: 5px 0;
+    transition: all .15s linear;
+}
+
+.selected-file:hover {
+    background-color: #b4d0f063;
+}
+
+.selected-file img {
+    width: 25px;
+    height: 25px;
 }
 
 @media only screen and (max-width: 850px) {

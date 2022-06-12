@@ -1,13 +1,30 @@
 import { useDropzone } from "react-dropzone";
+import getAdjustedFilename from "../../helpers/get-adjusted-filename";
+import getFileExtensionIcon from "../../helpers/get-file-extension-icon";
 
-export default function Dropzone(props: any) {
-  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({});
-
-  const files = acceptedFiles.map((file: any) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
+function SelectedFiles(props: any) {
+  return props.files.map((file: any, index: number) => (
+    <div key={index} className="selected-file df df-ac">
+      <div className="df">
+        <img
+          src={`/images/${getFileExtensionIcon(file.path)}`}
+          alt="selected file type icon"
+          style={{ marginRight: "5px" }}
+        />
+        {getAdjustedFilename(file.path)} /{" "}
+        {Math.round((file.size / 1000) * 2) / 2} KB
+      </div>
+      <img
+        src="/images/remove.png"
+        alt="remove selected file icon"
+        style={{ cursor: "pointer" }}
+      />
+    </div>
   ));
+}
+
+export default function Dropzone() {
+  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({});
 
   return (
     <div className="dropzone-container">
@@ -35,7 +52,7 @@ export default function Dropzone(props: any) {
         </div>
       </div>
       <div className="selected-files-container">
-        <ul>{files}</ul>
+        <SelectedFiles files={acceptedFiles} />
       </div>
     </div>
   );
