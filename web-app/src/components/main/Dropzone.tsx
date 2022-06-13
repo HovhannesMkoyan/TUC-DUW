@@ -23,9 +23,7 @@ export default function Dropzone() {
     setSelectedFiles(newFiles);
   };
 
-  const removeAll = () => {
-    setSelectedFiles([]);
-  };
+  const removeAll = () => setSelectedFiles([]);
 
   return (
     <div className="dropzone-container">

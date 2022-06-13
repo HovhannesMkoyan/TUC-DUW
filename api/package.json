@@ -13,12 +13,7 @@
     "development": "NODE_ENV=development nodemon index.ts",
     "production": "cross-env NODE_ENV=production node dist/index.js",
     "build": "tsc -p .",
-    "test": "NODE_ENV=test mocha --check-leaks -r ts-node/register test/**/*.spec.ts",
-    "check:versions": "npm-check --skip-unused --specials=bin",
     "upgrade:versions": "npm-check -u",
-    "lint": "eslint app --quiet --format junit > lint-results.xml",
-    "lint:fix": "eslint app --fix --quiet",
-    "prettier:check": "prettier --list-different \"{,!(node_modules)/**/}*.js\"",
     "prettier:run": "prettier --write \"{,!(node_modules)/**/}*.{js,ts}\" --loglevel \"warn\""
   },
   "keywords": [],
