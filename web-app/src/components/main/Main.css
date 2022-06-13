@@ -9,7 +9,7 @@
     width: 550px;
     height: 200px;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .dropzone {
@@ -79,8 +79,8 @@
 .selected-files-container {
     height: 300px;
     overflow: scroll;
-    margin-top: 20px;
-    padding: 3px 10px;
+    margin-top: 15px;
+    padding: 3px 0;
     text-align: left;
 }
 
@@ -91,7 +91,7 @@
 }
 
 .selected-file:hover {
-    background-color: #b4d0f063;
+    background-color: #b4d0f0c9;
 }
 
 .selected-file img {

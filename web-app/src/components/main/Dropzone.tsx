@@ -1,30 +1,31 @@
+import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import getAdjustedFilename from "../../helpers/get-adjusted-filename";
 import getFileExtensionIcon from "../../helpers/get-file-extension-icon";
 
-function SelectedFiles(props: any) {
-  return props.files.map((file: any, index: number) => (
-    <div key={index} className="selected-file df df-ac">
-      <div className="df">
-        <img
-          src={`/images/${getFileExtensionIcon(file.path)}`}
-          alt="selected file type icon"
-          style={{ marginRight: "5px" }}
-        />
-        {getAdjustedFilename(file.path)} /{" "}
-        {Math.round((file.size / 1000) * 2) / 2} KB
-      </div>
-      <img
-        src="/images/remove.png"
-        alt="remove selected file icon"
-        style={{ cursor: "pointer" }}
-      />
-    </div>
-  ));
-}
-
 export default function Dropzone() {
-  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({});
+  const [selectedFiles, setSelectedFiles] = useState<any[]>([]);
+
+  const onDrop = useCallback(
+    (acceptedFiles: any) => {
+      setSelectedFiles([...selectedFiles, ...acceptedFiles]);
+    },
+    [selectedFiles]
+  );
+
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+  });
+
+  const removeFile = (file: any) => () => {
+    const newFiles = [...selectedFiles];
+    newFiles.splice(newFiles.indexOf(file), 1);
+    setSelectedFiles(newFiles);
+  };
+
+  const removeAll = () => {
+    setSelectedFiles([]);
+  };
 
   return (
     <div className="dropzone-container">
@@ -52,8 +53,27 @@ export default function Dropzone() {
         </div>
       </div>
       <div className="selected-files-container">
-        <SelectedFiles files={acceptedFiles} />
+        {selectedFiles.map((file: any, index: number) => (
+          <div key={index} className="selected-file df df-ac">
+            <div className="df">
+              <img
+                src={`/images/${getFileExtensionIcon(file.path)}`}
+                alt="selected file type icon"
+                style={{ marginRight: "5px" }}
+              />
+              {getAdjustedFilename(file.path)} /{" "}
+              {Math.round((file.size / 1000) * 2) / 2} KB
+            </div>
+            <img
+              src="/images/remove.png"
+              alt="remove selected file icon"
+              style={{ cursor: "pointer" }}
+              onClick={removeFile(file)}
+            />
+          </div>
+        ))}
       </div>
+      {selectedFiles.length > 0 && <button onClick={removeAll}>Remove All</button>}
     </div>
   );
 }
