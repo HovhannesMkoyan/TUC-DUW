@@ -104,6 +104,17 @@
     height: 22px;
 }
 
+.selected-files-actions-container button {
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.selected-files-actions-container button:first-child {
+    margin-right: 30px;
+    background-color: #ce6057;
+    color: white;
+}
+
 @media only screen and (max-width: 850px) {
     .main_container {
         width: 95%;

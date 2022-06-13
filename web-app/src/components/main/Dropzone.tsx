@@ -53,7 +53,7 @@ export default function Dropzone() {
       <div className="selected-files-container">
         {selectedFiles.map((file: any, index: number) => (
           <div key={index} className="selected-file df df-ac">
-            <div className="df">
+            <div className="df df-ac">
               <img
                 src={`/images/${getFileExtensionIcon(file.path)}`}
                 alt="selected file type icon"
@@ -72,7 +72,10 @@ export default function Dropzone() {
         ))}
       </div>
       {selectedFiles.length > 0 && (
-        <button onClick={removeAll}>Remove All</button>
+        <div className="selected-files-actions-container">
+          <button onClick={removeAll}>Remove All</button>
+          <button>Upload & Get URL</button>
+        </div>
       )}
     </div>
   );
