@@ -71,7 +71,9 @@ export default function Dropzone() {
           </div>
         ))}
       </div>
-      {selectedFiles.length > 0 && <button onClick={removeAll}>Remove All</button>}
+      {selectedFiles.length > 0 && (
+        <button onClick={removeAll}>Remove All</button>
+      )}
     </div>
   );
 }

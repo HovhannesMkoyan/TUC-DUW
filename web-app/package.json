@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "@mantine/core": "^4.2.9",
     "axios": "^0.27.2",
     "downloadjs": "^1.4.7",
     "react": "^17.0.2",
