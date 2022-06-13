@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
 
 import "./Header.css";
 
@@ -17,4 +16,4 @@ function Header(): JSX.Element {
   );
 }
 
-export default withRouter(Header);
+export default Header;

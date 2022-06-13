@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MantineProvider } from "@mantine/core";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -47,10 +47,10 @@ export default function App(): JSX.Element {
             >
               <div className="App">
                 <Header />
-                <Switch>
-                  <Route exact path="/" component={Main} />
-                  <Route component={NotFoundPage} />
-                </Switch>
+                <Routes>
+                  <Route path="/" element={<Main />} />
+                  <Route element={<NotFoundPage />} />
+                </Routes>
                 <OverPageLoader />
               </div>
             </MantineProvider>
