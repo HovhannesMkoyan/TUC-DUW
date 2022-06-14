@@ -14,7 +14,7 @@
 
 body {
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-  min-height: 100vh;
+  min-height: 120vh;
 }
 
 h1, h2, h3, h4, span, p, label, ul {
