@@ -26,14 +26,14 @@ const modelDefiners = [
 ];
 
 // Define all models according to their files
-for (const modelDefiner of modelDefiners) {
-  modelDefiner(sequelize);
-}
+// for (const modelDefiner of modelDefiners) {
+//   modelDefiner(sequelize);
+// }
 
 // Add associations
-applyAssociations(sequelize);
+// applyAssociations(sequelize);
 
 // Add hooks
-hooks(sequelize);
+// hooks(sequelize);
 
 export default sequelize;
