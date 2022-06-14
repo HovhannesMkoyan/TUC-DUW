@@ -18,7 +18,6 @@
     justify-content: center;
     height: 100%;
     cursor: pointer;
-    background-color: #CADEF5;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='black' stroke-width='5' stroke-dasharray='6%2c 14' stroke-dashoffset='50' stroke-linecap='square'/%3e%3c/svg%3e");
     border-radius: 4px;
     transition: all .15s linear;
@@ -90,10 +89,6 @@
     transition: all .15s linear;
 }
 
-.selected-file:hover {
-    background-color: #b4d0f0c9;
-}
-
 .selected-file img {
     width: 25px;
     height: 25px;
@@ -104,30 +99,10 @@
     height: 22px;
 }
 
-.selected-files-stats-container {
-    padding: 5px;
-    font-weight: bold;
-    border-top: 3px solid #96bae5;
-}
-
 .selected-files-size-exceed {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     color: #ce6057;
-}
-
-.selected-files-actions-container button {
-    margin-top: 30px;
-    padding: 10px;
-}
-
-.selected-files-actions-container button:first-child {
-    background-color: #ce6057;
-    color: black;
-}
-
-.selected-files-actions-container button:last-child {
-    margin-left: 30px;
 }
 
 @media only screen and (max-width: 850px) {
