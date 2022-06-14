@@ -3,12 +3,14 @@ import { useDropzone } from "react-dropzone";
 import getAdjustedFilename from "../../helpers/get-adjusted-filename";
 import getFileExtensionIcon from "../../helpers/get-file-extension-icon";
 
-export default function Dropzone() {
+export default function Dropzone(): JSX.Element {
   const [selectedFiles, setSelectedFiles] = useState<any[]>([]);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const onDrop = useCallback(
     (acceptedFiles: any) => {
       setSelectedFiles([...selectedFiles, ...acceptedFiles]);
+      setDisabled(true);
     },
     [selectedFiles]
   );
@@ -16,11 +18,15 @@ export default function Dropzone() {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,
+    disabled,
   });
 
   return (
     <div className="dropzone-container">
-      <div {...getRootProps({ className: "dropzone" })}>
+      <div
+        {...getRootProps({ className: "dropzone" })}
+        style={{ cursor: disabled ? "not-allowed" : "pointer" }}
+      >
         <input {...getInputProps()} />
         <div>
           <div style={{ position: "relative" }}>
@@ -59,7 +65,10 @@ export default function Dropzone() {
               src="/images/remove.png"
               alt="remove selected file icon"
               style={{ cursor: "pointer" }}
-              onClick={() => setSelectedFiles([])}
+              onClick={() => {
+                setDisabled(false);
+                setSelectedFiles([]);
+              }}
             />
           </div>
         ))}

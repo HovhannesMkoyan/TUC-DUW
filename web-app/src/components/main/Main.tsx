@@ -1,5 +1,3 @@
-import React from "react";
-
 import Dropzone from "./Dropzone";
 import "./Main.css";
 
