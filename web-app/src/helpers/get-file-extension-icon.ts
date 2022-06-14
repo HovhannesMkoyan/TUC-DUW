@@ -1,4 +1,4 @@
-export default (filename: string): string => {
+const getFileExtensionIcon = (filename: string): string => {
   let fileExtension = filename
     .slice(filename.lastIndexOf(".") + 1)
     .toLowerCase();
@@ -51,3 +51,5 @@ export default (filename: string): string => {
       return "file.png";
   }
 };
+
+export default getFileExtensionIcon;
