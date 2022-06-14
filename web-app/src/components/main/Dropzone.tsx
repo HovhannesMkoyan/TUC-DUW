@@ -78,25 +78,27 @@ export default function Dropzone() {
       </div>
       {selectedFiles.length > 0 && (
         <>
-        <div className="df selected-files-stats-container">
-          <p>
-            {selectedFiles.length}{" "}
-            {`${selectedFiles.length > 1 ? "files" : "file"}`}
-          </p>
-          <p>{(totalSize / 1000000).toPrecision(2)} MB</p>
-        </div>
-        {+(totalSize / 1000000).toPrecision(2) > 10 && (
-          <p className="selected-files-size-exceed">
-            Total size exceeds 10 MB. Please remove some files.
-          </p>
-        )}
+          <div className="df selected-files-stats-container">
+            <p>
+              {selectedFiles.length}{" "}
+              {`${selectedFiles.length > 1 ? "files" : "file"}`}
+            </p>
+            <p>{(totalSize / 1000000).toPrecision(2)} MB</p>
+          </div>
+          {+(totalSize / 1000000).toPrecision(2) > 10 && (
+            <p className="selected-files-size-exceed">
+              Total size exceeds 10 MB. Please remove some files.
+            </p>
+          )}
         </>
       )}
 
       {selectedFiles.length > 0 && (
         <div className="selected-files-actions-container">
           <button onClick={removeAll}>Remove All</button>
-          {+(totalSize / 1000000).toPrecision(2) <= 10 &&  <button>Upload & Get URL</button>}
+          {+(totalSize / 1000000).toPrecision(2) <= 10 && (
+            <button>Upload & Get URL</button>
+          )}
         </div>
       )}
     </div>
