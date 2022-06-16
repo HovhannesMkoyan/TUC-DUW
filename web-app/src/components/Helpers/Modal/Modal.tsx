@@ -31,9 +31,7 @@ export default ({
       trapFocus={true}
       closeButtonLabel="Close modal"
     >
-      <div className={`eb-modal-content_container ${classnames}`}>
-        {children}
-      </div>
+      <div className={`modal-content_container ${classnames}`}>{children}</div>
     </Modal>
   );
 };

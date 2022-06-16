@@ -30,7 +30,7 @@ export default function App(): JSX.Element {
             <MantineProvider
               theme={{
                 colors: {
-                  "eb-main-color": [
+                  "main-color": [
                     "#00B7AD",
                     "#00B7AD",
                     "#00B7AD",
@@ -42,7 +42,7 @@ export default function App(): JSX.Element {
                     "#00B7AD",
                   ],
                 },
-                primaryColor: "eb-main-color",
+                primaryColor: "main-color",
               }}
             >
               <div className="App">

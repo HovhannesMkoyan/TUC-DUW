@@ -8,6 +8,7 @@ import "./Dropzone.css";
 
 export default function Dropzone(): JSX.Element {
   const [selectedFiles, setSelectedFiles] = useState<any[]>([]);
+  const [description, setDescription] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(false);
   const [descripitonModal, setDescripitonModal] = useState<boolean>(false);
 
@@ -30,7 +31,11 @@ export default function Dropzone(): JSX.Element {
       <div className="dropzone-container">
         <div
           {...getRootProps({ className: "dropzone" })}
-          style={{pointerEvents: disabled ? "none" : "auto", opacity: disabled ? "0.3" : "1", cursor: disabled ? "not-allowed" : "pointer" }}
+          style={{
+            pointerEvents: disabled ? "none" : "auto",
+            opacity: disabled ? "0.3" : "1",
+            cursor: disabled ? "not-allowed" : "pointer",
+          }}
         >
           <input {...getInputProps()} />
           <div>
@@ -65,7 +70,7 @@ export default function Dropzone(): JSX.Element {
                 />
                 <p>
                   {getAdjustedFilename(file.path)} /{" "}
-                  <span className="bold">
+                  <span>
                     {Math.round((file.size / 1000) * 2) / 2} KB
                   </span>
                 </p>
@@ -92,10 +97,12 @@ export default function Dropzone(): JSX.Element {
             ) : (
               <>
                 <p
-                  className="add-description"
+                  className="add-description bold"
                   onClick={() => setDescripitonModal(true)}
                 >
-                  Would you like to add a description?
+                  {description.length === 0
+                    ? "Would you like to add a description?"
+                    : "Description attached"}{" "}
                 </p>
                 <button className="upload-btn">Upload & Get URL</button>
               </>
@@ -107,10 +114,16 @@ export default function Dropzone(): JSX.Element {
         onclose={() => setDescripitonModal(false)}
         isOpen={descripitonModal}
         size="md"
+        classnames="file-description-modal"
       >
-        <h3>ascasc</h3>
-        <p style={{ textAlign: "left" }}>ascascasc</p>
-        <div className="eb-modal-link_container"></div>
+        <h2>File description</h2>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          name="file-description"
+          placeholder="Type here..."
+          autoFocus
+        ></textarea>
       </Modal>
     </>
   );

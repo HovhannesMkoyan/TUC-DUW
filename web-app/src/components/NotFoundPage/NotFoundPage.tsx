@@ -4,8 +4,8 @@ import "./NotFoundPage.css";
 
 export default function NotFoundPage(): JSX.Element {
   return (
-    <section className="eb-main_container">
-      <div className="eb-auth_container eb_not-found_continer">
+    <section className="main_container">
+      <div className="auth_container eb_not-found_continer">
         <div>
           <img src="/images/not-found.svg" alt="registration email sent svg" />
         </div>

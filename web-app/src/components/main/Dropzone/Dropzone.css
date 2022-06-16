@@ -102,6 +102,10 @@
     cursor: pointer;
 }
 
+.add-description img {
+    width: 20px;
+}
+
 .upload-btn {
     width: 220px;
     margin-top: 70px;
@@ -109,6 +113,13 @@
     background-color: #79a2d0;
     color: white;
     font-weight: bold;
+}
+
+.file-description-modal textarea {
+    height: 200px;
+    box-shadow: none;
+    color: var(--main-grey-color);
+    font-size: 16px;
 }
 
 @media only screen and (max-width: 850px) {
