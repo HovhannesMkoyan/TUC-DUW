@@ -10,7 +10,10 @@ export default class FileController {
     this.fileService = fileService;
   }
 
-  public getUser = async (req: Request, res: Response) => {
+  public add = async (req: Request, res: Response) => {
+    console.log(req.busboy);
+    console.log(req.body);
+    return;
     try {
       const user = await this.fileService.getUser();
 

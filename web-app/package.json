@@ -19,7 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "upgrade:versions": "npm-check -u",
-    "prettier": "npx prettier 'src/**/*.{ts,tsx}' 'test/**/*.ts' --write"
+    "prettier": "npx prettier 'src/**/*.{ts,tsx}' --write"
   },
   "eslintConfig": {
     "extends": [

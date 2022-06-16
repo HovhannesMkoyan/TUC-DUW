@@ -1,6 +1,7 @@
 import express, { Application } from "express";
-import path from "path";
 import cors from "cors";
+import busboy from "connect-busboy";
+import path from "path";
 import logger from "morgan";
 
 require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
@@ -9,10 +10,15 @@ registerDependencies();
 
 import sequelize from "./src/db/models";
 
-import bookRouter from "./src/routes/fileRouter";
+import fileRouter from "./src/routes/fileRouter";
 
 const app: Application = express();
 
+// app.use(busboy({
+//   limits: {
+//     fileSize: 10 * 1024 * 1024,
+//   }
+// }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
@@ -23,6 +29,6 @@ app.use(
   express.static(path.join(__dirname, path.resolve(__dirname, "/src/static")))
 );
 
-app.use("/api/books", bookRouter);
+app.use("/api/files", fileRouter);
 
 export { app, sequelize };

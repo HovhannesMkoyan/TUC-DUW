@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
+import axios from "axios";
 
 import Modal from "../../Helpers/Modal/Modal";
 import getAdjustedFilename from "../../../helpers/get-adjusted-filename";
@@ -25,6 +26,19 @@ export default function Dropzone(): JSX.Element {
     multiple: false,
     disabled,
   });
+
+  const upload = () => {
+    const data = new FormData();
+    data.append("file", selectedFiles[0]);
+    data.append("description", description);
+
+    axios
+      .post(`${process.env.REACT_APP_API_ENDPOINT}/api/files`, data, {})
+      .then((res) => {
+        // then print response status
+        console.log(res.statusText);
+      });
+  };
 
   return (
     <>
@@ -70,9 +84,7 @@ export default function Dropzone(): JSX.Element {
                 />
                 <p>
                   {getAdjustedFilename(file.path)} /{" "}
-                  <span>
-                    {Math.round((file.size / 1000) * 2) / 2} KB
-                  </span>
+                  <span>{Math.round((file.size / 1000) * 2) / 2} KB</span>
                 </p>
               </div>
               <img
@@ -104,7 +116,7 @@ export default function Dropzone(): JSX.Element {
                     ? "Would you like to add a description?"
                     : "Description attached"}{" "}
                 </p>
-                <button className="upload-btn">Upload & Get URL</button>
+                <button className="upload-btn" onClick={upload}>Upload & Get URL</button>
               </>
             )}
           </>
