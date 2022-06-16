@@ -1,5 +1,5 @@
 import React from "react";
-import { StateContext } from "../../Context";
+import { StateContext } from "../../../Context";
 import "./OverPageLoader.css";
 
 export default function OverPageLoader() {

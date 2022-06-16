@@ -1,4 +1,4 @@
-import Dropzone from "./Dropzone";
+import Dropzone from "./Dropzone/Dropzone";
 import "./Main.css";
 
 export default function Main(): JSX.Element {

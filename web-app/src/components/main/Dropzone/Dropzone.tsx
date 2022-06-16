@@ -1,7 +1,9 @@
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import getAdjustedFilename from "../../helpers/get-adjusted-filename";
-import getFileExtensionIcon from "../../helpers/get-file-extension-icon";
+
+import getAdjustedFilename from "../../../helpers/get-adjusted-filename";
+import getFileExtensionIcon from "../../../helpers/get-file-extension-icon";
+import "./Dropzone.css"
 
 export default function Dropzone(): JSX.Element {
   const [selectedFiles, setSelectedFiles] = useState<any[]>([]);

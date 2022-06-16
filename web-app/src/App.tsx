@@ -4,11 +4,11 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MantineProvider } from "@mantine/core";
 import { ReactQueryDevtools } from "react-query/devtools";
 
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
-import OverPageLoader from "./components/over-page-loader/OverPageLoader";
+import OverPageLoader from "./components/Helpers/over-page-loader/OverPageLoader";
 
 import Context from "./Context";
 import "./App.css";

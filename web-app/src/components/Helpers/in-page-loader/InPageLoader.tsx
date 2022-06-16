@@ -1,4 +1,4 @@
-import DotsLoader from "../HelperComponents/DotsLoader/DotsLoader";
+import DotsLoader from "../DotsLoader/DotsLoader";
 import "./InPageLoader.css";
 
 export default function InPageLoader(props: any) {
