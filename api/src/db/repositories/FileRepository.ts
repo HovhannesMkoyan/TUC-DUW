@@ -1,6 +1,6 @@
 import { QueryTypes } from "sequelize";
 
-export default class BookRepository {
+export default class FileRepository {
   private db: any;
   private logger: any;
 

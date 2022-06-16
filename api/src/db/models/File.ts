@@ -2,7 +2,7 @@ import { DataTypes, UUIDV4 } from "sequelize";
 
 module.exports = (sequelize: any) => {
   sequelize.define(
-    "Book",
+    "File",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -14,49 +14,26 @@ module.exports = (sequelize: any) => {
         allowNull: false,
         defaultValue: UUIDV4,
       },
-      title: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       description: {
         type: DataTypes.TEXT,
-        allowNull: false,
       },
-      author: {
+      size: {
+        type: DataTypes.SMALLINT,
+        allowNull: false
+      },
+      download_url: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      language: {
+      binary: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      date: {
-        type: DataTypes.STRING,
-      },
-      publisher: {
-        type: DataTypes.STRING,
-      },
-      pages_number: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      reading_time: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      downloads_number: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      filename: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      cover: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      visible: {
+      blocked: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
@@ -64,7 +41,7 @@ module.exports = (sequelize: any) => {
     },
     {
       sequelize,
-      tableName: "books",
+      tableName: "files",
       underscored: true,
     }
   );

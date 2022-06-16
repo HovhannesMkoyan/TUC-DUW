@@ -1,4 +1,3 @@
-import { IBook } from "../../types";
 export default class DownloadService {
   private downloadRepository: any;
 

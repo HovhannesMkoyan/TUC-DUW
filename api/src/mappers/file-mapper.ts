@@ -10,7 +10,6 @@ export default {
       country: requestObject.detailed_geo_info.country || null,
       detailed_geo_info:
         JSON.stringify(requestObject.detailed_geo_info) || null,
-      provider: requestObject.provider,
       provider_id: requestObject.provider_id,
     };
   },
@@ -21,7 +20,6 @@ export default {
       firstname: databaseObject.firstname || null,
       lastname: databaseObject.lastname || null,
       email: databaseObject.email,
-      provider: databaseObject.provider,
       dl: databaseObject.downloads_left,
       is_subscribed: databaseObject.is_subscribed,
     };

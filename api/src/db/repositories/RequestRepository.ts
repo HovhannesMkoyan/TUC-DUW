@@ -1,6 +1,5 @@
-import { IInvoice } from "../../../types";
 
-export default class InvoiceRepository {
+export default class RequestRepository {
   private db: any;
   private logger: any;
 

@@ -6,73 +6,25 @@ import sequelize from "./src/db/models/index";
 
 import logger from "./src/libs/logger";
 
-// Stripe
+//  File
 //
-import StripeService from "./src/services/StripeService";
-
-// Email
-//
-import EmailService from "./src/services/EmailService";
-
-// Auth
-//
-import OAuthService from "./src/services/OAuthService";
-
-// Image
-//
-import ImageService from "./src/services/ImageService";
-
-// PDF
-//
-import PdfService from "./src/services/PdfService";
-
-// Recommendation
-//
-import RecommendationService from "./src/services/RecommendationService";
-
-//  User
-//
-import UserController from "./src/controllers/UserController";
-import UserService from "./src/services/UserService";
-import UserRepository from "./src/db/repositories/UserRepository";
-import UserMapper from "./src/mappers/user-mapper";
-
-// Book
-//
-import BookController from "./src/controllers/BookController";
-import BookService from "./src/services/BookService";
-import BookRepository from "./src/db/repositories/BookRepository";
-import BookMapper from "./src/mappers/book-mapper";
-
-// Subscription
-//
-import SubscriptionController from "./src/controllers/SubscriptionController";
-import SubscriptionService from "./src/services/SubscriptionService";
-import SubscriptionRepository from "./src/db/repositories/SubscriptionRepository";
-import SubscriptionMapper from "./src/mappers/subscription-mapper";
-
-// SubscriptionCancellation
-//
-import SubscriptionCancellationMapper from "./src/mappers/subscription-cancellation-mapper";
-
-// Invoice
-//
-import InvoiceRepository from "./src/db/repositories/InvoiceRepository";
-import InvoiceService from "./src/services/InvoiceService";
-import InvoiceMapper from "./src/mappers/invoice-mapper";
+import FileController from "./src/controllers/FileController";
+import FileService from "./src/services/FileService";
+import FileRepository from "./src/db/repositories/FileRepository";
+import FileMapper from "./src/mappers/file-mapper";
 
 // Download
 //
 import DownloadService from "./src/services/DownloadService";
 import DownloadRepository from "./src/db/repositories/DownloadRepository";
 
-// UserBookActivity
+// Request
 //
-import UserBookActivityRepository from "./src/db/repositories/UserBookActivityRepository";
+import RequestController from "./src/controllers/RequestController";
+import RequestService from "./src/services/RequestService";
+import RequestRepository from "./src/db/repositories/RequestRepository";
+// import SubscriptionMapper from "./src/mappers/subscription-mapper";
 
-// Goal
-//
-import GoalMapper from "./src/mappers/goal-mapper";
 
 const container = createContainer({
   injectionMode: InjectionMode.PROXY, // InjectionMode.PROXY means awilix will inject the container itself which let's us to desctructure from it what we need
@@ -96,73 +48,23 @@ function registerDependencies() {
     //
     logger: asValue(logger),
 
-    // Stripe
+    // File
     //
-    stripeService: asClass(StripeService),
-
-    // Email
-    //
-    emailService: asClass(EmailService),
-
-    // Invoice
-    //
-    invoiceService: asClass(InvoiceService),
-    invoiceRepository: asClass(InvoiceRepository),
-    invoiceMapper: asValue(InvoiceMapper),
-
-    // Auth
-    //
-    oauthService: asClass(OAuthService),
-
-    // Image
-    //
-    imageService: asClass(ImageService),
-
-    // PDF
-    //
-    pdfService: asClass(PdfService),
-
-    // Recommendatio
-    //
-    recommendationService: asClass(RecommendationService),
-
-    // User
-    //
-    userController: asClass(UserController),
-    userService: asClass(UserService),
-    userRepository: asClass(UserRepository),
-    userMapper: asValue(UserMapper),
-
-    // Book
-    //
-    bookController: asClass(BookController),
-    bookService: asClass(BookService),
-    bookRepository: asClass(BookRepository),
-    bookMapper: asValue(BookMapper),
-
-    // Subscription
-    //
-    subscriptionController: asClass(SubscriptionController),
-    subscriptionService: asClass(SubscriptionService),
-    subscriptionRepository: asClass(SubscriptionRepository),
-    subscriptionMapper: asValue(SubscriptionMapper),
-
-    // Subscription Cancellation
-    //
-    subscriptionCancellationMapper: asValue(SubscriptionCancellationMapper),
+    fileController: asClass(FileController),
+    fileService: asClass(FileService),
+    fileRepository: asClass(FileRepository),
+    fileMapper: asValue(FileMapper),
 
     // Download
     //
     downloadService: asClass(DownloadService),
     downloadRepository: asClass(DownloadRepository),
 
-    // UserBookActivity
+    // Request
     //
-    userBookActivityRepository: asClass(UserBookActivityRepository),
-
-    // Goal
-    //
-    goalMapper: asValue(GoalMapper),
+    requestController: asClass(RequestController),
+    requestService: asClass(RequestService),
+    requestRepository: asClass(RequestRepository),
   });
 }
 

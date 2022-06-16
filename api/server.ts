@@ -9,12 +9,9 @@ registerDependencies();
 
 import sequelize from "./src/db/models";
 
-import authRouter from "./src/routes/authRouter";
-import bookRouter from "./src/routes/bookRouter";
-import userRouter from "./src/routes/userRouter";
+import bookRouter from "./src/routes/fileRouter";
 
 const app: Application = express();
-
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
@@ -27,7 +24,5 @@ app.use(
 );
 
 app.use("/api/books", bookRouter);
-app.use("/api/users", userRouter);
-app.use("/api/auth", authRouter);
 
 export { app, sequelize };
