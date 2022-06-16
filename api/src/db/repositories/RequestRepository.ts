@@ -1,4 +1,3 @@
-
 export default class RequestRepository {
   private db: any;
   private logger: any;

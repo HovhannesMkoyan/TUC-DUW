@@ -1,9 +1,5 @@
 export default (sequelize: any) => {
-  const {
-    File,
-    Download,
-    Request,
-  } = sequelize.models;
+  const { File, Download, Request } = sequelize.models;
 
   // File <---> Request
   File.hasMany(Request, {

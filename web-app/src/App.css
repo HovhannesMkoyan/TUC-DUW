@@ -91,3 +91,7 @@ button {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+
+.bold {
+  font-weight: 700;
+}

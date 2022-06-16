@@ -1,2 +1,0 @@
-mp_i - main page info
-ap_ci - auth page changes informed

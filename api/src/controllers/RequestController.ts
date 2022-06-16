@@ -5,10 +5,7 @@ export default class RequestController {
   private requestMapper: any;
   private requestService: any;
 
-  constructor({
-    requestMapper,
-    requestService,
-  }: IServices & IMappers) {
+  constructor({ requestMapper, requestService }: IServices & IMappers) {
     this.requestMapper = requestMapper;
     this.requestService = requestService;
   }

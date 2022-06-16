@@ -30,7 +30,10 @@ export default class RequestService {
       type = "bookmarked";
     }
 
-    const books = await this.requestRepository.getUserBooksByType(type, user.id);
+    const books = await this.requestRepository.getUserBooksByType(
+      type,
+      user.id
+    );
 
     return books.map((book: any) =>
       this.requestMapper.toEntityAdjustedUserBooks(book)

@@ -23,7 +23,7 @@ module.exports = (sequelize: any) => {
       },
       size: {
         type: DataTypes.SMALLINT,
-        allowNull: false
+        allowNull: false,
       },
       download_url: {
         type: DataTypes.STRING,

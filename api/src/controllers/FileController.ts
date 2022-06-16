@@ -5,10 +5,7 @@ export default class FileController {
   private fileMapper: any;
   private fileService: any;
 
-  constructor({
-    fileMapper,
-    fileService
-  }: IServices & IMappers) {
+  constructor({ fileMapper, fileService }: IServices & IMappers) {
     this.fileMapper = fileMapper;
     this.fileService = fileService;
   }

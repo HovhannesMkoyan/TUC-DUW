@@ -25,7 +25,6 @@ import RequestService from "./src/services/RequestService";
 import RequestRepository from "./src/db/repositories/RequestRepository";
 // import SubscriptionMapper from "./src/mappers/subscription-mapper";
 
-
 const container = createContainer({
   injectionMode: InjectionMode.PROXY, // InjectionMode.PROXY means awilix will inject the container itself which let's us to desctructure from it what we need
 });
