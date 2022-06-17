@@ -11,13 +11,13 @@ export default class FileController {
   }
 
   public add = async (req: Request, res: Response) => {
-    console.log("----1-----", (req as any).files);
-    console.log("----1-----", (req as any).fields);
-    return;
-    try {
-      const user = await this.fileService.getUser();
+    const { file } = req.files as any;
+    const { description } = req.fields as any;
 
-      return res.status(200).json(user);
+    try {
+      const user = await this.fileService.add(file, description);
+
+      return res.status(200).json();
     } catch (error) {
       return res.status(500).send();
     }
