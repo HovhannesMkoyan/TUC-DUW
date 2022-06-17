@@ -1,5 +1,5 @@
 import { Router } from "express";
-import busboy from "connect-busboy";
+import formidable from "formidable";
 
 import { container } from "../../dependency-injection-setup";
 
@@ -8,11 +8,20 @@ const router = Router();
 
 router.post(
   "/",
-  busboy({
-    limits: {
-      fileSize: 10 * 1024 * 1024,
-    },
-  }),
+  (req, res, next) => {
+    const form = formidable({ multiples: true });
+    
+    form.parse(req, (err, fields, files) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      console.log({ fields, files });
+      res.json({ fields, files });
+    });
+
+    next();
+  },
   FileController.add
 );
 

@@ -1,6 +1,5 @@
 import express, { Application } from "express";
 import cors from "cors";
-import busboy from "connect-busboy";
 import path from "path";
 import logger from "morgan";
 
@@ -14,11 +13,6 @@ import fileRouter from "./src/routes/fileRouter";
 
 const app: Application = express();
 
-// app.use(busboy({
-//   limits: {
-//     fileSize: 10 * 1024 * 1024,
-//   }
-// }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
