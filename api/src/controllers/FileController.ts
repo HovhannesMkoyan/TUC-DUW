@@ -11,7 +11,8 @@ export default class FileController {
   }
 
   public add = async (req: Request, res: Response) => {
-    console.log("----1-----");
+    console.log("----1-----", (req as any).files);
+    console.log("----1-----", (req as any).fields);
     return;
     try {
       const user = await this.fileService.getUser();

@@ -20,6 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/express-formidable": "^1.2.0",
     "awilix": "^7.0.3",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
@@ -29,7 +30,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "formidable": "^2.0.1",
+    "express-formidable": "^1.2.0",
     "helmet": "^5.1.0",
     "moment": "^2.29.3",
     "morgan": "^1.10.0",
@@ -42,7 +43,6 @@
     "winston": "^3.7.2"
   },
   "devDependencies": {
-    "@types/formidable": "^2.0.5",
     "@types/bcrypt": "^5.0.0",
     "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.12",
