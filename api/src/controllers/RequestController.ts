@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IMappers, IServices, IUser } from "../../types";
+import { IMappers, IServices } from "../../types";
 
 export default class RequestController {
   private requestMapper: any;

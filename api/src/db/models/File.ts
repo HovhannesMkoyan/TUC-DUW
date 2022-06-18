@@ -25,11 +25,11 @@ module.exports = (sequelize: any) => {
         type: DataTypes.SMALLINT,
         allowNull: false,
       },
-      download_url: {
-        type: DataTypes.STRING,
+      data: {
+        type: DataTypes.BLOB("long"),
         allowNull: false,
       },
-      binary: {
+      hash: {
         type: DataTypes.STRING,
         allowNull: false,
       },

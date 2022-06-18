@@ -1,6 +1,6 @@
 import { createContainer, InjectionMode, asValue, asClass } from "awilix";
 import { v4 as uuid } from "uuid";
-import bcrypt from "bcrypt";
+import crypto from "crypto";
 
 import sequelize from "./src/db/models/index";
 
@@ -37,7 +37,7 @@ function registerDependencies() {
 
     // Bcrypt
     //
-    bcrypt: asValue(bcrypt),
+    crypto: asValue(crypto),
 
     // DB
     //

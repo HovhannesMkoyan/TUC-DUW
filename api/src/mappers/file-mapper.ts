@@ -1,27 +1,19 @@
-import { IUser } from "../../types";
+import { IFile } from "../../types";
 
 export default {
-  toDatabase(requestObject: IUser) {
+  toDatabase(requestObject: IFile) {
     return {
-      firstname: requestObject.firstname || null,
-      lastname: requestObject.lastname || null,
-      email: requestObject.email,
-      city: requestObject.detailed_geo_info.city || null,
-      country: requestObject.detailed_geo_info.country || null,
-      detailed_geo_info:
-        JSON.stringify(requestObject.detailed_geo_info) || null,
-      provider_id: requestObject.provider_id,
+      name: requestObject.name,
+      description: requestObject.description || null,
+      size: requestObject.size,
+      data: requestObject.size,
+      hash: requestObject.size,
     };
   },
 
-  toEntity(databaseObject: Partial<IUser>) {
+  toEntity(databaseObject: Partial<IFile>) {
     return {
       uuid: databaseObject.uuid,
-      firstname: databaseObject.firstname || null,
-      lastname: databaseObject.lastname || null,
-      email: databaseObject.email,
-      dl: databaseObject.downloads_left,
-      is_subscribed: databaseObject.is_subscribed,
     };
   },
 };

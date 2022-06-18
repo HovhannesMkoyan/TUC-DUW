@@ -9,18 +9,15 @@ export enum ERequestStatus {
   DECLINED = "declined",
 }
 
-export interface IUser {
+export interface IFile {
   id: number;
   uuid: string;
-  firstname?: string;
-  lastname: string;
-  email: string;
-  city: string;
-  country: string;
-  detailed_geo_info: any;
-  provider_id: string;
-  downloads_left: number;
-  is_subscribed: boolean;
+  name: string;
+  description: string;
+  size: number;
+  data: string;
+  hash: string;
+  blocked: boolean;
 }
 export interface IControllers {
   fileController: any;

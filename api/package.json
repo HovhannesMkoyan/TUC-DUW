@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/express-formidable": "^1.2.0",
+    "@types/express-fileupload": "^1.2.2",
     "awilix": "^7.0.3",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
@@ -30,7 +30,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "express-formidable": "^1.2.0",
+    "express-fileupload": "^1.4.0",
     "helmet": "^5.1.0",
     "moment": "^2.29.3",
     "morgan": "^1.10.0",

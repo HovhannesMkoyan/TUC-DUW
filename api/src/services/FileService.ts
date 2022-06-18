@@ -1,22 +1,37 @@
-import { IUser } from "../../types";
 export default class UserService {
   private fileMapper: any;
   private fileRepository: any;
+  private crypto: any;
 
   constructor({
     fileMapper,
     fileRepository,
+    crypto,
   }: {
     fileMapper: any;
     fileRepository: any;
+    crypto: any;
   }) {
     this.fileMapper = fileMapper;
     this.fileRepository = fileRepository;
+    this.crypto = crypto;
   }
 
   public async add(file: any, description: string) {
-    console.log(file);
-    return;
-    return this.fileRepository.getById();
+    if (file.truncated) {
+      throw new Error("File size exceeds 10 MG");
+    } else {
+      const { name, data: buffer, size } = file;
+      const hash = this.crypto.createHash('sha256').update(buffer).digest('hex');
+
+      const subscriptionDbObject =
+      await this.fileMapper.toDatabase({
+        name,
+      });
+
+    return this.fileRepository.createSubscriptionCancellation(
+      subscriptionDbObject
+    );
+    }
   }
 }
