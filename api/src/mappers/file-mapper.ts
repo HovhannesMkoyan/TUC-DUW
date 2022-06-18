@@ -5,9 +5,9 @@ export default {
     return {
       name: requestObject.name,
       description: requestObject.description || null,
-      size: requestObject.size,
-      data: requestObject.size,
-      hash: requestObject.size,
+      size: requestObject.size.toString(),
+      data: requestObject.data,
+      hash: requestObject.hash,
     };
   },
 

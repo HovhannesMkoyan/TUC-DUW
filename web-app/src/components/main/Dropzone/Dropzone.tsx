@@ -116,7 +116,9 @@ export default function Dropzone(): JSX.Element {
                     ? "Would you like to add a description?"
                     : "Description attached"}{" "}
                 </p>
-                <button className="upload-btn" onClick={upload}>Upload & Get URL</button>
+                <button className="upload-btn" onClick={upload}>
+                  Upload & Get URL
+                </button>
               </>
             )}
           </>

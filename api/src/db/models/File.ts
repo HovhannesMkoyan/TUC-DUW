@@ -22,7 +22,7 @@ module.exports = (sequelize: any) => {
         type: DataTypes.TEXT,
       },
       size: {
-        type: DataTypes.SMALLINT,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       data: {

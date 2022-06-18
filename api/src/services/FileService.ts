@@ -22,16 +22,21 @@ export default class UserService {
       throw new Error("File size exceeds 10 MG");
     } else {
       const { name, data: buffer, size } = file;
-      const hash = this.crypto.createHash('sha256').update(buffer).digest('hex');
+      
+      const hash = this.crypto
+        .createHash("sha256")
+        .update(buffer)
+        .digest("hex");
 
-      const subscriptionDbObject =
-      await this.fileMapper.toDatabase({
+      const subscriptionDbObject = await this.fileMapper.toDatabase({
         name,
+        description,
+        size,
+        data: buffer,
+        hash,
       });
 
-    return this.fileRepository.createSubscriptionCancellation(
-      subscriptionDbObject
-    );
+      return this.fileRepository.add(subscriptionDbObject);
     }
   }
 }

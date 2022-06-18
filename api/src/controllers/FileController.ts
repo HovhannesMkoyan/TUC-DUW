@@ -15,10 +15,11 @@ export default class FileController {
     const { description } = req.body;
 
     try {
-      const user = await this.fileService.add(file, description);
+      await this.fileService.add(file, description);
 
       return res.status(200).json();
     } catch (error: any) {
+      console.log(error);
       return res.status(500).send({ error: error.message });
     }
   };
