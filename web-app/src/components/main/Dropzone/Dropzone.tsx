@@ -180,6 +180,9 @@ export default function Dropzone(): JSX.Element {
             />
           </Tooltip>
         </div>
+        <p className="file-link-notice">
+          Link is shown only once. Copy and save it somewhere.
+        </p>
       </Modal>
     </>
   );
