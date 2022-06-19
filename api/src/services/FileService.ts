@@ -22,7 +22,7 @@ export default class UserService {
       throw new Error("File size exceeds 10 MG");
     } else {
       const { name, data: buffer, size } = file;
-      
+
       const hash = this.crypto
         .createHash("sha256")
         .update(buffer)
@@ -36,7 +36,9 @@ export default class UserService {
         hash,
       });
 
-      return this.fileRepository.add(subscriptionDbObject);
+      return this.fileMapper.toEntity(
+        await this.fileRepository.add(subscriptionDbObject)
+      );
     }
   }
 }

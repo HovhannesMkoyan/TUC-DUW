@@ -14,10 +14,11 @@ export interface IFile {
   uuid: string;
   name: string;
   description: string;
-  size: number;
+  size: string | number;
   data: string;
   hash: string;
   blocked: boolean;
+  created_at: Date;
 }
 export interface IControllers {
   fileController: any;

@@ -15,9 +15,9 @@ export default class FileController {
     const { description } = req.body;
 
     try {
-      await this.fileService.add(file, description);
+      const fileRecord = await this.fileService.add(file, description);
 
-      return res.status(200).json();
+      return res.status(200).json(fileRecord);
     } catch (error: any) {
       console.log(error);
       return res.status(500).send({ error: error.message });
