@@ -27,33 +27,14 @@ export default function App(): JSX.Element {
       <Router>
         <QueryClientProvider client={queryClient}>
           <Context>
-            <MantineProvider
-              theme={{
-                colors: {
-                  "main-color": [
-                    "#00B7AD",
-                    "#00B7AD",
-                    "#00B7AD",
-                    "#00B7AD",
-                    "#00B7AD",
-                    "#00B7AD",
-                    "#00B7AD",
-                    "#00B7AD",
-                    "#00B7AD",
-                  ],
-                },
-                primaryColor: "main-color",
-              }}
-            >
-              <div className="App">
-                <Header />
-                <Routes>
-                  <Route path="/" element={<Main />} />
-                  <Route element={<NotFoundPage />} />
-                </Routes>
-                <OverPageLoader />
-              </div>
-            </MantineProvider>
+            <div className="App">
+              <Header />
+              <Routes>
+                <Route path="/" element={<Main />} />
+                <Route element={<NotFoundPage />} />
+              </Routes>
+              <OverPageLoader />
+            </div>
           </Context>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

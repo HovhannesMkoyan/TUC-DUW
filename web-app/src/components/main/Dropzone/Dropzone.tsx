@@ -1,10 +1,11 @@
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import axios from "axios";
+import { useMutation, useQueryClient } from 'react-query';
 
 import Modal from "../../Helpers/Modal/Modal";
 import getAdjustedFilename from "../../../helpers/get-adjusted-filename";
 import getFileExtensionIcon from "../../../helpers/get-file-extension-icon";
+import { add } from "../../../services/file.service";
 import "./Dropzone.css";
 
 export default function Dropzone(): JSX.Element {
@@ -12,6 +13,7 @@ export default function Dropzone(): JSX.Element {
   const [description, setDescription] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(false);
   const [descripitonModal, setDescripitonModal] = useState<boolean>(false);
+  const [successfullyAddedModal, setSuccessfullyAddedModal] = useState<boolean>(false);
 
   const onDrop = useCallback(
     (acceptedFiles: any) => {
@@ -20,24 +22,35 @@ export default function Dropzone(): JSX.Element {
     },
     [selectedFiles]
   );
-
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,
     disabled,
   });
 
-  const upload = () => {
+  const queryClient = useQueryClient();
+  const { mutate, isLoading } = useMutation(add, {
+    onSuccess: (data) => {
+      setSuccessfullyAddedModal(true);
+      setDisabled(false);
+      setSelectedFiles([]);
+
+      const { uuid } = data;
+    },
+    onError: () => {
+      alert("there was an error")
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries('create');
+    }
+  });
+
+  const upload = async () => {
     const data = new FormData();
     data.append("file", selectedFiles[0]);
     data.append("description", description);
 
-    axios
-      .post(`${process.env.REACT_APP_API_ENDPOINT}/api/files`, data, {})
-      .then((res) => {
-        // then print response status
-        console.log(res.statusText);
-      });
+    return mutate(data);
   };
 
   return (
@@ -138,6 +151,14 @@ export default function Dropzone(): JSX.Element {
           placeholder="Type here..."
           autoFocus
         ></textarea>
+      </Modal>
+      <Modal
+        onclose={() => setSuccessfullyAddedModal(false)}
+        isOpen={successfullyAddedModal}
+        size="md"
+        classnames="file-description-modal"
+      >
+        <h2>File Added Successfully</h2>
       </Modal>
     </>
   );

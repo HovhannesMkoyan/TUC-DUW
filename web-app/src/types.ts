@@ -1,11 +1,11 @@
 export interface IFile {
   readonly uuid: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  is_subscribed: boolean;
-  dl: number;
-  provider: string;
+  name: string;
+  description: string;
+  size: string;
+  data: boolean;
+  blocked: boolean;
+  createdAt: string;
 }
 export interface IUi {
   showOverPageLoader: boolean;

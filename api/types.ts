@@ -18,7 +18,7 @@ export interface IFile {
   data: string;
   hash: string;
   blocked: boolean;
-  created_at: Date;
+  createdAt: Date;
 }
 export interface IControllers {
   fileController: any;
