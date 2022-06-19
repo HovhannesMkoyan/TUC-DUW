@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom";
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from "react-query";
+import copy from "copy-to-clipboard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClone } from "@fortawesome/free-solid-svg-icons";
 
 import Modal from "../../Helpers/Modal/Modal";
+import Tooltip from "../../Helpers/Tooltip/Tooltip";
 import getAdjustedFilename from "../../../helpers/get-adjusted-filename";
 import getFileExtensionIcon from "../../../helpers/get-file-extension-icon";
 import { add } from "../../../services/file.service";
@@ -13,7 +18,9 @@ export default function Dropzone(): JSX.Element {
   const [description, setDescription] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(false);
   const [descripitonModal, setDescripitonModal] = useState<boolean>(false);
-  const [successfullyAddedModal, setSuccessfullyAddedModal] = useState<boolean>(false);
+  const [successfullyAddedModal, setSuccessfullyAddedModal] =
+    useState<boolean>(false);
+  const [newFileUrl, setNewFileUrl] = useState<string>("");
 
   const onDrop = useCallback(
     (acceptedFiles: any) => {
@@ -34,15 +41,14 @@ export default function Dropzone(): JSX.Element {
       setSuccessfullyAddedModal(true);
       setDisabled(false);
       setSelectedFiles([]);
-
-      const { uuid } = data;
+      setNewFileUrl(`file/${data.uuid}`);
     },
     onError: () => {
-      alert("there was an error")
+      alert("there was an error");
     },
     onSettled: () => {
-      queryClient.invalidateQueries('create');
-    }
+      queryClient.invalidateQueries("create");
+    },
   });
 
   const upload = async () => {
@@ -155,10 +161,25 @@ export default function Dropzone(): JSX.Element {
       <Modal
         onclose={() => setSuccessfullyAddedModal(false)}
         isOpen={successfullyAddedModal}
-        size="md"
+        size="500px"
         classnames="file-description-modal"
       >
-        <h2>File Added Successfully</h2>
+        <h2>File's Ready to be Shared!</h2>
+        <div className="link-container">
+          <Link
+            to={newFileUrl}
+            className="file-link"
+          >{`${process.env.REACT_APP_WEBAPP_ENDPOINT}/${newFileUrl}`}</Link>
+          <Tooltip text="Click to Copy">
+            <FontAwesomeIcon
+              icon={faClone}
+              style={{ color: "var(--main-grey-color)" }}
+              onClick={() =>
+                copy(`${process.env.REACT_APP_WEBAPP_ENDPOINT}/${newFileUrl}`)
+              }
+            />
+          </Tooltip>
+        </div>
       </Modal>
     </>
   );

@@ -14,7 +14,7 @@ import fileRouter from "./src/routes/fileRouter";
 const app: Application = express();
 
 app.use(express.urlencoded({ extended: false }));
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: process.env.WEBAPP_ENDPOINT, credentials: true }));
 
 app.use(logger("dev"));
 

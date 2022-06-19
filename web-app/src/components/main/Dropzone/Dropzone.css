@@ -122,6 +122,25 @@
     font-size: 16px;
 }
 
+.link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.file-link {
+    width: 415px;
+    white-space: nowrap;
+    overflow: auto;
+    border-bottom: 1px dashed;
+}
+
+.link-container svg {
+    cursor: pointer;
+    font-size: 23px;
+}
+
 @media only screen and (max-width: 850px) {
     .main_container {
         width: 95%;
