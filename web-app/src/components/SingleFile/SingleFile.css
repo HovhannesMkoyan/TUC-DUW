@@ -1,0 +1,25 @@
+.file-container {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 50px 30px;
+    background-color: #e4edfb;
+    box-shadow: 0px 1px 9px 0px #59779a;
+    border-radius: var(--main-border-radius);
+}
+
+.file-container img {
+    width: 100px;
+}
+
+.file-title {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+}
+
+.download-file-btn {
+    padding: 10px 15px;
+    background-color: white;
+    box-shadow: 0 2px 6px 0px #59779a;
+}
