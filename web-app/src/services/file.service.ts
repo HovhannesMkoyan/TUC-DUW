@@ -11,7 +11,14 @@ export const add = async (data: FormData) => {
   return res?.data;
 };
 
-export const downloadBook = async (book_id: string) => {
+export const get = async (fileId: string) => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_API_ENDPOINT}/api/files/${fileId}`
+  );
+  return res?.data;
+};
+
+export const downloadFile = async (book_id: string) => {
   try {
     const { data } = await axios.get(
       `${process.env.REACT_APP_API_ENDPOINT}/api/books/${book_id}/download`,

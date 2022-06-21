@@ -6,6 +6,7 @@ import { container } from "../../dependency-injection-setup";
 const FileController = container.resolve("fileController");
 const router = Router();
 
+router.get("/:uuid", FileController.get);
 router.post(
   "/",
   fileUpload({

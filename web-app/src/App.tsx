@@ -1,15 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { MantineProvider } from "@mantine/core";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
-
+import SingleFile from "./components/SingleFile/SingleFile";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import OverPageLoader from "./components/Helpers/over-page-loader/OverPageLoader";
-
 import Context from "./Context";
 import "./App.css";
 
@@ -32,6 +30,7 @@ export default function App(): JSX.Element {
               <Routes>
                 <Route path="/" element={<Main />} />
                 <Route element={<NotFoundPage />} />
+                <Route path="/file/:uuid" element={<SingleFile />} />
               </Routes>
               <OverPageLoader />
             </div>

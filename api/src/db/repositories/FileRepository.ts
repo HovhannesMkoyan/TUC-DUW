@@ -10,13 +10,13 @@ export default class FileRepository {
     this.logger = logger;
   }
 
-  // getOne(uuid: string) {
-  //   this.logger.info(`DB :: Book :: getOne :: ${uuid}`);
+  get(uuid: string) {
+    this.logger.info(`DB :: File :: get :: ${uuid}`);
 
-  //   return this.db.models.Book.findOne({ where: { uuid, visible: 1 } })
-  //     .then((book: any) => book)
-  //     .catch((error: any) => console.error("Error: ", error));
-  // }
+    return this.db.models.File.findOne({ where: { uuid } })
+      .then((book: any) => book)
+      .catch((error: any) => console.error("Error: ", error));
+  }
 
   add(file: IFile) {
     this.logger.info(`DB :: Files :: Add`);

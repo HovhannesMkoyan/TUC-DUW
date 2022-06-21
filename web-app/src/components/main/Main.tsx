@@ -2,11 +2,6 @@ import Dropzone from "./Dropzone/Dropzone";
 import "./Main.css";
 
 export default function Main(): JSX.Element {
-  // const { isLoading, data: downloadsNumber } = useQuery(
-  //   fetchAllDownloadsNumberKey,
-  //   () => fetchAllDownloadsNumber()
-  // );
-
   return (
     <section className="main-container">
       <h1>Easy File Sharing</h1>

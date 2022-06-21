@@ -17,6 +17,11 @@ export default class UserService {
     this.crypto = crypto;
   }
 
+  async get(uuid: string) {
+    const book = await this.fileRepository.get(uuid);
+    return this.fileMapper.toEntity(book);
+  }
+
   public async add(file: any, description: string) {
     if (file.truncated) {
       throw new Error("File size exceeds 10 MG");
