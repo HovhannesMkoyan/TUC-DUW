@@ -6,10 +6,10 @@ import copy from "copy-to-clipboard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClone } from "@fortawesome/free-solid-svg-icons";
 
+import FileIcon from "../../Helpers/FileIcon/FileIcon";
 import Modal from "../../Helpers/Modal/Modal";
 import Tooltip from "../../Helpers/Tooltip/Tooltip";
 import getAdjustedFilename from "../../../helpers/get-adjusted-filename";
-import getFileExtensionIcon from "../../../helpers/get-file-extension-icon";
 import { add } from "../../../services/file.service";
 import "./Dropzone.css";
 
@@ -96,11 +96,12 @@ export default function Dropzone(): JSX.Element {
           {selectedFiles.map((file: any, index: number) => (
             <div key={index} className="selected-file df df-ac">
               <div className="df df-ac">
-                <img
+                <FileIcon filename={file.path} />
+                {/* <img
                   src={`/images/${getFileExtensionIcon(file.path)}`}
                   alt="selected file type icon"
                   style={{ marginRight: "5px" }}
-                />
+                /> */}
                 <p>
                   {getAdjustedFilename(file.path)} /{" "}
                   <span>{Math.round((file.size / 1000) * 2) / 2} KB</span>

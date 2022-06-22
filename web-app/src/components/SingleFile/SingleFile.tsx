@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 
 import { get, downloadFile } from "../../services/file.service";
 import { fetchFileKey, downloadFileKey } from "../../utils/queryKeys";
-import getFileExtensionIcon from "../../helpers/get-file-extension-icon";
 import formatDate from "../../helpers/format-date";
+import FileIcon from "../Helpers/FileIcon/FileIcon";
 import InPageLoader from "../Helpers/in-page-loader/InPageLoader";
 import Modal from "../Helpers/Modal/Modal";
 import "./SingleFile.css";
@@ -36,13 +36,10 @@ export default function SingleFile(props: any) {
       )}
       {isSuccess && (
         <div className="file-container">
-          <img
-            src={`/images/${getFileExtensionIcon(file.name)}`}
-            alt="file type icon"
-          />
+          <FileIcon filename={file.name} />
           <p className="file-title">{file.name}</p>
           {file.description && <p>{file.description}</p>}
-          <div className="df df-ac" style={{marginTop: "50px"}}>
+          <div className="df df-ac" style={{ marginTop: "50px" }}>
             <div className="df df-column">
               <span className="bold">Filesize:</span>
               <span>{Math.round(file.size / 1000)} KB</span>
@@ -53,6 +50,7 @@ export default function SingleFile(props: any) {
             </div>
             <button className="download-file-btn">Download</button>
           </div>
+          <p className="request-msg"></p>
         </div>
       )}
     </section>

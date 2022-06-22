@@ -1,0 +1,39 @@
+.selected-file .file-icon {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.file-icon {
+    color: var(--main-grey-color);
+}
+
+.file-image-icon {
+    color: #7aa2d0;
+}
+
+.file-pdf-icon {
+    color: #E5252A;
+}
+.file-doc-icon {
+    color: #0663D1;
+}
+
+.file-excel-icon {
+    color: #01733B;
+}
+
+.file-ppt-icon {
+    color: #E03303;
+}
+
+.file-mp3-icon {
+    color: #7aa2d0;
+}
+
+.file-mp4-icon {
+    color: #7aa2d0;
+}
+
+.file-archive-icon {
+    color: #47568C;
+}
