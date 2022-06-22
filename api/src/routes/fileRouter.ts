@@ -14,5 +14,6 @@ router.post(
   }),
   FileController.add
 );
+router.get("/:uuid/download", FileController.download);
 
 export default router;

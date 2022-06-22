@@ -18,25 +18,28 @@ export const get = async (fileId: string) => {
   return res?.data;
 };
 
-export const downloadFile = async (book_id: string) => {
+export const downloadFile = async (fileId: string) => {
   try {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_API_ENDPOINT}/api/books/${book_id}/download`,
+      `${process.env.REACT_APP_API_ENDPOINT}/api/files/${fileId}/download`,
       {
         withCredentials: true,
-        headers: {
-          Accept: "application/pdf",
-        },
+        // headers: {
+        //   Accept: "application/pdf",
+        // },
         responseType: "blob",
       }
     );
 
-    const file = new Blob([data], { type: "application/pdf" });
+    console.log("-----1-----", data);
+    return;
 
-    const fileURL = URL.createObjectURL(file) || null;
-    if (fileURL) {
-      download(fileURL);
-    }
+    // const file = new Blob([data], { type: "application/pdf" });
+
+    // const fileURL = URL.createObjectURL(file) || null;
+    // if (fileURL) {
+    //   download(fileURL);
+    // }
 
     return data;
   } catch (error) {
