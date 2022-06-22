@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,11 +16,12 @@ import formatDate from "../../helpers/format-date";
 import FileIcon from "../Helpers/FileIcon/FileIcon";
 import InPageLoader from "../Helpers/in-page-loader/InPageLoader";
 import Modal from "../Helpers/Modal/Modal";
-import DotsLoader from "../Helpers/DotsLoader/DotsLoader";
 import Tooltip from "../Helpers/Tooltip/Tooltip";
 import "./SingleFile.css";
 
-export default function SingleFile(props: any) {
+export default function SingleFile(): JSX.Element {
+  const [requestModalOpen, setRequestModalOpen] = useState<boolean>(false);
+  const [requestReason, setRequestReason] = useState<string>("");
   const { uuid } = useParams();
 
   const {
@@ -36,51 +38,77 @@ export default function SingleFile(props: any) {
         <Modal isOpen={true} showClosetBtn={false} size="md">
           <p>There is no such file</p>
           <div className="modal-link_container">
-            <button onClick={() => document.location.href="/"}>Home page</button>
+            <button onClick={() => (document.location.href = "/")}>
+              Home page
+            </button>
           </div>
         </Modal>
       )}
       {isSuccess && (
-        <div className="file-container">
-          <div className="file-menu">
-            <Menu
-              trigger="click"
-              delay={500}
-              size={250}
-              placement="center"
-              gutter={-5}
-              withArrow
-            >
-              <Tooltip text="Upload date & time">
+        <>
+          <div className="file-container">
+            <div className="file-menu">
+              <Menu
+                trigger="click"
+                delay={500}
+                size={250}
+                placement="center"
+                gutter={-5}
+                withArrow
+              >
+                <Tooltip text="Upload date & time">
+                  <Menu.Item
+                    disabled
+                    icon={<FontAwesomeIcon icon={faCalendarDays} />}
+                  >
+                    {formatDate(new Date(file.createdAt))}
+                  </Menu.Item>
+                </Tooltip>
                 <Menu.Item
-                  disabled
-                  icon={<FontAwesomeIcon icon={faCalendarDays} />}
+                  icon={<FontAwesomeIcon icon={faLock} />}
+                  onClick={() => setRequestModalOpen(true)}
                 >
-                  {formatDate(new Date(file.createdAt))}
+                  Request for Blocking
                 </Menu.Item>
+              </Menu>
+            </div>
+
+            <FileIcon filename={file.name} />
+            <p className="file-title">{file.name}</p>
+            {file.description && <p>{file.description}</p>}
+            <div className="df df-ac filesize-download-container">
+              <div className="filesize">
+                <p>Filesize: {Math.round(file.size / 1000)} KB</p>
+              </div>
+              <Tooltip text="Download file">
+                <FontAwesomeIcon
+                  icon={faCloudArrowDown}
+                  className="download-file-btn"
+                  onClick={() => downloadFile(file.uuid)}
+                />
               </Tooltip>
-              <Menu.Item icon={<FontAwesomeIcon icon={faLock} />}>
-                Request for Blocking
-              </Menu.Item>
-            </Menu>
+            </div>
           </div>
 
-          <FileIcon filename={file.name} />
-          <p className="file-title">{file.name}</p>
-          {file.description && <p>{file.description}</p>}
-          <div className="df df-ac filesize-download-container">
-            <div className="filesize">
-              <p>Filesize: {Math.round(file.size / 1000)} KB</p>
+          <Modal
+            onclose={() => setRequestModalOpen(false)}
+            isOpen={requestModalOpen}
+            size="lg"
+            classnames="file-description-modal"
+          >
+            <h2>Why you request to block this file?</h2>
+            <textarea
+              value={requestReason}
+              onChange={(e) => setRequestReason(e.target.value)}
+              name="request-reason"
+              placeholder="Type the reason here..."
+              autoFocus
+            ></textarea>
+            <div className="modal-link_container">
+              <button onClick={() => alert("asa")}>Send request</button>
             </div>
-            <Tooltip text="Download file">
-              <FontAwesomeIcon
-                icon={faCloudArrowDown}
-                className="download-file-btn"
-                onClick={() => downloadFile(file.uuid)}
-              />
-            </Tooltip>
-          </div>
-        </div>
+          </Modal>
+        </>
       )}
     </section>
   );
