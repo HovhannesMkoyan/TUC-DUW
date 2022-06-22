@@ -1,5 +1,5 @@
 export default (sequelize: any) => {
-  const { File, Download, Request } = sequelize.models;
+  const { File, Request } = sequelize.models;
 
   // File <---> Request
   File.hasMany(Request, {
@@ -8,12 +8,4 @@ export default (sequelize: any) => {
     },
   });
   Request.belongsTo(File);
-
-  // File <---> Download
-  File.hasMany(Download, {
-    foreignKey: {
-      allowNull: false,
-    },
-  });
-  Download.belongsTo(File);
 };

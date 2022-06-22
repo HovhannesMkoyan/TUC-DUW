@@ -17,9 +17,9 @@ export default class UserService {
     this.crypto = crypto;
   }
 
-  async get(uuid: string) {
+  async get(uuid: string, adjustedResult: boolean = true) {
     const file = await this.fileRepository.get(uuid);
-    return this.fileMapper.toEntity(file);
+    return adjustedResult ? this.fileMapper.toEntity(file): file;
   }
 
   public async add(file: any, description: string) {

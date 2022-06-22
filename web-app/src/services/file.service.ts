@@ -24,22 +24,14 @@ export const downloadFile = async (fileId: string) => {
       `${process.env.REACT_APP_API_ENDPOINT}/api/files/${fileId}/download`,
       {
         withCredentials: true,
-        // headers: {
-        //   Accept: "application/pdf",
-        // },
         responseType: "blob",
       }
     );
 
-    console.log("-----1-----", data);
-    return;
-
-    // const file = new Blob([data], { type: "application/pdf" });
-
-    // const fileURL = URL.createObjectURL(file) || null;
-    // if (fileURL) {
-    //   download(fileURL);
-    // }
+    const fileURL = URL.createObjectURL(data) || null;
+    if (fileURL) {
+      download(fileURL);
+    }
 
     return data;
   } catch (error) {

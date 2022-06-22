@@ -36,4 +36,19 @@ export default class FileController {
       return res.status(500).send({ error: error.message });
     }
   };
+
+  public download = async (req: Request, res: Response) => {
+    try {
+      const file = await this.fileService.get(
+        req.params.uuid, false
+      );
+
+      //TODO: Check if blocked before downloading
+
+      return res.status(201).json(file.data);
+    } catch (error: any) {
+      console.log(error);
+      return res.status(500).send({ error: error.message });
+    }
+  };
 }

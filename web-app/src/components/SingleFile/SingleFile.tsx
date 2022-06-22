@@ -33,10 +33,10 @@ export default function SingleFile(props: any) {
     <section className="main-container">
       {isLoading && <InPageLoader />}
       {isError && (
-        <Modal isOpen={true} showClosetBtn={false}>
-          <p>pipec</p>
-          <div className="eb-modal-link_container">
-            <button onClick={() => window.location.reload()}>reload</button>
+        <Modal isOpen={true} showClosetBtn={false} size="md">
+          <p>There is no such file</p>
+          <div className="modal-link_container">
+            <button onClick={() => document.location.href="/"}>Home page</button>
           </div>
         </Modal>
       )}

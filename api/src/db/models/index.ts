@@ -14,7 +14,6 @@ const sequelize = new Sequelize(
 
 const modelDefiners = [
   require("./File"),
-  require("./Download"),
   require("./Request"),
 ];
 
