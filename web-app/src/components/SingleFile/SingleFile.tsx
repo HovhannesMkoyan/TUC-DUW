@@ -1,6 +1,10 @@
-import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFilePdf,
+  faCloudArrowDown
+} from "@fortawesome/free-solid-svg-icons";
 
 import { get, downloadFile } from "../../services/file.service";
 import { fetchFileKey, downloadFileKey } from "../../utils/queryKeys";
@@ -48,7 +52,8 @@ export default function SingleFile(props: any) {
               <span className="bold">Upload date:</span>
               <span>{formatDate(new Date(file.createdAt))}</span>
             </div>
-            <button className="download-file-btn">Download</button>
+            {/* <button className="download-file-btn">Download</button> */}
+            <FontAwesomeIcon icon={faCloudArrowDown} className="download-file-btn" />
           </div>
           <p className="request-msg"></p>
         </div>
