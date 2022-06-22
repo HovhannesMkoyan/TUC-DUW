@@ -46,7 +46,6 @@ button {
   padding: 7px 10px;
   font-size: 16px;
   border-radius: var(--main-border-radius);
-  box-shadow: var(--main-box-shadow);
   resize: none;
   outline: none;
   border: 0;

@@ -108,6 +108,7 @@
     background-color: #79a2d0;
     color: white;
     font-weight: bold;
+    box-shadow: var(--main-box-shadow);
 }
 
 .file-description-modal textarea {
