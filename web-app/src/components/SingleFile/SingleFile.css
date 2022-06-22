@@ -1,10 +1,10 @@
 .file-container {
-    width: 600px;
+    width: 700px;
     margin: 0 auto;
     margin-top: 100px;
     padding: 50px 30px;
     background-color: #e4edfb;
-    box-shadow: 0px 1px 9px 0px #59779a;
+    box-shadow: inset 0px 1px 20px 0px #c8ddf5;
     border-radius: var(--main-border-radius);
 }
 
@@ -19,7 +19,12 @@
 }
 
 .download-file-btn {
-    padding: 10px 15px;
+    padding: 10px 30px;
     background-color: white;
-    box-shadow: 0 2px 6px 0px #59779a;
+    box-shadow: 0px 2px 5px 0px #59779a;
+}
+
+.filesize, .upload-date {
+    font-size: 15px;
+    text-align: left;
 }

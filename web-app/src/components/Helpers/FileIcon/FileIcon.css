@@ -2,6 +2,9 @@
     font-size: 20px;
     margin-right: 5px;
 }
+.file-container .file-icon {
+    font-size: 80px;
+}
 
 .file-icon {
     color: var(--main-grey-color);

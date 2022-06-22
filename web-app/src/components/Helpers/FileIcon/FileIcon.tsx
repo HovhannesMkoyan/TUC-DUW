@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFile,
@@ -11,7 +10,6 @@ import {
   faFileVideo,
   faFileZipper,
 } from "@fortawesome/free-solid-svg-icons";
-
 import "./FileIcon.css";
 
 export default function FileIcon(props: any): JSX.Element {

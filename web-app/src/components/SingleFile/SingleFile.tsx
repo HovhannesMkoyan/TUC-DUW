@@ -40,11 +40,11 @@ export default function SingleFile(props: any) {
           <p className="file-title">{file.name}</p>
           {file.description && <p>{file.description}</p>}
           <div className="df df-ac" style={{ marginTop: "50px" }}>
-            <div className="df df-column">
+            <div className="df df-column filesize">
               <span className="bold">Filesize:</span>
               <span>{Math.round(file.size / 1000)} KB</span>
             </div>
-            <div className="df df-column">
+            <div className="df df-column upload-date">
               <span className="bold">Upload date:</span>
               <span>{formatDate(new Date(file.createdAt))}</span>
             </div>
