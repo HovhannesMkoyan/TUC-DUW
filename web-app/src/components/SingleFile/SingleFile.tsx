@@ -68,7 +68,7 @@ export default function SingleFile(props: any) {
           <FileIcon filename={file.name} />
           <p className="file-title">{file.name}</p>
           {file.description && <p>{file.description}</p>}
-          <div className="df df-ac" style={{ marginTop: "50px" }}>
+          <div className="df df-ac filesize-download-container">
             <div className="filesize">
               <p>Filesize: {Math.round(file.size / 1000)} KB</p>
             </div>

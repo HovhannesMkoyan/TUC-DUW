@@ -15,6 +15,12 @@
     overflow-wrap: break-word;
 }
 
+.filesize-download-container {
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px dashed #495656;
+}
+
 .download-file-btn {
     font-size: 33px;
     color: var(--main-grey-color);
