@@ -2,7 +2,6 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFilePdf,
   faCloudArrowDown,
   faCalendarDays,
   faLock,
@@ -11,11 +10,12 @@ import {
 import { Menu } from "@mantine/core";
 
 import { get, downloadFile } from "../../services/file.service";
-import { fetchFileKey, downloadFileKey } from "../../utils/queryKeys";
+import { fetchFileKey } from "../../utils/queryKeys";
 import formatDate from "../../helpers/format-date";
 import FileIcon from "../Helpers/FileIcon/FileIcon";
 import InPageLoader from "../Helpers/in-page-loader/InPageLoader";
 import Modal from "../Helpers/Modal/Modal";
+import DotsLoader from "../Helpers/DotsLoader/DotsLoader";
 import Tooltip from "../Helpers/Tooltip/Tooltip";
 import "./SingleFile.css";
 
@@ -27,9 +27,7 @@ export default function SingleFile(props: any) {
     isError,
     isSuccess,
     data: file,
-  } = useQuery([fetchFileKey, uuid], () => get(uuid!), {
-    staleTime: 1000 * 60 * 30,
-  });
+  } = useQuery([fetchFileKey, uuid], () => get(uuid!));
 
   return (
     <section className="main-container">
@@ -53,12 +51,14 @@ export default function SingleFile(props: any) {
               gutter={-5}
               withArrow
             >
-              <Menu.Item
-                disabled
-                icon={<FontAwesomeIcon icon={faCalendarDays} />}
-              >
-                {formatDate(new Date(file.createdAt))}
-              </Menu.Item>
+              <Tooltip text="Upload date & time">
+                <Menu.Item
+                  disabled
+                  icon={<FontAwesomeIcon icon={faCalendarDays} />}
+                >
+                  {formatDate(new Date(file.createdAt))}
+                </Menu.Item>
+              </Tooltip>
               <Menu.Item icon={<FontAwesomeIcon icon={faLock} />}>
                 Request for Blocking
               </Menu.Item>
@@ -74,12 +74,12 @@ export default function SingleFile(props: any) {
               <span>{Math.round(file.size / 1000)} KB</span>
             </div>
             <Tooltip text="Download file">
-            <FontAwesomeIcon
-              icon={faCloudArrowDown}
-              className="download-file-btn"
-            />
-          </Tooltip>
-            
+              <FontAwesomeIcon
+                icon={faCloudArrowDown}
+                className="download-file-btn"
+                onClick={() => downloadFile(file.uuid)}
+              />
+            </Tooltip>
           </div>
         </div>
       )}

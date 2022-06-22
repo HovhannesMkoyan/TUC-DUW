@@ -37,6 +37,11 @@
     color: var(--main-grey-color);
 }
 
+.mantine-ActionIcon-root svg {
+    width: 25px;
+    height: 25px;
+}
+
 .filesize {
     font-size: 15px;
     text-align: left;
