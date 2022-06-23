@@ -20,6 +20,15 @@ export interface IFile {
   blocked: boolean;
   createdAt: Date;
 }
+export interface IRequest {
+  id: number;
+  uuid: string;
+  type: ERequestType;
+  reason: string;
+  status: ERequestStatus;
+  FileId: number;
+  createdAt: Date;
+}
 export interface IControllers {
   fileController: any;
   requestController: any;
@@ -28,11 +37,9 @@ export interface IControllers {
 export interface IMappers {
   fileMapper: any;
   requestMapper: any;
-  subscriptionMapper: any;
 }
 
 export interface IServices {
   fileService: any;
   requestService: any;
-  downloadService: any;
 }

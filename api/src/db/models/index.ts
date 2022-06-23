@@ -12,10 +12,7 @@ const sequelize = new Sequelize(
   config
 );
 
-const modelDefiners = [
-  require("./File"),
-  require("./Request"),
-];
+const modelDefiners = [require("./File"), require("./Request")];
 
 // Define all models according to their files
 for (const modelDefiner of modelDefiners) {

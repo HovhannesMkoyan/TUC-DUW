@@ -19,7 +19,7 @@ export default class UserService {
 
   async get(uuid: string, adjustedResult: boolean = true) {
     const file = await this.fileRepository.get(uuid);
-    return adjustedResult ? this.fileMapper.toEntity(file): file;
+    return adjustedResult ? this.fileMapper.toEntity(file) : file;
   }
 
   public async add(file: any, description: string) {

@@ -11,7 +11,7 @@ export default {
     };
   },
 
-  toEntity(databaseObject: Partial<IFile>) {
+  toEntity(databaseObject: IFile) {
     return {
       uuid: databaseObject.uuid,
       name: databaseObject.name,

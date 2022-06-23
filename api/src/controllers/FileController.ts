@@ -2,11 +2,9 @@ import { Request, Response } from "express";
 import { IMappers, IServices } from "../../types";
 
 export default class FileController {
-  private fileMapper: any;
   private fileService: any;
 
-  constructor({ fileMapper, fileService }: IServices & IMappers) {
-    this.fileMapper = fileMapper;
+  constructor({ fileService }: IServices) {
     this.fileService = fileService;
   }
 
@@ -39,9 +37,7 @@ export default class FileController {
 
   public download = async (req: Request, res: Response) => {
     try {
-      const file = await this.fileService.get(
-        req.params.uuid, false
-      );
+      const file = await this.fileService.get(req.params.uuid, false);
 
       //TODO: Check if blocked before downloading
 
