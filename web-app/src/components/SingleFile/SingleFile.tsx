@@ -11,6 +11,7 @@ import {
 import { Menu } from "@mantine/core";
 
 import { get, downloadFile } from "../../services/file.service";
+import { add } from "../../services/request.service";
 import { fetchFileKey } from "../../utils/queryKeys";
 import formatDate from "../../helpers/format-date";
 import FileIcon from "../Helpers/FileIcon/FileIcon";
@@ -105,7 +106,7 @@ export default function SingleFile(): JSX.Element {
               autoFocus
             ></textarea>
             <div className="modal-link_container">
-              <button onClick={() => alert("asa")}>Send request</button>
+              <button onClick={() => add(file.uuid, requestReason)}>Send request</button>
             </div>
           </Modal>
         </>

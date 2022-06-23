@@ -24,15 +24,17 @@ export default class RequestController {
   };
 
   public add = async (req: Request, res: Response) => {
-    const { file_id, reason } = req.body;
+    const { fileId, reason } = req.body;
+    console.log(req.body)
+    return;
 
-    try {
-      const requestRecord = await this.requestService.add(file_id, reason);
+    // try {
+    //   const requestRecord = await this.requestService.add(file_id, reason);
 
-      return res.status(201).json(requestRecord);
-    } catch (error: any) {
-      console.log(error);
-      return res.status(500).send({ error: error.message });
-    }
+    //   return res.status(201).json(requestRecord);
+    // } catch (error: any) {
+    //   console.log(error);
+    //   return res.status(500).send({ error: error.message });
+    // }
   };
 }

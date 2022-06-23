@@ -1,6 +1,13 @@
 import axios from "axios";
 import download from "downloadjs";
 
+export const get = async (fileId: string) => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_API_ENDPOINT}/api/files/${fileId}`
+  );
+  return res?.data;
+};
+
 export const add = async (data: FormData) => {
   const res = await axios.post(
     `${process.env.REACT_APP_API_ENDPOINT}/api/files`,
@@ -8,13 +15,6 @@ export const add = async (data: FormData) => {
     {}
   );
 
-  return res?.data;
-};
-
-export const get = async (fileId: string) => {
-  const res = await axios.get(
-    `${process.env.REACT_APP_API_ENDPOINT}/api/files/${fileId}`
-  );
   return res?.data;
 };
 
@@ -36,6 +36,5 @@ export const downloadFile = async (fileId: string) => {
     return data;
   } catch (error) {
     throw new Error("error");
-    //notify("error", error.response.data.error);
   }
 };

@@ -9,9 +9,13 @@ registerDependencies();
 
 import sequelize from "./src/db/models";
 import fileRouter from "./src/routes/fileRouter";
+import requestRouter from "./src/routes/requestRouter";
 
 const app: Application = express();
 
+app.use(
+  express.json()
+);
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({ origin: process.env.WEBAPP_ENDPOINT, credentials: true }));
 app.use(logger("dev"));
@@ -21,5 +25,6 @@ app.use(
 );
 
 app.use("/api/files", fileRouter);
+app.use("/api/requests", requestRouter);
 
 export { app, sequelize };
