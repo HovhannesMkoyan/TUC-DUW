@@ -23,6 +23,7 @@ import "./SingleFile.css";
 export default function SingleFile(): JSX.Element {
   const [requestModalOpen, setRequestModalOpen] = useState<boolean>(false);
   const [requestReason, setRequestReason] = useState<string>("");
+  const [fileStatus, setFileStatus] = useState<"blocked" | "open">("open");
   const { uuid } = useParams();
 
   const {
@@ -31,6 +32,11 @@ export default function SingleFile(): JSX.Element {
     isSuccess,
     data: file,
   } = useQuery([fetchFileKey, uuid], () => get(uuid!));
+
+  const sendRequest = async () => {
+    const action = fileStatus === "blocked" ? "unblock" : "block"
+    return add(file.uuid, requestReason, action);
+  }
 
   return (
     <section className="main-container">
@@ -106,7 +112,7 @@ export default function SingleFile(): JSX.Element {
               autoFocus
             ></textarea>
             <div className="modal-link_container">
-              <button onClick={() => add(file.uuid, requestReason)}>
+              <button onClick={() => sendRequest()}>
                 Send request
               </button>
             </div>

@@ -3,7 +3,7 @@ import { IRequest } from "../../types";
 export default {
   toDatabase(requestObject: IRequest) {
     return {
-      type: requestObject.type,
+      action: requestObject.action,
       reason: requestObject.reason,
       status: requestObject.status,
       FileId: requestObject.FileId,
@@ -13,7 +13,7 @@ export default {
   toEntity(databaseObject: IRequest) {
     return {
       uuid: databaseObject.uuid,
-      type: databaseObject.type,
+      action: databaseObject.action,
       reason: databaseObject.reason,
       status: databaseObject.status,
       FileId: databaseObject.FileId,

@@ -17,7 +17,6 @@ export default {
       name: databaseObject.name,
       description: databaseObject.description,
       size: parseInt(databaseObject.size as string),
-      blocked: databaseObject.blocked,
       createdAt: databaseObject.createdAt,
     };
   },

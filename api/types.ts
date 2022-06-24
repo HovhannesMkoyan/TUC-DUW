@@ -1,4 +1,4 @@
-export enum ERequestType {
+export enum ERequestAction {
   BLOCK = "block",
   UNBLOCK = "unblock",
 }
@@ -17,13 +17,12 @@ export interface IFile {
   size: string | number;
   data: string;
   hash: string;
-  blocked: boolean;
   createdAt: Date;
 }
 export interface IRequest {
   id: number;
   uuid: string;
-  type: ERequestType;
+  action: ERequestAction;
   reason: string;
   status: ERequestStatus;
   FileId: number;

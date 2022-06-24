@@ -4,7 +4,6 @@ export interface IFile {
   description: string;
   size: string;
   data: boolean;
-  blocked: boolean;
   createdAt: string;
 }
 export interface IUi {

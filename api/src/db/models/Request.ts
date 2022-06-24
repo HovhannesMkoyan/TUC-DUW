@@ -1,5 +1,5 @@
 import { DataTypes, UUIDV4 } from "sequelize";
-import { ERequestType, ERequestStatus } from "../../../types";
+import { ERequestAction, ERequestStatus } from "../../../types";
 
 module.exports = (sequelize: any) => {
   sequelize.define(
@@ -15,8 +15,8 @@ module.exports = (sequelize: any) => {
         allowNull: false,
         defaultValue: UUIDV4,
       },
-      type: {
-        type: DataTypes.ENUM(ERequestType.BLOCK, ERequestType.UNBLOCK),
+      action: {
+        type: DataTypes.ENUM(ERequestAction.BLOCK, ERequestAction.UNBLOCK),
         allowNull: false,
       },
       reason: {

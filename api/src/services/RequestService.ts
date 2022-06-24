@@ -18,7 +18,7 @@ export default class RequestService {
     return adjustedResult ? this.requestMapper.toEntity(file) : file;
   }
 
-  public async add(fileId: any, reason: string) {
+  public async add(fileId: any, reason: string, action: "block" | "unblock") {
     const subscriptionDbObject = await this.requestMapper.toDatabase({
       fileId,
       reason,

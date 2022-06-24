@@ -11,6 +11,7 @@ export default class FileController {
   public get = async (req: Request, res: Response) => {
     try {
       const file = await this.fileService.get(req.params.uuid);
+      //TODO: get file status and send it alongside the file
 
       return res.status(200).json(file);
     } catch (err) {

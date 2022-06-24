@@ -30,10 +30,9 @@ export default class RequestController {
   };
 
   public add = async (req: Request, res: Response) => {
-    const { fileId, reason } = req.body;
-
+    const { fileId, reason, action } = req.body;
     try {
-      const requestRecord = await this.blocklistService.add(fileId, reason);
+      const requestRecord = await this.requestService.add(fileId, reason);
 
       return res.status(201).json(requestRecord);
     } catch (error: any) {

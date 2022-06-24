@@ -33,11 +33,6 @@ module.exports = (sequelize: any) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      blocked: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
-      },
     },
     {
       sequelize,
