@@ -7,13 +7,10 @@ export const get = async (requestId: string) => {
   return res?.data;
 };
 
-export const add = async (
-  fileId: string,
-  reason: string,
-) => {
+export const add = async (fileId: string, reason: string) => {
   const res = await axios.post(
     `${process.env.REACT_APP_API_ENDPOINT}/api/requests/`,
     { fileId, reason }
-);
+  );
   return res?.data;
 };

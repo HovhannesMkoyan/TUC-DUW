@@ -20,6 +20,9 @@ import RequestService from "./src/services/RequestService";
 import RequestRepository from "./src/db/repositories/RequestRepository";
 import RequestMapper from "./src/mappers/request-mapper";
 
+// Blocklist
+import BlocklistService from "./src/services/BlocklistService";
+
 const container = createContainer({
   injectionMode: InjectionMode.PROXY, // InjectionMode.PROXY means awilix will inject the container itself which let's us to desctructure from it what we need
 });
@@ -55,6 +58,10 @@ function registerDependencies() {
     requestService: asClass(RequestService),
     requestRepository: asClass(RequestRepository),
     requestMapper: asValue(RequestMapper),
+
+    // Blocklist
+    //
+    blocklistService: asClass(BlocklistService),
   });
 }
 

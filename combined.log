@@ -304,3 +304,7 @@
 {"level":"info","message":"DB :: File :: get :: eb11d661-7c2b-44ef-9bb2-be23f48c0fab","timestamp":"2022-06-23T11:04:47.113Z"}
 {"level":"info","message":"DB :: File :: get :: eb11d661-7c2b-44ef-9bb2-be23f48c0fab","timestamp":"2022-06-23T11:05:09.596Z"}
 {"level":"info","message":"DB :: File :: get :: eb11d661-7c2b-44ef-9bb2-be23f48c0fab","timestamp":"2022-06-23T11:05:21.044Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-06-23T12:38:06.001Z"}
+{"level":"info","message":"DB :: File :: get :: fa715bce-2b43-4ef2-af68-42d35f7a0d67","timestamp":"2022-06-23T12:38:08.245Z"}
+{"level":"info","message":"DB :: File :: get :: 8767c9ba-0619-491f-9412-a0424e8f6944","timestamp":"2022-06-24T05:12:18.488Z"}
+{"level":"info","message":"DB :: File :: get :: 8767c9ba-0619-491f-9412-a0424e8f6944","timestamp":"2022-06-24T06:41:04.325Z"}

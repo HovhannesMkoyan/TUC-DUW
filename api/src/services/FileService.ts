@@ -17,7 +17,7 @@ export default class UserService {
     this.crypto = crypto;
   }
 
-  async get(uuid: string, adjustedResult: boolean = true) {
+  public async get(uuid: string, adjustedResult: boolean = true) {
     const file = await this.fileRepository.get(uuid);
     return adjustedResult ? this.fileMapper.toEntity(file) : file;
   }
@@ -45,5 +45,10 @@ export default class UserService {
         await this.fileRepository.add(subscriptionDbObject)
       );
     }
+  }
+
+  public async checkStatus(uuid: string) {
+    const file = await this.fileRepository.get(uuid);
+    return this.fileMapper.toEntity(file);
   }
 }

@@ -42,4 +42,5 @@ export interface IMappers {
 export interface IServices {
   fileService: any;
   requestService: any;
+  blocklistService: any;
 }

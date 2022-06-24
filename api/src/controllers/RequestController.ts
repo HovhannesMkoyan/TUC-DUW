@@ -4,10 +4,16 @@ import { IMappers, IServices } from "../../types";
 export default class RequestController {
   private requestMapper: any;
   private requestService: any;
+  private blocklistService: any;
 
-  constructor({ requestMapper, requestService }: IServices & IMappers) {
+  constructor({
+    requestMapper,
+    requestService,
+    blocklistService,
+  }: IServices & IMappers) {
     this.requestMapper = requestMapper;
     this.requestService = requestService;
+    this.blocklistService = blocklistService;
   }
 
   public get = async (req: Request, res: Response) => {
@@ -25,16 +31,14 @@ export default class RequestController {
 
   public add = async (req: Request, res: Response) => {
     const { fileId, reason } = req.body;
-    console.log(req.body)
-    return;
 
-    // try {
-    //   const requestRecord = await this.requestService.add(file_id, reason);
+    try {
+      const requestRecord = await this.blocklistService.add(fileId, reason);
 
-    //   return res.status(201).json(requestRecord);
-    // } catch (error: any) {
-    //   console.log(error);
-    //   return res.status(500).send({ error: error.message });
-    // }
+      return res.status(201).json(requestRecord);
+    } catch (error: any) {
+      console.log(error);
+      return res.status(500).send({ error: error.message });
+    }
   };
 }

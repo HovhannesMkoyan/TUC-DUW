@@ -106,7 +106,9 @@ export default function SingleFile(): JSX.Element {
               autoFocus
             ></textarea>
             <div className="modal-link_container">
-              <button onClick={() => add(file.uuid, requestReason)}>Send request</button>
+              <button onClick={() => add(file.uuid, requestReason)}>
+                Send request
+              </button>
             </div>
           </Modal>
         </>

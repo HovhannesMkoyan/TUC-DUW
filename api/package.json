@@ -21,6 +21,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/express-fileupload": "^1.2.2",
+    "@types/superagent": "^4.1.15",
     "awilix": "^7.0.3",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
@@ -38,6 +39,7 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.20.1",
     "sequelize-cli": "^6.4.1",
+    "superagent": "^7.1.6",
     "tslib": "^2.4.0",
     "uuid": "^8.3.2",
     "winston": "^3.7.2"
