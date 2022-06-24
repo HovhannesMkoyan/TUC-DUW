@@ -7,7 +7,11 @@ export const get = async (requestId: string) => {
   return res?.data;
 };
 
-export const add = async (fileId: string, reason: string, action: "block" | "unblock") => {
+export const add = async (
+  fileId: string,
+  reason: string,
+  action: "block" | "unblock"
+) => {
   const res = await axios.post(
     `${process.env.REACT_APP_API_ENDPOINT}/api/requests/`,
     { fileId, reason, action }

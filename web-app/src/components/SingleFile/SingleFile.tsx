@@ -34,9 +34,9 @@ export default function SingleFile(): JSX.Element {
   } = useQuery([fetchFileKey, uuid], () => get(uuid!));
 
   const sendRequest = async () => {
-    const action = fileStatus === "blocked" ? "unblock" : "block"
+    const action = fileStatus === "blocked" ? "unblock" : "block";
     return add(file.uuid, requestReason, action);
-  }
+  };
 
   return (
     <section className="main-container">
@@ -112,9 +112,7 @@ export default function SingleFile(): JSX.Element {
               autoFocus
             ></textarea>
             <div className="modal-link_container">
-              <button onClick={() => sendRequest()}>
-                Send request
-              </button>
+              <button onClick={() => sendRequest()}>Send request</button>
             </div>
           </Modal>
         </>

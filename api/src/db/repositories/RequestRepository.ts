@@ -1,3 +1,5 @@
+import { IRequest } from "../../../types";
+
 export default class RequestRepository {
   private db: any;
   private logger: any;
@@ -7,26 +9,18 @@ export default class RequestRepository {
     this.logger = logger;
   }
 
-  async getAll(user_id: string) {
-    this.logger.info(`DB :: Invoice :: getAll`, user_id);
+  get(uuid: string) {
+    this.logger.info(`DB :: Request :: get :: ${uuid}`);
 
-    return this.db.models.Invoice.findAll({ where: { user_id } })
-      .then((invoices: any) => invoices)
+    return this.db.models.File.findOne({ where: { uuid } })
+      .then((book: any) => book)
       .catch((error: any) => console.error("Error: ", error));
   }
 
-  async get(invoiceId: string) {
-    this.logger.info(`DB :: Invoice :: get`, invoiceId);
+  add(request: IRequest) {
+    this.logger.info(`DB :: Request :: Add`);
 
-    return this.db.models.Invoice.findOne({ where: { uuid: invoiceId } })
-      .then((invoices: any) => invoices)
-      .catch((error: any) => console.error("Error: ", error));
-  }
-
-  async create(invoice: any) {
-    this.logger.info(`DB :: Invoice :: create`, invoice);
-
-    return this.db.models.Invoice.create(invoice).catch(
+    return this.db.models.Request.create(request).catch(
       (error: string | undefined) => {
         throw new Error(error);
       }

@@ -5,7 +5,6 @@ export default {
     return {
       action: requestObject.action,
       reason: requestObject.reason,
-      status: requestObject.status,
       FileId: requestObject.FileId,
     };
   },
