@@ -1,4 +1,5 @@
 import axios from "axios";
+import { IRequest } from "../types";
 
 export const get = async (requestId: string) => {
   const res = await axios.get(
@@ -7,14 +8,10 @@ export const get = async (requestId: string) => {
   return res?.data;
 };
 
-export const add = async (
-  fileId: string,
-  reason: string,
-  action: "block" | "unblock"
-) => {
+export const add = async (requestData: Partial<IRequest>) => {
   const res = await axios.post(
     `${process.env.REACT_APP_API_ENDPOINT}/api/requests/`,
-    { fileId, reason, action }
+    { FileId: requestData.FileId, reason: requestData.reason, action: requestData.action }
   );
   return res?.data;
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,6 +18,7 @@ import FileIcon from "../Helpers/FileIcon/FileIcon";
 import InPageLoader from "../Helpers/in-page-loader/InPageLoader";
 import Modal from "../Helpers/Modal/Modal";
 import Tooltip from "../Helpers/Tooltip/Tooltip";
+import { IRequest } from "../../types";
 import "./SingleFile.css";
 
 export default function SingleFile(): JSX.Element {
@@ -33,9 +34,14 @@ export default function SingleFile(): JSX.Element {
     data: file,
   } = useQuery([fetchFileKey, uuid], () => get(uuid!));
 
+  const mutation = useMutation((newRequest: Partial<IRequest>) => add(newRequest))
   const sendRequest = async () => {
-    const action = fileStatus === "blocked" ? "unblock" : "block";
-    return add(file.uuid, requestReason, action);
+    const requestObj: Partial<IRequest> = {
+      FileId: file.uuid,
+      reason: requestReason,
+      action: fileStatus === "blocked" ? "UNBLOCK" : "BLOCK"
+    }
+    return mutation.mutate(requestObj);
   };
 
   return (

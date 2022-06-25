@@ -33,7 +33,8 @@ export default class RequestController {
   };
 
   public add = async (req: Request, res: Response) => {
-    const { fileId: uuid, reason, action } = req.body;
+    const { FileId: uuid, reason, action } = req.body;
+    console.log(req.body)
 
     try {
       const file = await this.fileService.get(uuid, false);
