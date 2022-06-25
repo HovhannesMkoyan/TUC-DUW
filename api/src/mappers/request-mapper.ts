@@ -15,7 +15,6 @@ export default {
       action: databaseObject.action,
       reason: databaseObject.reason,
       status: databaseObject.status,
-      FileId: databaseObject.FileId,
       createdAt: databaseObject.createdAt,
     };
   },

@@ -1,12 +1,12 @@
 export enum ERequestAction {
-  BLOCK = "block",
-  UNBLOCK = "unblock",
+  BLOCK = "BLOCK",
+  UNBLOCK = "UNBLOCK",
 }
 
 export enum ERequestStatus {
-  PENDING = "pending",
-  ACCEPTED = "accepted",
-  DECLINED = "declined",
+  PENDING = "PENDING",
+  ACCEPTED = "ACCEPTED",
+  DECLINED = "DECLINED",
 }
 
 export interface IFile {

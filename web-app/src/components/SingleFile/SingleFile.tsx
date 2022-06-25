@@ -34,13 +34,15 @@ export default function SingleFile(): JSX.Element {
     data: file,
   } = useQuery([fetchFileKey, uuid], () => get(uuid!));
 
-  const mutation = useMutation((newRequest: Partial<IRequest>) => add(newRequest))
+  const mutation = useMutation((newRequest: Partial<IRequest>) =>
+    add(newRequest)
+  );
   const sendRequest = async () => {
     const requestObj: Partial<IRequest> = {
-      FileId: file.uuid,
+      uuid: file.uuid,
       reason: requestReason,
-      action: fileStatus === "blocked" ? "UNBLOCK" : "BLOCK"
-    }
+      action: fileStatus === "blocked" ? "UNBLOCK" : "BLOCK",
+    };
     return mutation.mutate(requestObj);
   };
 
