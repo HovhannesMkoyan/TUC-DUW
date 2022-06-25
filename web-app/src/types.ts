@@ -4,6 +4,7 @@ export interface IFile {
   description: string;
   size: string;
   reported: boolean;
+  reportType: "BLOCK" | "UNBLOCK";
   blocked: boolean;
   createdAt: string;
 }

@@ -28,7 +28,6 @@ export default function SingleFile(): JSX.Element {
   const [requestModalOpen, setRequestModalOpen] = useState<boolean>(false);
   const [requestReason, setRequestReason] = useState<string>("");
   const [requestReasonError, setRequestReasonError] = useState<string>("");
-  const [fileStatus, setFileStatus] = useState<"blocked" | "open">("open");
   const { uuid } = useParams();
   const queryClient = useQueryClient();
 
@@ -37,13 +36,7 @@ export default function SingleFile(): JSX.Element {
     isError,
     isSuccess,
     data: file,
-  } = useQuery<IFile>([fetchFileKey, uuid], () => get(uuid!), {
-    onSuccess: (data: IFile) => {
-      if (data.reported || data.blocked) {
-        setFileStatus("blocked");
-      }
-    },
-  });
+  } = useQuery<IFile>([fetchFileKey, uuid], () => get(uuid!));
 
   const mutation = useMutation(
     (newRequest: Partial<IRequest>) => add(newRequest),
@@ -98,7 +91,7 @@ export default function SingleFile(): JSX.Element {
               <Menu
                 trigger="click"
                 delay={500}
-                size={250}
+                size={260}
                 placement="center"
                 gutter={-5}
                 withArrow
@@ -138,11 +131,17 @@ export default function SingleFile(): JSX.Element {
                 <p>Filesize: {Math.round(+file.size / 1000)} KB</p>
               </div>
               {file.reported && (
-                <Tooltip text="Blocking request is pending review">
+                <Tooltip
+                  text={
+                    file.reportType === "BLOCK"
+                      ? "Blocking request is pending review"
+                      : "Unblocking request is pending review"
+                  }
+                >
                   <OvalLoader size={28} />
                 </Tooltip>
               )}
-              {file.blocked && (
+              {!file.reported && file.blocked && (
                 <Tooltip text="File is blocked">
                   <FontAwesomeIcon icon={faBan} className="file-btn" />
                 </Tooltip>
@@ -165,7 +164,11 @@ export default function SingleFile(): JSX.Element {
             size="lg"
             classnames="file-description-modal"
           >
-            <h2>Why you request to block this file?</h2>
+            <h2>
+              {file.blocked
+                ? "Why you request to unblock this file?"
+                : "Why you request to block this file?"}
+            </h2>
             <textarea
               value={requestReason}
               onChange={(e) => setRequestReason(e.target.value)}
