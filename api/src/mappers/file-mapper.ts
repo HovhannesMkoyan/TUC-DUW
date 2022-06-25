@@ -17,7 +17,7 @@ export default {
       name: databaseObject.name,
       description: databaseObject.description,
       size: parseInt(databaseObject.size as string),
-      reported: databaseObject.Requests.length !== 0 ? true : false,
+      reported: getReportedValue(databaseObject.Requests),
       reportType: getReportType(databaseObject.Requests),
       blocked: false,
       createdAt: databaseObject.createdAt,
@@ -25,8 +25,16 @@ export default {
   },
 };
 
+function getReportedValue(requests: IRequest[]) {
+  if (requests) {
+    return requests.length !== 0 ? true : false;
+  }
+
+  return false;
+}
+
 function getReportType(requests: IRequest[]) {
-  if (requests.length !== 0) {
+  if (requests && requests.length !== 0) {
     return requests[0].action === "BLOCK" ? "BLOCK" : "UNBLOCK";
   }
 
