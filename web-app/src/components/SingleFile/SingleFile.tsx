@@ -8,6 +8,7 @@ import {
   faLock,
   faLockOpen,
   faBan,
+  faCircleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { Menu } from "@mantine/core";
 
@@ -110,20 +111,22 @@ export default function SingleFile(): JSX.Element {
                     {formatDate(new Date(file.createdAt))}
                   </Menu.Item>
                 </Tooltip>
-                <Menu.Item
-                  icon={
-                    file?.blocked || file?.reported ? (
-                      <FontAwesomeIcon icon={faLockOpen} />
-                    ) : (
-                      <FontAwesomeIcon icon={faLock} />
-                    )
-                  }
-                  onClick={() => setRequestModalOpen(true)}
-                >
-                  {file?.blocked || file?.reported
-                    ? "Request for Unblocking"
-                    : "Request for Blocking"}
-                </Menu.Item>
+                {!file.reported && (
+                  <Menu.Item
+                    icon={
+                      file.blocked ? (
+                        <FontAwesomeIcon icon={faLockOpen} />
+                      ) : (
+                        <FontAwesomeIcon icon={faLock} />
+                      )
+                    }
+                    onClick={() => setRequestModalOpen(true)}
+                  >
+                    {file.blocked
+                      ? "Request File Unblocking"
+                      : "Request File Blocking"}
+                  </Menu.Item>
+                )}
               </Menu>
             </div>
 
@@ -134,19 +137,21 @@ export default function SingleFile(): JSX.Element {
               <div className="filesize">
                 <p>Filesize: {Math.round(+file.size / 1000)} KB</p>
               </div>
-              {file.reported || file.blocked ? (
-                <Tooltip text="Request for Blocking in process">
-                  {/* <FontAwesomeIcon
-                    icon={faBan}
-                    className="not-allowed-file-btn"
-                  /> */}
-                  <OvalLoader size="sm" />
+              {file.reported && (
+                <Tooltip text="Blocking request is pending review">
+                  <OvalLoader size={28} />
                 </Tooltip>
-              ) : (
+              )}
+              {file.blocked && (
+                <Tooltip text="File is blocked">
+                  <FontAwesomeIcon icon={faBan} className="file-btn" />
+                </Tooltip>
+              )}
+              {!file.reported && !file.blocked && (
                 <Tooltip text="Download file">
                   <FontAwesomeIcon
-                    icon={faCloudArrowDown}
-                    className="download-file-btn"
+                    icon={faCircleDown}
+                    className="file-btn"
                     onClick={() => downloadFile(file.uuid)}
                   />
                 </Tooltip>
