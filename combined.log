@@ -415,3 +415,59 @@
 {"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T10:43:55.957Z"}
 {"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T10:44:20.784Z"}
 {"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T10:44:47.894Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T11:48:39.656Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T11:49:30.931Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:43:19.946Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:52:19.174Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:52:20.086Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:52:22.143Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:52:56.205Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:53:01.391Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:53:07.647Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:53:24.714Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:53:41.795Z"}
+{"level":"info","message":"DB :: Request :: Add","timestamp":"2022-06-25T14:53:41.802Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T14:53:41.824Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T16:02:18.365Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T16:03:44.083Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T16:04:07.078Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T16:06:06.096Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T16:06:07.157Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T16:06:10.685Z"}
+{"level":"info","message":"DB :: File :: get :: 7205fe47-7500-4f86-af03-338a16295eb6","timestamp":"2022-06-25T16:06:51.497Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-06-25T16:07:06.676Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-06-25T16:07:36.102Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-06-25T16:11:24.022Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-06-25T16:14:50.144Z"}
+{"level":"info","message":"DB :: File :: get :: 9542a598-a5ff-450d-a3fe-bdf93d178d21","timestamp":"2022-06-25T16:15:00.072Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-06-25T16:16:40.897Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:17:00.346Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:17:48.800Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:18:27.638Z"}
+{"level":"info","message":"DB :: Request :: Add","timestamp":"2022-06-25T16:18:27.654Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:18:27.676Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:20:01.231Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:27:00.438Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:27:37.923Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:33:28.038Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-06-25T16:33:41.788Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:33:46.592Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:33:47.654Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:34:11.301Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:34:12.972Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:35:00.508Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:35:46.594Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:35:48.227Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:35:56.227Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:37:04.051Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:37:12.209Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:45:40.471Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:45:47.166Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:47:32.834Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:47:50.492Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:47:50.495Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T16:48:05.206Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T16:48:11.577Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T17:52:13.815Z"}
+{"level":"info","message":"DB :: File :: get :: d4076976-f00b-4754-8529-d35f958fbe73","timestamp":"2022-06-25T17:52:15.933Z"}
+{"level":"info","message":"DB :: File :: get :: a1dd8dff-e7d4-45e5-8035-2853c009ad21","timestamp":"2022-06-25T17:52:45.385Z"}

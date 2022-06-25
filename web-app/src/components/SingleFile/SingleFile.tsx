@@ -7,6 +7,7 @@ import {
   faCalendarDays,
   faLock,
   faLockOpen,
+  faBan,
 } from "@fortawesome/free-solid-svg-icons";
 import { Menu } from "@mantine/core";
 
@@ -18,8 +19,9 @@ import FileIcon from "../Helpers/FileIcon/FileIcon";
 import InPageLoader from "../Helpers/in-page-loader/InPageLoader";
 import Modal from "../Helpers/Modal/Modal";
 import Tooltip from "../Helpers/Tooltip/Tooltip";
-import { IRequest } from "../../types";
+import { IFile, IRequest } from "../../types";
 import "./SingleFile.css";
+import OvalLoader from "../Helpers/OvalLoader/OvalLoader";
 
 export default function SingleFile(): JSX.Element {
   const [requestModalOpen, setRequestModalOpen] = useState<boolean>(false);
@@ -34,7 +36,13 @@ export default function SingleFile(): JSX.Element {
     isError,
     isSuccess,
     data: file,
-  } = useQuery([fetchFileKey, uuid], () => get(uuid!));
+  } = useQuery<IFile>([fetchFileKey, uuid], () => get(uuid!), {
+    onSuccess: (data: IFile) => {
+      if (data.reported || data.blocked) {
+        setFileStatus("blocked");
+      }
+    },
+  });
 
   const mutation = useMutation(
     (newRequest: Partial<IRequest>) => add(newRequest),
@@ -60,9 +68,9 @@ export default function SingleFile(): JSX.Element {
     } else {
       setRequestReasonError("");
       const requestObj: Partial<IRequest> = {
-        uuid: file.uuid,
+        uuid: file!.uuid,
         reason: requestReason,
-        action: fileStatus === "blocked" ? "UNBLOCK" : "BLOCK",
+        action: file?.blocked || file?.reported ? "UNBLOCK" : "BLOCK",
       };
 
       return mutation.mutate(requestObj);
@@ -103,10 +111,18 @@ export default function SingleFile(): JSX.Element {
                   </Menu.Item>
                 </Tooltip>
                 <Menu.Item
-                  icon={<FontAwesomeIcon icon={faLock} />}
+                  icon={
+                    file?.blocked || file?.reported ? (
+                      <FontAwesomeIcon icon={faLockOpen} />
+                    ) : (
+                      <FontAwesomeIcon icon={faLock} />
+                    )
+                  }
                   onClick={() => setRequestModalOpen(true)}
                 >
-                  Request for Blocking
+                  {file?.blocked || file?.reported
+                    ? "Request for Unblocking"
+                    : "Request for Blocking"}
                 </Menu.Item>
               </Menu>
             </div>
@@ -116,15 +132,25 @@ export default function SingleFile(): JSX.Element {
             {file.description && <p>{file.description}</p>}
             <div className="df df-ac filesize-download-container">
               <div className="filesize">
-                <p>Filesize: {Math.round(file.size / 1000)} KB</p>
+                <p>Filesize: {Math.round(+file.size / 1000)} KB</p>
               </div>
-              <Tooltip text="Download file">
-                <FontAwesomeIcon
-                  icon={faCloudArrowDown}
-                  className="download-file-btn"
-                  onClick={() => downloadFile(file.uuid)}
-                />
-              </Tooltip>
+              {file.reported || file.blocked ? (
+                <Tooltip text="Request for Blocking in process">
+                  {/* <FontAwesomeIcon
+                    icon={faBan}
+                    className="not-allowed-file-btn"
+                  /> */}
+                  <OvalLoader size="sm" />
+                </Tooltip>
+              ) : (
+                <Tooltip text="Download file">
+                  <FontAwesomeIcon
+                    icon={faCloudArrowDown}
+                    className="download-file-btn"
+                    onClick={() => downloadFile(file.uuid)}
+                  />
+                </Tooltip>
+              )}
             </div>
           </div>
 

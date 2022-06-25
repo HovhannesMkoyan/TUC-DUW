@@ -1,4 +1,4 @@
-import { IFile } from "../../types";
+import { IFile, IRequest } from "../../types";
 
 export default {
   toDatabase(requestObject: IFile) {
@@ -18,8 +18,17 @@ export default {
       description: databaseObject.description,
       size: parseInt(databaseObject.size as string),
       reported: databaseObject.Requests.length !== 0 ? true : false,
+      reportType: getReportType(databaseObject.Requests),
       blocked: false,
       createdAt: databaseObject.createdAt,
     };
   },
 };
+
+function getReportType(requests: IRequest[]) {
+  if (requests.length !== 0) {
+    return requests[0].action === "BLOCK" ? "BLOCK" : "UNBLOCK";
+  }
+
+  return null;
+}

@@ -27,6 +27,11 @@
     cursor: pointer;
 }
 
+.not-allowed-file-btn {
+    font-size: 33px;
+    color: var(--main-grey-color);
+}
+
 .file-menu {
     position: absolute;
     right: 20px;

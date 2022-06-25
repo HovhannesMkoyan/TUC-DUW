@@ -3,7 +3,8 @@ export interface IFile {
   name: string;
   description: string;
   size: string;
-  data: boolean;
+  reported: boolean;
+  blocked: boolean;
   createdAt: string;
 }
 export interface IRequest {
