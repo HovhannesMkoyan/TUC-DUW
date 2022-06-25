@@ -138,12 +138,6 @@
     font-size: 23px;
 }
 
-.file-link-notice {
-    font-weight: 400;
-    font-size: 13px;
-    color: #ce6057;
-}
-
 @media only screen and (max-width: 850px) {
     .main_container {
         width: 95%;

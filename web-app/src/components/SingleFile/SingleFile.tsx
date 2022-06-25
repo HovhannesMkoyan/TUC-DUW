@@ -24,8 +24,10 @@ import "./SingleFile.css";
 export default function SingleFile(): JSX.Element {
   const [requestModalOpen, setRequestModalOpen] = useState<boolean>(false);
   const [requestReason, setRequestReason] = useState<string>("");
+  const [requestReasonError, setRequestReasonError] = useState<string>("");
   const [fileStatus, setFileStatus] = useState<"blocked" | "open">("open");
   const { uuid } = useParams();
+  const queryClient = useQueryClient();
 
   const {
     isLoading,
@@ -34,16 +36,37 @@ export default function SingleFile(): JSX.Element {
     data: file,
   } = useQuery([fetchFileKey, uuid], () => get(uuid!));
 
-  const mutation = useMutation((newRequest: Partial<IRequest>) =>
-    add(newRequest)
+  const mutation = useMutation(
+    (newRequest: Partial<IRequest>) => add(newRequest),
+    {
+      onError: (error, variables, context) => {
+        // An error happened!
+        console.log(`rolling back optimistic update with id`);
+      },
+      onSuccess: (data, variables, context) => {
+        queryClient.invalidateQueries([fetchFileKey, uuid]);
+        setRequestModalOpen(false);
+        setRequestReason("");
+        setRequestReasonError("");
+      },
+    }
   );
+
   const sendRequest = async () => {
-    const requestObj: Partial<IRequest> = {
-      uuid: file.uuid,
-      reason: requestReason,
-      action: fileStatus === "blocked" ? "UNBLOCK" : "BLOCK",
-    };
-    return mutation.mutate(requestObj);
+    if (requestReason.length < 7) {
+      return setRequestReasonError(
+        "Reason should be minimum 7 characters long"
+      );
+    } else {
+      setRequestReasonError("");
+      const requestObj: Partial<IRequest> = {
+        uuid: file.uuid,
+        reason: requestReason,
+        action: fileStatus === "blocked" ? "UNBLOCK" : "BLOCK",
+      };
+
+      return mutation.mutate(requestObj);
+    }
   };
 
   return (
@@ -122,6 +145,7 @@ export default function SingleFile(): JSX.Element {
             <div className="modal-link_container">
               <button onClick={() => sendRequest()}>Send request</button>
             </div>
+            <span className="notice">{requestReasonError}</span>
           </Modal>
         </>
       )}

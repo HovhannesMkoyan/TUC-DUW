@@ -9,6 +9,15 @@ export enum ERequestStatus {
   DECLINED = "DECLINED",
 }
 
+export interface IRequest {
+  id: number;
+  uuid: string;
+  action: ERequestAction;
+  reason: string;
+  status: ERequestStatus;
+  FileId: number;
+  createdAt: Date;
+}
 export interface IFile {
   id: number;
   uuid: string;
@@ -17,15 +26,7 @@ export interface IFile {
   size: string | number;
   data: string;
   hash: string;
-  createdAt: Date;
-}
-export interface IRequest {
-  id: number;
-  uuid: string;
-  action: ERequestAction;
-  reason: string;
-  status: ERequestStatus;
-  FileId: number;
+  Requests: IRequest[];
   createdAt: Date;
 }
 export interface IControllers {

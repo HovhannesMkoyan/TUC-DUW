@@ -3,21 +3,23 @@ import { IMappers, IServices } from "../../types";
 
 export default class FileController {
   private fileService: any;
+  private requestService: any;
 
-  constructor({ fileService }: IServices) {
+  constructor({ fileService, requestService }: IServices) {
     this.fileService = fileService;
+    this.requestService = requestService;
   }
 
   public get = async (req: Request, res: Response) => {
     try {
       const file = await this.fileService.get(req.params.uuid);
-      //TODO: get file status and send it alongside the file
+      //TODO: Check if blocked in the blocklist service
 
       return res.status(200).json(file);
     } catch (err) {
+      console.log(err);
       return res.status(500).json({
-        success: false,
-        message: "An error occured while processing the request",
+        error: "An error occured while processing the request",
       });
     }
   };

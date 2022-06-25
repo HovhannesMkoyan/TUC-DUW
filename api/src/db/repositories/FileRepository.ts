@@ -13,7 +13,12 @@ export default class FileRepository {
   get(uuid: string) {
     this.logger.info(`DB :: File :: get :: ${uuid}`);
 
-    return this.db.models.File.findOne({ where: { uuid } })
+    return this.db.models.File.findOne({
+      where: { uuid },
+      include: {
+        model: this.db.models.Request,
+      },
+    })
       .then((book: any) => book)
       .catch((error: any) => console.error("Error: ", error));
   }

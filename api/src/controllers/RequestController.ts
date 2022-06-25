@@ -26,8 +26,7 @@ export default class RequestController {
       return res.status(200).json(file);
     } catch (err) {
       return res.status(500).json({
-        success: false,
-        message: "An error occured while processing the request",
+        error: "An error occured while processing the request",
       });
     }
   };

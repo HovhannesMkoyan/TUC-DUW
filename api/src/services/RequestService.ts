@@ -13,9 +13,9 @@ export default class RequestService {
     this.requestRepository = requestRepository;
   }
 
-  public async get(uuid: string, adjustedResult: boolean = true) {
-    const file = await this.requestRepository.get(uuid);
-    return adjustedResult ? this.requestMapper.toEntity(file) : file;
+  public async get(fileId: number) {
+    const request = await this.requestRepository.get(fileId);
+    return this.requestMapper.toEntity(request);
   }
 
   public async add(

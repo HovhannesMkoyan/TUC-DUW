@@ -9,12 +9,12 @@ export default class RequestRepository {
     this.logger = logger;
   }
 
-  get(uuid: string) {
-    this.logger.info(`DB :: Request :: get :: ${uuid}`);
+  get(FileId: string) {
+    this.logger.info(`DB :: Request :: get :: ${FileId}`);
 
-    return this.db.models.File.findOne({ where: { uuid } })
-      .then((book: any) => book)
-      .catch((error: any) => console.error("Error: ", error));
+    return this.db.models.Request.findOne({ where: { FileId } }).catch(
+      (error: any) => console.error("Error: ", error)
+    );
   }
 
   add(request: IRequest) {
