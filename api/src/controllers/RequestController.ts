@@ -19,6 +19,19 @@ export default class RequestController {
     this.blocklistService = blocklistService;
   }
 
+  public getAll = async (req: Request, res: Response) => {
+    try {
+      const requests = await this.requestService.getAll();
+
+      return res.status(200).json(requests);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        error: "An error occured while processing the request",
+      });
+    }
+  };
+
   public get = async (req: Request, res: Response) => {
     try {
       const file = await this.requestService.get(req.params.uuid);

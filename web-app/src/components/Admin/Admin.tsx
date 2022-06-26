@@ -1,4 +1,4 @@
-import React from "react";
+import { useQuery } from "react-query";
 import { Tabs } from "@mantine/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,9 +7,19 @@ import {
   faArrowRightArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { getAll } from "../../services/request.service";
+import { fetchRequestsKey } from "../../utils/queryKeys";
+import { IRequest } from "../../types";
 import "./Admin.css";
 
 export default function Admin() {
+    const {
+        isLoading,
+        isError,
+        isSuccess,
+        data: file,
+      } = useQuery<IRequest>([fetchRequestsKey], () => getAll());
+
   return (
     <section className="main-container">
       <Tabs tabPadding="xl" grow>

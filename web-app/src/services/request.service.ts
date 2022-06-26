@@ -1,9 +1,9 @@
 import axios from "axios";
 import { IRequest } from "../types";
 
-export const get = async (requestId: string) => {
+export const getAll = async () => {
   const res = await axios.get(
-    `${process.env.REACT_APP_API_ENDPOINT}/api/requests/${requestId}`
+    `${process.env.REACT_APP_API_ENDPOINT}/api/requests`
   );
   return res?.data;
 };

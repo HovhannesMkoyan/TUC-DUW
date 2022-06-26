@@ -1,3 +1,5 @@
+import { IRequest } from "../../types";
+
 export default class RequestService {
   private requestMapper: any;
   private requestRepository: any;
@@ -11,6 +13,14 @@ export default class RequestService {
   }) {
     this.requestMapper = requestMapper;
     this.requestRepository = requestRepository;
+  }
+
+  public async getAll() {
+    const requests = await this.requestRepository.getAll();
+    
+    return requests.map((request: IRequest) =>
+      this.requestMapper.toEntity(request)
+    );
   }
 
   public async get(fileId: number) {
