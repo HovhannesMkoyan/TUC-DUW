@@ -10,9 +10,7 @@ import {
 import { getAll } from "../../services/request.service";
 import { fetchRequestsKey } from "../../utils/queryKeys";
 import { IRequest } from "../../types";
-import AllRequests from "./Requests/AllRequests";
-import PendingRequests from "./Requests/PendingRequests";
-import ResolvedRequests from "./Requests/ResolvedRequests";
+import RequestsTable from "./RequestsTable";
 import InPageLoader from "../Helpers/in-page-loader/InPageLoader";
 import Modal from "../Helpers/Modal/Modal";
 import "./Admin.css";
@@ -23,7 +21,7 @@ export default function Admin() {
     isError,
     isSuccess,
     data: requests,
-  } = useQuery<IRequest>([fetchRequestsKey], () => getAll());
+  } = useQuery<IRequest[]>([fetchRequestsKey], () => getAll());
 
   return (
     <section className="main-container">
@@ -44,19 +42,19 @@ export default function Admin() {
             label="Pending requests"
             icon={<FontAwesomeIcon icon={faHourglass} size="lg" />}
           >
-            <PendingRequests />
+            <RequestsTable requests={requests} tabType="pending" />
           </Tabs.Tab>
           <Tabs.Tab
             label="Resolved requests"
             icon={<FontAwesomeIcon icon={faCircleCheck} size="lg" />}
           >
-            <ResolvedRequests />
+            <RequestsTable requests={requests} tabType="resolved" />
           </Tabs.Tab>
           <Tabs.Tab
             label="All requests"
             icon={<FontAwesomeIcon icon={faArrowRightArrowLeft} size="lg" />}
           >
-            <AllRequests />
+            <RequestsTable requests={requests} tabType="all" />
           </Tabs.Tab>
         </Tabs>
       )}

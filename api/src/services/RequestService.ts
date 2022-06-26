@@ -17,7 +17,7 @@ export default class RequestService {
 
   public async getAll() {
     const requests = await this.requestRepository.getAll();
-    
+
     return requests.map((request: IRequest) =>
       this.requestMapper.toEntity(request)
     );

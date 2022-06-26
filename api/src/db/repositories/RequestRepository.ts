@@ -12,8 +12,8 @@ export default class RequestRepository {
   getAll() {
     this.logger.info(`DB :: Request :: getAll`);
 
-    return this.db.models.Request.findAll().catch(
-      (error: any) => console.error("Error: ", error)
+    return this.db.models.Request.findAll().catch((error: any) =>
+      console.error("Error: ", error)
     );
   }
 
