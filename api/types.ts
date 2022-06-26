@@ -15,6 +15,7 @@ export interface IRequest {
   action: ERequestAction;
   reason: string;
   status: ERequestStatus;
+  File: IFile;
   FileId: number;
   createdAt: Date;
 }

@@ -49,13 +49,13 @@ export default class RequestController {
 
     try {
       const file = await this.fileService.get(uuid, false);
-      const requestRecord = await this.requestService.add(
+      await this.requestService.add(
         file.id,
         reason,
         action
       );
 
-      return res.status(201).json(requestRecord);
+      return res.status(201).json();
     } catch (error: any) {
       console.log(error);
       return res.status(500).send({ error: error.message });

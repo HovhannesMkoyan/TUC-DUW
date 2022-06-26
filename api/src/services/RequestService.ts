@@ -29,7 +29,7 @@ export default class RequestService {
   }
 
   public async add(
-    FileId: string,
+    FileId: number,
     reason: string,
     action: "block" | "unblock"
   ) {
@@ -39,8 +39,6 @@ export default class RequestService {
       action,
     });
 
-    return this.requestMapper.toEntity(
-      await this.requestRepository.add(subscriptionDbObject)
-    );
+    return this.requestRepository.add(subscriptionDbObject);
   }
 }

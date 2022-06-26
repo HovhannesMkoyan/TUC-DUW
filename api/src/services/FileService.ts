@@ -46,9 +46,4 @@ export default class UserService {
       );
     }
   }
-
-  public async checkStatus(uuid: string) {
-    const file = await this.fileRepository.get(uuid);
-    return this.fileMapper.toEntity(file);
-  }
 }

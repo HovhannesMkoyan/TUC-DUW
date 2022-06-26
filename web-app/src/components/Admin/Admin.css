@@ -6,3 +6,20 @@
 .mantine-Tabs-tabsListWrapper {
     border: 0;
 }
+
+.requests-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.request-container {
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 3px 2px #accbee70;
+    transition: all .1s linear;
+}
+
+.request-container:hover {
+    background-color: #accbee70;
+}

@@ -50,12 +50,6 @@ export default function Admin() {
           >
             <RequestsTable requests={requests} tabType="resolved" />
           </Tabs.Tab>
-          <Tabs.Tab
-            label="All requests"
-            icon={<FontAwesomeIcon icon={faArrowRightArrowLeft} size="lg" />}
-          >
-            <RequestsTable requests={requests} tabType="all" />
-          </Tabs.Tab>
         </Tabs>
       )}
     </section>

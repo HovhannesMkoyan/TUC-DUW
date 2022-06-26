@@ -12,7 +12,11 @@ export default class RequestRepository {
   getAll() {
     this.logger.info(`DB :: Request :: getAll`);
 
-    return this.db.models.Request.findAll().catch((error: any) =>
+    return this.db.models.Request.findAll({
+      include: {
+        model: this.db.models.File,
+      },
+    }).catch((error: any) =>
       console.error("Error: ", error)
     );
   }
