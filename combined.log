@@ -603,3 +603,10 @@
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:33:52.729Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:33:58.011Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:34:21.297Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:40:26.339Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:40:27.425Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:40:29.447Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:44:46.073Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:45:26.894Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:45:38.703Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T13:45:53.455Z"}
