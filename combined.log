@@ -662,3 +662,7 @@
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T19:08:44.895Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T19:08:47.755Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T19:09:07.146Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T19:13:02.704Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T19:14:44.496Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T19:14:47.801Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T19:15:09.265Z"}

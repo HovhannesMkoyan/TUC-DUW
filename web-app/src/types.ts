@@ -15,6 +15,7 @@ export interface IRequest {
   reason: string;
   status: "PENDING" | "ACCEPTED" | "DECLINED";
   FileId: number;
+  FileName: number;
   createdAt: string;
 }
 export interface IUi {
