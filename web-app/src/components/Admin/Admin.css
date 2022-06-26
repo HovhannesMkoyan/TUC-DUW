@@ -11,16 +11,21 @@
     font-size: 17px;
 }
 
+.mantine-Badge-root span {
+    color: white;
+}
+
 .requests-container {
-    width: 80%;
+    width: 60%;
+    min-width: 700px;
     margin: 0 auto;
     margin-top: 30px;
 }
 
 .request-container {
-    padding: 15px;
-    margin-bottom: 20px;
+    padding: 20px 15px;
     border-bottom: 2px solid #accbee6e;
+    cursor: pointer;
     transition: all .1s linear;
 }
 
@@ -30,7 +35,7 @@
 
 .request-container svg {
     font-size: 22px;
-    margin-right: 7px;
+    margin-right: 10px;
 }
 
 .request-container a {

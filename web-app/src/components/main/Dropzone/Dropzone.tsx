@@ -97,13 +97,8 @@ export default function Dropzone(): JSX.Element {
             <div key={index} className="selected-file df df-ac">
               <div className="df df-ac">
                 <FileIcon filename={file.path} />
-                {/* <img
-                  src={`/images/${getFileExtensionIcon(file.path)}`}
-                  alt="selected file type icon"
-                  style={{ marginRight: "5px" }}
-                /> */}
                 <p>
-                  {getAdjustedFilename(file.path)} /{" "}
+                  {getAdjustedFilename(file.path, 30)} /{" "}
                   <span>{Math.round((file.size / 1000) * 2) / 2} KB</span>
                 </p>
               </div>

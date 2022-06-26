@@ -14,8 +14,8 @@ export interface IRequest {
   action: "BLOCK" | "UNBLOCK";
   reason: string;
   status: "PENDING" | "ACCEPTED" | "DECLINED";
-  FileId: number;
-  FileName: number;
+  FileId: string;
+  FileName: string;
   createdAt: string;
 }
 export interface IUi {

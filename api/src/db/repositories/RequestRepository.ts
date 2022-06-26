@@ -16,9 +16,7 @@ export default class RequestRepository {
       include: {
         model: this.db.models.File,
       },
-    }).catch((error: any) =>
-      console.error("Error: ", error)
-    );
+    }).catch((error: any) => console.error("Error: ", error));
   }
 
   get(FileId: string) {

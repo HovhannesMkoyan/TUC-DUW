@@ -1,8 +1,8 @@
-const getAdjustedFilename = (filename: string): string => {
+const getAdjustedFilename = (filename: string, length: number): string => {
   let fileExtension = filename.slice(filename.lastIndexOf(".") + 1);
 
-  return filename.length > 30
-    ? filename.substring(0, 30 - 1) + `...${fileExtension}`
+  return filename.length > length
+    ? filename.substring(0, length - 1) + `...${fileExtension}`
     : filename;
 };
 
