@@ -150,7 +150,7 @@ export default function SingleFile(): JSX.Element {
                 <Tooltip text="Download file">
                   <FontAwesomeIcon
                     icon={faCircleDown}
-                    className="file-btn"
+                    className="file-btn file-download-btn"
                     onClick={() => downloadFile(file.uuid)}
                   />
                 </Tooltip>

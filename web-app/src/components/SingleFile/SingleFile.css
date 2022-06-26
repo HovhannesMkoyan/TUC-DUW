@@ -24,9 +24,12 @@
 .file-btn {
     font-size: 28px;
     color: var(--main-grey-color);
-    cursor: pointer;
 }
 
+.file-download-btn {
+    cursor: pointer;
+}
+ 
 .file-menu {
     position: absolute;
     right: 20px;
