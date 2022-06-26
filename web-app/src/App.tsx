@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import SingleFile from "./components/SingleFile/SingleFile";
+import Admin from "./components/Admin/Admin";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import OverPageLoader from "./components/Helpers/over-page-loader/OverPageLoader";
 import Context from "./Context";
@@ -29,8 +30,9 @@ export default function App(): JSX.Element {
               <Header />
               <Routes>
                 <Route path="/" element={<Main />} />
-                <Route element={<NotFoundPage />} />
                 <Route path="/file/:uuid" element={<SingleFile />} />
+                <Route path="/admin" element={<Admin />} />
+                <Route element={<NotFoundPage />} />
               </Routes>
               <OverPageLoader />
             </div>

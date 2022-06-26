@@ -596,3 +596,5 @@
 {"level":"info","message":"DB :: Request :: Add","timestamp":"2022-06-26T10:25:53.195Z"}
 {"level":"info","message":"DB :: File :: get :: e9e704b7-8b6d-4b5f-8712-849dcf6eff49","timestamp":"2022-06-26T10:25:53.214Z"}
 {"level":"info","message":"DB :: File :: get :: 26b73614-f4b4-4a8f-9315-e67ae19162b0","timestamp":"2022-06-26T10:26:12.586Z"}
+{"level":"info","message":"DB :: File :: get :: 26b73614-f4b4-4a8f-9315-e67ae19162b0","timestamp":"2022-06-26T10:26:48.448Z"}
+{"level":"info","message":"DB :: File :: get :: e9e704b7-8b6d-4b5f-8712-849dcf6eff49","timestamp":"2022-06-26T10:26:50.408Z"}
