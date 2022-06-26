@@ -1,5 +1,6 @@
 .mantine-Tabs-root button {
     border-radius: 0;
+    color: var(--main-color);
 }
 
 .mantine-Tabs-tabsListWrapper {

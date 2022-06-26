@@ -174,7 +174,7 @@ export default function Dropzone(): JSX.Element {
           <Tooltip text="Click to Copy">
             <FontAwesomeIcon
               icon={faClone}
-              style={{ color: "var(--main-grey-color)" }}
+              style={{ color: "var(--main-color)" }}
               onClick={() =>
                 copy(`${process.env.REACT_APP_WEBAPP_ENDPOINT}/${newFileUrl}`)
               }

@@ -23,7 +23,7 @@
 
 .file-btn {
     font-size: 28px;
-    color: var(--main-grey-color);
+    color: var(--main-color);
 }
 
 .file-download-btn {
@@ -35,7 +35,7 @@
     right: 20px;
     top: 20px;
     font-size: 25px;
-    color: var(--main-grey-color);
+    color: var(--main-color);
 }
 
 .file-menu button {
@@ -43,7 +43,7 @@
 }
 
 .mantine-Menu-item svg, .mantine-Menu-item div {
-    color: var(--main-grey-color);
+    color: var(--main-color);
 }
 
 .mantine-ActionIcon-root svg {
