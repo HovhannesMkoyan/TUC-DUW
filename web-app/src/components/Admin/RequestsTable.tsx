@@ -42,7 +42,7 @@ export default function RequestsTable({
             <p>{getAdjustedFilename(request.FileName, 63)}</p>
           </div>
           <Badge size="lg" radius="sm" variant="filled">
-            {request.action}
+            {request.status === "PENDING" ? request.action : `${request.action}ED`}
           </Badge>
         </div>
       ))}

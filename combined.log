@@ -690,3 +690,6 @@
 {"level":"info","message":"DB :: Request :: Add","timestamp":"2022-06-26T19:37:17.799Z"}
 {"level":"info","message":"DB :: File :: get :: 5bf565c4-e159-4f62-978d-b0c9ebbf6d28","timestamp":"2022-06-26T19:37:17.826Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-26T19:37:20.159Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-27T04:48:14.753Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-27T04:48:16.507Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-27T04:49:27.204Z"}
