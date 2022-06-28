@@ -49,17 +49,16 @@ export default function RequestsTable({
                   setRequestInfo(request);
                 }}
               >
-                <div className="df df-ac df-fs" style={{width: "500px"}}>
+                <div className="df df-ac df-fs" style={{ width: "500px" }}>
                   <FileIcon filename={request.FileName} />
-                  {request.status !== "PENDING" ? (
+                  {/* {request.status !== "PENDING" ? (
                     <Link to={`/file/${request?.FileId}`}>
                       {request.FileName}
                     </Link>
                   ) : (
-                    <p>
-                      {request.FileName}
-                    </p>
-                  )}
+                    <p>{request.FileName}</p>
+                  )} */}
+                  <p>{request.FileName}</p>
                 </div>
                 <p>{formatDate(new Date(request.createdAt))}</p>
                 <Badge size="lg" radius="sm" variant="filled">
@@ -76,7 +75,7 @@ export default function RequestsTable({
       <Modal
         onclose={() => setRequestInfoModalOpen(false)}
         isOpen={requestInfoModalOpen}
-        size="md"
+        size="lg"
       >
         <RequestInfo request={requestInfo!} />
       </Modal>
