@@ -109,3 +109,7 @@ input, textarea {
   font-size: 13px;
   color: #ce6057;
 }
+
+.ta-center {
+  text-align: center;
+}

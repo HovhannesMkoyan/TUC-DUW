@@ -11,6 +11,11 @@
     font-size: 17px;
 }
 
+.mantine-Badge-root {
+    min-width: 110px;
+    margin-left: 40px;
+}
+
 .mantine-Badge-root span {
     color: white;
 }
@@ -38,6 +43,8 @@
     margin-right: 10px;
 }
 
-.request-container a {
+.request-container a, p {
     font-size: 16px;
+    text-align: left;
+    overflow-wrap: anywhere;
 }

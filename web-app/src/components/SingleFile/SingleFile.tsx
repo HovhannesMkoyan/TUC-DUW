@@ -129,6 +129,11 @@ export default function SingleFile(): JSX.Element {
               <div className="filesize">
                 <p>Filesize: {Math.round(+file.size / 1000)} KB</p>
               </div>
+              {!file.reported && file.blocked && (
+                <Tooltip text="File is blocked">
+                  <FontAwesomeIcon icon={faBan} className="file-btn" />
+                </Tooltip>
+              )}
               {file.reported && (
                 <Tooltip
                   text={
@@ -138,11 +143,6 @@ export default function SingleFile(): JSX.Element {
                   }
                 >
                   <OvalLoader size={28} />
-                </Tooltip>
-              )}
-              {!file.reported && file.blocked && (
-                <Tooltip text="File is blocked">
-                  <FontAwesomeIcon icon={faBan} className="file-btn" />
                 </Tooltip>
               )}
               {!file.reported && !file.blocked && (
