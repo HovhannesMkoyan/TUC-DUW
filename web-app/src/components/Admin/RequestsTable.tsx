@@ -7,6 +7,7 @@ import Modal from "../Helpers/Modal/Modal";
 import RequestInfo from "./RequestInfo";
 import getAdjustedFilename from "../../helpers/get-adjusted-filename";
 import { IRequest } from "../../types";
+import formatDate from "../../helpers/format-date";
 
 export default function RequestsTable({
   requests,
@@ -34,7 +35,9 @@ export default function RequestsTable({
     <>
       <div className="requests-container">
         {adjustedRequests.length === 0 ? (
-          <p className="ta-center">{`There are no ${tabType === "pending" ? "pending" : "resolved"} requests`}</p>
+          <p className="ta-center">{`There are no ${
+            tabType === "pending" ? "pending" : "resolved"
+          } requests`}</p>
         ) : (
           <>
             {adjustedRequests.map((request: IRequest, index: any) => (
@@ -46,20 +49,19 @@ export default function RequestsTable({
                   setRequestInfo(request);
                 }}
               >
-                <div className="df df-ac">
+                <div className="df df-ac df-fs" style={{width: "500px"}}>
                   <FileIcon filename={request.FileName} />
                   {request.status !== "PENDING" ? (
                     <Link to={`/file/${request?.FileId}`}>
-                      {/* {getAdjustedFilename(request.FileName, 63)} */}
                       {request.FileName}
                     </Link>
                   ) : (
                     <p>
-                      {/* {getAdjustedFilename(request.FileName, 63)} */}
                       {request.FileName}
                     </p>
                   )}
                 </div>
+                <p>{formatDate(new Date(request.createdAt))}</p>
                 <Badge size="lg" radius="sm" variant="filled">
                   {request.status === "PENDING"
                     ? request.action

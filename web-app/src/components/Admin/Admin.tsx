@@ -24,7 +24,7 @@ export default function Admin() {
   } = useQuery<IRequest[]>([fetchRequestsKey], () => getAll());
 
   return (
-    <section className="main-container">
+    <section className="main-container admin-container">
       {isLoading && <InPageLoader />}
       {isError && (
         <Modal isOpen={true} showClosetBtn={false} size="md">

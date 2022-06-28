@@ -1,3 +1,7 @@
+.admin-container {
+    width: 70%;
+}
+
 .mantine-Tabs-root button {
     border-radius: 0;
     color: var(--main-color);
@@ -21,7 +25,6 @@
 }
 
 .requests-container {
-    width: 60%;
     min-width: 700px;
     margin: 0 auto;
     margin-top: 30px;

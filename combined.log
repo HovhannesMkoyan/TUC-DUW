@@ -760,3 +760,24 @@
 {"level":"info","message":"DB :: Request :: Add","timestamp":"2022-06-28T08:05:13.125Z"}
 {"level":"info","message":"DB :: File :: get :: 7d11ba33-e5df-4672-9e65-d0a508500579","timestamp":"2022-06-28T08:05:13.143Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:05:19.302Z"}
+{"level":"info","message":"DB :: File :: get :: 7d11ba33-e5df-4672-9e65-d0a508500579","timestamp":"2022-06-28T08:06:39.210Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:07:00.408Z"}
+{"level":"info","message":"DB :: File :: get :: 7d11ba33-e5df-4672-9e65-d0a508500579","timestamp":"2022-06-28T08:17:31.200Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:17:44.203Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:17:50.189Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:18:08.850Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:18:10.468Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-06-28T08:23:03.321Z"}
+{"level":"info","message":"DB :: File :: get :: ac191eff-b965-4ec9-849e-bf75562630b0","timestamp":"2022-06-28T08:23:04.860Z"}
+{"level":"info","message":"DB :: File :: get :: ac191eff-b965-4ec9-849e-bf75562630b0","timestamp":"2022-06-28T08:23:17.554Z"}
+{"level":"info","message":"DB :: Request :: Add","timestamp":"2022-06-28T08:23:17.579Z"}
+{"level":"info","message":"DB :: File :: get :: ac191eff-b965-4ec9-849e-bf75562630b0","timestamp":"2022-06-28T08:23:17.594Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:23:20.784Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:25:22.726Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:25:55.013Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:26:24.175Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:34:22.560Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:35:07.890Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:35:30.315Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:35:47.613Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T09:20:14.803Z"}
