@@ -782,3 +782,7 @@
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T08:35:47.613Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T09:20:14.803Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T09:27:01.623Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-06-28T09:37:32.307Z"}
+{"level":"info","message":"DB :: File :: get :: ac191eff-b965-4ec9-849e-bf75562630b0","timestamp":"2022-06-28T09:37:39.919Z"}
+{"level":"info","message":"DB :: File :: get :: ac191eff-b965-4ec9-849e-bf75562630b0","timestamp":"2022-06-28T09:37:44.400Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-03T14:27:52.210Z"}

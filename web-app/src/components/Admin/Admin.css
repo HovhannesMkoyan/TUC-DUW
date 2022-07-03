@@ -60,14 +60,14 @@
     margin: 0;
 }
 
-.request-actions-container {
-    margin-top: 30px;
-}
-
 .request-modal-file-title {
     margin-top: 30px;
     margin-bottom: 20px;
     text-decoration: underline;
+}
+
+.request-actions-container {
+    margin-top: 50px;
 }
 
 .request-actions-container button:first-child{
