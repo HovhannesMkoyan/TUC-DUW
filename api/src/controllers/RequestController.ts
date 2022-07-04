@@ -57,4 +57,17 @@ export default class RequestController {
       return res.status(500).send({ error: error.message });
     }
   };
+
+  public update = async (req: Request, res: Response) => {
+    const { uuid, status } = req.body;
+
+    try {
+      await this.requestService.update(uuid, status);
+
+      return res.status(200).send();
+    } catch (error: any) {
+      console.log(error);
+      return res.status(500).send({ error: error.message });
+    }
+  };
 }

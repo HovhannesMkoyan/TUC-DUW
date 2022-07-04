@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
   faHourglass,
-  faArrowRightArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { getAll } from "../../services/request.service";

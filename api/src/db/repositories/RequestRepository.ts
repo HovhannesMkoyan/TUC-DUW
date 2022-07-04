@@ -16,24 +16,28 @@ export default class RequestRepository {
       include: {
         model: this.db.models.File,
       },
-    }).catch((error: any) => console.error("Error: ", error));
+    });
   }
+  
+  getByFileId(FileId: string) {
+    this.logger.info(`DB :: Request :: getByFileId :: ${FileId}`);
 
-  get(FileId: string) {
-    this.logger.info(`DB :: Request :: get :: ${FileId}`);
-
-    return this.db.models.Request.findOne({ where: { FileId } }).catch(
-      (error: any) => console.error("Error: ", error)
-    );
+    return this.db.models.Request.findOne({ where: { FileId } });
   }
 
   add(request: IRequest) {
     this.logger.info(`DB :: Request :: Add`);
 
-    return this.db.models.Request.create(request).catch(
-      (error: string | undefined) => {
-        throw new Error(error);
+    return this.db.models.Request.create(request);
+  }
+
+  update(request: Partial<IRequest>) {
+    this.logger.info(`DB :: Request :: Update`);
+
+    return this.db.models.Request.update({ status: request.status }, {
+      where: {
+        uuid: request.uuid
       }
-    );
+    })
   }
 }

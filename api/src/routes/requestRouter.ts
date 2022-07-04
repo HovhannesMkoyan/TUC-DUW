@@ -8,5 +8,6 @@ const router = Router();
 router.get("/", RequestController.getAll);
 router.get("/:uuid", RequestController.get);
 router.post("/", RequestController.add);
+router.put("/:uuid", RequestController.update);
 
 export default router;

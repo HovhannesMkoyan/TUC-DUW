@@ -1,4 +1,4 @@
-import { IRequest } from "../../types";
+import { IRequest, ERequestStatus } from "../../types";
 
 export default class RequestService {
   private requestMapper: any;
@@ -24,7 +24,7 @@ export default class RequestService {
   }
 
   public async get(fileId: number) {
-    const request = await this.requestRepository.get(fileId);
+    const request = await this.requestRepository.getByFileId(fileId);
     return this.requestMapper.toEntity(request);
   }
 
@@ -40,5 +40,15 @@ export default class RequestService {
     });
 
     return this.requestRepository.add(subscriptionDbObject);
+  }
+
+  public async update(
+    uuid: string,
+    status: ERequestStatus
+  ) {
+    return this.requestRepository.update({
+      uuid,
+      status
+    });
   }
 }

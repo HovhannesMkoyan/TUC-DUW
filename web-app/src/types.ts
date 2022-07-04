@@ -1,3 +1,4 @@
+export type RequestStatusType = "PENDING" | "ACCEPTED" | "DECLINED";
 export interface IFile {
   uuid: string;
   name: string;
@@ -13,7 +14,7 @@ export interface IRequest {
   uuid: string;
   action: "BLOCK" | "UNBLOCK";
   reason: string;
-  status: "PENDING" | "ACCEPTED" | "DECLINED";
+  status: RequestStatusType;
   FileId: string;
   FileName: string;
   createdAt: string;
