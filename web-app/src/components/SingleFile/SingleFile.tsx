@@ -124,7 +124,7 @@ export default function SingleFile(): JSX.Element {
 
             <FileIcon filename={file.name} />
             <p className="file-title">{file.name}</p>
-            {file.description && <p>{file.description}</p>}
+            {file.description && <p className="file-description">{file.description}</p>}
             <div className="df df-ac filesize-download-container">
               <div className="filesize">
                 <p>Filesize: {Math.round(+file.size / 1000)} KB</p>

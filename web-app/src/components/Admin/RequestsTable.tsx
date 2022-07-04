@@ -40,7 +40,7 @@ export default function RequestsTable({
           } requests`}</p>
         ) : (
           <>
-            {adjustedRequests.map((request: IRequest, index: any) => (
+            {adjustedRequests.reverse().map((request: IRequest, index: any) => (
               <div
                 key={index}
                 className="request-container df df-ac"
