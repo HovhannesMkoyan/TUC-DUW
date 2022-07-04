@@ -819,3 +819,14 @@
 {"level":"info","message":"DB :: Request :: Add","timestamp":"2022-07-04T20:02:58.402Z"}
 {"level":"info","message":"DB :: Request :: Update","timestamp":"2022-07-04T20:06:08.073Z"}
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-04T20:06:44.478Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-04T20:07:59.648Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-04T20:08:03.518Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-04T20:08:16.143Z"}
+{"level":"info","message":"DB :: Files :: Add","timestamp":"2022-07-04T20:08:25.973Z"}
+{"level":"info","message":"DB :: File :: get :: 44dc8836-6199-464e-8ad9-799de05883ad","timestamp":"2022-07-04T20:08:26.907Z"}
+{"level":"info","message":"DB :: File :: get :: 44dc8836-6199-464e-8ad9-799de05883ad","timestamp":"2022-07-04T20:08:34.799Z"}
+{"level":"info","message":"DB :: Request :: Add","timestamp":"2022-07-04T20:08:34.805Z"}
+{"level":"info","message":"DB :: File :: get :: 44dc8836-6199-464e-8ad9-799de05883ad","timestamp":"2022-07-04T20:08:34.816Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-04T20:08:36.449Z"}
+{"level":"info","message":"DB :: Request :: Update","timestamp":"2022-07-04T20:08:45.460Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-04T20:08:53.327Z"}
