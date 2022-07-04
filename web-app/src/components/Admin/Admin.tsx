@@ -1,10 +1,7 @@
 import { useQuery } from "react-query";
 import { Tabs } from "@mantine/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleCheck,
-  faHourglass,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faHourglass } from "@fortawesome/free-solid-svg-icons";
 
 import { getAll } from "../../services/request.service";
 import { fetchRequestsKey } from "../../utils/queryKeys";

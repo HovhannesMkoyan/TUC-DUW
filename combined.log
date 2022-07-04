@@ -818,3 +818,4 @@
 {"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-04T20:02:55.941Z"}
 {"level":"info","message":"DB :: Request :: Add","timestamp":"2022-07-04T20:02:58.402Z"}
 {"level":"info","message":"DB :: Request :: Update","timestamp":"2022-07-04T20:06:08.073Z"}
+{"level":"info","message":"DB :: Request :: getAll","timestamp":"2022-07-04T20:06:44.478Z"}

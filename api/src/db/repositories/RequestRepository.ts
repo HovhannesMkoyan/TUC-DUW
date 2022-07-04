@@ -18,7 +18,7 @@ export default class RequestRepository {
       },
     });
   }
-  
+
   getByFileId(FileId: string) {
     this.logger.info(`DB :: Request :: getByFileId :: ${FileId}`);
 
@@ -34,10 +34,13 @@ export default class RequestRepository {
   update(request: Partial<IRequest>) {
     this.logger.info(`DB :: Request :: Update`);
 
-    return this.db.models.Request.update({ status: request.status }, {
-      where: {
-        uuid: request.uuid
+    return this.db.models.Request.update(
+      { status: request.status },
+      {
+        where: {
+          uuid: request.uuid,
+        },
       }
-    })
+    );
   }
 }

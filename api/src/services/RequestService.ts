@@ -42,13 +42,10 @@ export default class RequestService {
     return this.requestRepository.add(subscriptionDbObject);
   }
 
-  public async update(
-    uuid: string,
-    status: ERequestStatus
-  ) {
+  public async update(uuid: string, status: ERequestStatus) {
     return this.requestRepository.update({
       uuid,
-      status
+      status,
     });
   }
 }

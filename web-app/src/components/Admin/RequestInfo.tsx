@@ -32,7 +32,7 @@ export default function RequestInfo({ request }: { request: IRequest }) {
 
     return mutation.mutate(requestObj);
   };
-  
+
   return (
     <div className="request-modal">
       <Badge size="lg" radius="sm" variant="filled">
@@ -40,7 +40,11 @@ export default function RequestInfo({ request }: { request: IRequest }) {
           ? request?.action
           : `${request?.action}ED`}
       </Badge>
-      <Link to={`/file/${request?.FileId}`} target="_blank" className="request-modal-file-title">
+      <Link
+        to={`/file/${request?.FileId}`}
+        target="_blank"
+        className="request-modal-file-title"
+      >
         {request?.FileName}
       </Link>
       <p className="ta-center bold">{request?.reason}</p>
