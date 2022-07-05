@@ -51,21 +51,25 @@ export default function RequestsTable({
               >
                 <div className="df df-ac df-fs" style={{ width: "500px" }}>
                   <FileIcon filename={request.FileName} />
-                  {/* {request.status !== "PENDING" ? (
-                    <Link to={`/file/${request?.FileId}`}>
-                      {request.FileName}
-                    </Link>
-                  ) : (
-                    <p>{request.FileName}</p>
-                  )} */}
                   <p>{request.FileName}</p>
                 </div>
-                <p>{formatDate(new Date(request.createdAt))}</p>
-                <Badge size="lg" radius="sm" variant="filled">
-                  {request.status === "PENDING"
-                    ? request.action
-                    : `${request.action}ED`}
-                </Badge>
+                {request.status === "PENDING" ? (
+                  <>
+                    <p>{formatDate(new Date(request.createdAt))}</p>
+                    <Badge size="lg" radius="sm" variant="filled">
+                      {request.action}
+                    </Badge>
+                  </>
+                ) : (
+                  <>
+                    <Badge size="lg" radius="sm" variant="filled">
+                      {request.action}
+                    </Badge>
+                    <Badge size="lg" radius="sm" variant="filled" color={request.status === "ACCEPTED" ? "teal" : "red"}>
+                      {request.status}
+                    </Badge>
+                  </>
+                )}
               </div>
             ))}
           </>

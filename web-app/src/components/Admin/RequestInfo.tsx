@@ -47,11 +47,15 @@ export default function RequestInfo({ request }: { request: IRequest }) {
       >
         {request?.FileName}
       </Link>
-      <p className="ta-center bold">{request?.reason}</p>
-      <div className="request-actions-container">
-        <button onClick={() => updateRequest("ACCEPTED")}>Accept</button>
-        <button onClick={() => updateRequest("DECLINED")}>Reject</button>
-      </div>
+      <p className="ta-center">
+        <span className="bold">Reason:</span> {request?.reason}
+      </p>
+      {request?.status === "PENDING" && (
+        <div className="request-actions-container">
+          <button onClick={() => updateRequest("ACCEPTED")}>Accept</button>
+          <button onClick={() => updateRequest("DECLINED")}>Reject</button>
+        </div>
+      )}
     </div>
   );
 }
