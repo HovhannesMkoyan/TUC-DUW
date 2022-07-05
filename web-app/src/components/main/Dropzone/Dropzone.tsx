@@ -118,13 +118,13 @@ export default function Dropzone(): JSX.Element {
         {selectedFiles.length > 0 && (
           <>
             {+(selectedFiles[0].size / 1000000).toPrecision(2) > 10 ? (
-              <p className="selected-files-size-exceed">
+              <p className="selected-files-size-exceed ta-center">
                 File size exceeds 10 MB. Please choose another file.
               </p>
             ) : (
               <>
                 <p
-                  className="add-description bold"
+                  className="add-description bold ta-center"
                   onClick={() => setDescripitonModal(true)}
                 >
                   {description.length === 0

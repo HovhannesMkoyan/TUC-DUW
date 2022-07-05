@@ -8,13 +8,13 @@ export enum ERequestStatus {
   ACCEPTED = "ACCEPTED",
   DECLINED = "DECLINED",
 }
-
+export type RequestStatusType = "PENDING" | "ACCEPTED" | "DECLINED";
 export interface IRequest {
   id: number;
   uuid: string;
   action: ERequestAction;
   reason: string;
-  status: ERequestStatus;
+  status: RequestStatusType;
   File: IFile;
   FileId: number;
   createdAt: Date;

@@ -24,7 +24,7 @@ export default function Admin() {
       {isLoading && <InPageLoader />}
       {isError && (
         <Modal isOpen={true} showClosetBtn={false} size="md">
-          <p>There is no such file</p>
+          <p className="ta-center">Error occurred. Please refresh the page.</p>
           <div className="modal-link_container">
             <button onClick={() => (document.location.href = "/")}>
               Home page

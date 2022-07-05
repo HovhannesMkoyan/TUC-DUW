@@ -75,7 +75,7 @@ export default function SingleFile(): JSX.Element {
       {isLoading && <InPageLoader />}
       {isError && (
         <Modal isOpen={true} showClosetBtn={false} size="md">
-          <p>There is no such file</p>
+          <p className="ta-center">There is no such file</p>
           <div className="modal-link_container">
             <button onClick={() => (document.location.href = "/")}>
               Home page
@@ -123,9 +123,9 @@ export default function SingleFile(): JSX.Element {
             </div>
 
             <FileIcon filename={file.name} />
-            <p className="file-title">{file.name}</p>
+            <p className="file-title ta-center">{file.name}</p>
             {file.description && (
-              <p className="file-description">{file.description}</p>
+              <p className="ta-center">{file.description}</p>
             )}
             <div className="df df-ac filesize-download-container">
               <div className="filesize">

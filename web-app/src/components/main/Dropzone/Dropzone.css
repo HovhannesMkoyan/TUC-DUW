@@ -90,13 +90,11 @@
     font-weight: 400;
     font-size: 14px;
     color: #ce6057;
-    text-align: center;
 }
 
 .add-description {
     font-size: 14px;
     cursor: pointer;
-    text-align: center;
 }
 
 .add-description img {

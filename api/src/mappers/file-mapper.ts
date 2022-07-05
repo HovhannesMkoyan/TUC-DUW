@@ -12,13 +12,19 @@ export default {
   },
 
   toEntity(databaseObject: IFile) {
+    const reported = getReportedValue(databaseObject.Requests);
+    let reportType = null;
+    if (reported) {
+      reportType = getReportType(databaseObject.Requests);
+    }
+    
     return {
       uuid: databaseObject.uuid,
       name: databaseObject.name,
       description: databaseObject.description,
       size: parseInt(databaseObject.size as string),
-      reported: getReportedValue(databaseObject.Requests),
-      reportType: getReportType(databaseObject.Requests),
+      reported,
+      reportType,
       blocked: false,
       createdAt: databaseObject.createdAt,
     };
@@ -26,11 +32,17 @@ export default {
 };
 
 function getReportedValue(requests: IRequest[]) {
-  if (requests) {
-    return requests.length !== 0 ? true : false;
+  let reported = false;
+  
+  if (requests && requests.length !== 0) {
+    for (const request of requests) {
+      if(request.status === "PENDING") {
+        reported = true;
+      }
+    }
   }
 
-  return false;
+  return reported;
 }
 
 function getReportType(requests: IRequest[]) {

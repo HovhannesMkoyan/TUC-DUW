@@ -18,18 +18,12 @@ export default class FileRepository {
       include: {
         model: this.db.models.Request,
       },
-    })
-      .then((book: any) => book)
-      .catch((error: any) => console.error("Error: ", error));
+    });
   }
 
   add(file: IFile) {
     this.logger.info(`DB :: Files :: Add`);
 
-    return this.db.models.File.create(file).catch(
-      (error: string | undefined) => {
-        throw new Error(error);
-      }
-    );
+    return this.db.models.File.create(file);
   }
 }
