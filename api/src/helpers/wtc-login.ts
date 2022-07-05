@@ -22,8 +22,8 @@ export const wtcLogin = async (cb: () => void) => {
     )}`
   );
 
-  const formElement = parse(request.data).querySelector("#KrbIdP");
-  const uri = formElement?.rawAttributes.action.replace("amp;", "");
+  const loginElement = parse(request.data).querySelector("#KrbIdP");
+  const uri = loginElement?.rawAttributes.action.replace("amp;", "");
 
   let formData = new FormData();
   formData.append("session", "true");
@@ -40,46 +40,55 @@ export const wtcLogin = async (cb: () => void) => {
 
     loginUrl = anchorElementAttr!.substring(20, anchorElementAttr!.length - 1);
   }
+  console.log("----1----", loginUrl);
+  const res = await axios.get(loginUrl as string);
+  // const retryUrl = res.request.res.responseUrl.slice(
+  //   res.request.res.responseUrl.indexOf("retryURL=") + "retryURL=".length
+  // );
 
-  await axios.get(loginUrl as string);
-  // console.log(loginUrl)
-  const AuthState = loginUrl?.slice(loginUrl.indexOf("AuthState=") + "AuthState=".length);
+  // const res1 = await axios.get(decodeURIComponent(retryUrl));
+  // console.log(res1);
+
+  const AuthState = loginUrl?.slice(
+    loginUrl.indexOf("AuthState=") + "AuthState=".length
+  );
+  console.log("----2----", AuthState);
 
   // Username form submit
   formData = new FormData();
   formData.append("username", "hmk");
   formData.append("AuthState", AuthState);
-  await axios
-    .post(
-      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php`, formData
-    )
-    // .then((res) => console.log(res))
-    // .catch((err) => console.log(err));
+  await axios.post(
+    `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=${AuthState}`,
+    formData
+  )
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
 
-
-    // Password form submit
-    formData = new FormData();
+  return;
+  // Password form submit
+  formData = new FormData();
   formData.append("username", "hmk");
   formData.append("password", "122334joh_N");
   formData.append("AuthState", AuthState);
   await axios
     .post(
-      `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php`, formData
+      `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php`,
+      formData
     )
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 
-
-    // Final request
-    // formData = new FormData();
-    // formData.append("SAMLResponse", "");
-    // formData.append("RelayState", "");
-    // await axios
-    //   .post(
-    //     "https://www.tu-chemnitz.de/Shibboleth.sso/SAML2/POST", formData
-    //   )
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err));
+  // Final request
+  // formData = new FormData();
+  // formData.append("SAMLResponse", "");
+  // formData.append("RelayState", "");
+  // await axios
+  //   .post(
+  //     "https://www.tu-chemnitz.de/Shibboleth.sso/SAML2/POST", formData
+  //   )
+  //   .then((res) => console.log(res))
+  //   .catch((err) => console.log(err));
 
   // await axios
   //   .get(
