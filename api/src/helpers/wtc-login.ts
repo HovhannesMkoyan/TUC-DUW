@@ -1,19 +1,63 @@
 import superagent from "superagent";
+import axios from "axios";
+import { parse } from "node-html-parser";
+var FormData = require('form-data');
+
 const agent = superagent.agent();
+axios.defaults.withCredentials = true;
 
-const LOGIN_PAGE_URL = "https://www.tu-chemnitz.de/tu/wtc/index.html.en";
-const USERNAME_INPUT_URL =
-  "https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?"; // requires authstate param
-
+const LOGIN_PAGE_URL = "https://www.tu-chemnitz.de/informatik/DVS/blocklist/";
 export const wtcLogin = async (cb: () => void) => {
-  const res1 = await agent.get(LOGIN_PAGE_URL);
-  const res2 = await agent.get(res1.redirects[0]).cookies;
-  const res3 = await agent.get(USERNAME_INPUT_URL);
-  const res6 = await agent.get(USERNAME_INPUT_URL);
-  console.log(res3.redirects);
-  console.log(res6.redirects);
+  try {
+    //let request = await agent.get(LOGIN_PAGE_URL);
+    // let request = await agent.get(LOGIN_PAGE_URL);
+    // return;
+    // const htmlRoot = parse(request.text);
+    // const formElement = htmlRoot.querySelector("#KrbIdP");
+    // // console.log(formElement?.rawAttributes.action);
+    // request = await agent.post(
+    //   `https://wtc.tu-chemnitz.de/${formElement?.rawAttributes.action}`
+    // );
+    // console.log(request.text);
+    // return;
+    // const decodedRedirectURI = decodeURIComponent(request.redirects[0]);
+    // let stringAfterLogin = decodedRedirectURI.slice(decodedRedirectURI.indexOf("Login?") + "Login?".length);
+    // console.log(`https://www.tu-chemnitz.de/Shibboleth.sso/Login?${encodeURIComponent(stringAfterLogin)}`);
+    // request = await agent.get(`https://www.tu-chemnitz.de/Shibboleth.sso/Login?${encodeURIComponent(stringAfterLogin)}`);
+    //console.log(request);
 
-  return cb();
+    const request1 = await axios.get(LOGIN_PAGE_URL, { withCredentials: true });
+    const redirectUrl = request1.request.res.responseUrl;
+
+    const decodedRedirectURI = decodeURIComponent(redirectUrl);
+    const stringAfterLogin = decodedRedirectURI.slice(
+      decodedRedirectURI.indexOf("Login?") + "Login?".length
+    );
+
+    const newUrl = `https://www.tu-chemnitz.de/Shibboleth.sso/Login?${encodeURIComponent(
+      stringAfterLogin
+    )}`;
+    const request2 = await axios.get(newUrl,
+      { withCredentials: true }
+    );
+    const htmlRoot = parse(request2.data);
+    const formElement = htmlRoot.querySelector("#KrbIdP");
+    console.log(formElement?.rawAttributes.action)
+    const uri = formElement?.rawAttributes.action.replace('amp;', '');
+    console.log(uri);
+    const formData = new FormData()
+    formData.append('session', 'true');
+    formData.append('user_idp', 'https://wtc.tu-chemnitz.de/shibboleth');
+
+    const request3 = await axios.post(
+      `https://wtc.tu-chemnitz.de${uri}`, formData, { withCredentials: true }
+    ) .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+    return cb();
+  } catch (error) {}
 };
-
-//https://wtc.tu-chemnitz.de/shibboleth/WAYF?entityID=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&return=https%3A%2F%2Fwww.tu-chemnitz.de%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253A20d3baa748af00f6cb87d68abae6e84d5ce2548b692621e75c9e565412bf4e28

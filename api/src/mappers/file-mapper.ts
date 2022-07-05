@@ -17,7 +17,7 @@ export default {
     if (reported) {
       reportType = getReportType(databaseObject.Requests);
     }
-    
+
     return {
       uuid: databaseObject.uuid,
       name: databaseObject.name,
@@ -33,10 +33,10 @@ export default {
 
 function getReportedValue(requests: IRequest[]) {
   let reported = false;
-  
+
   if (requests && requests.length !== 0) {
     for (const request of requests) {
-      if(request.status === "PENDING") {
+      if (request.status === "PENDING") {
         reported = true;
       }
     }

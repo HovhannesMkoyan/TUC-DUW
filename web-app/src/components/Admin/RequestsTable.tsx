@@ -65,7 +65,12 @@ export default function RequestsTable({
                     <Badge size="lg" radius="sm" variant="filled">
                       {request.action}
                     </Badge>
-                    <Badge size="lg" radius="sm" variant="filled" color={request.status === "ACCEPTED" ? "teal" : "red"}>
+                    <Badge
+                      size="lg"
+                      radius="sm"
+                      variant="filled"
+                      color={request.status === "ACCEPTED" ? "teal" : "red"}
+                    >
                       {request.status}
                     </Badge>
                   </>

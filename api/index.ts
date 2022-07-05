@@ -7,5 +7,5 @@ sequelize
   .then(() =>
     app.listen(port, () => console.log(`Server is running on port ${port}`))
   )
-  //.then(() => wtcLogin(() => console.log("Logged in into WTC")))
-  .catch((e: any) => console.log(e));
+  .then(() => wtcLogin(() => console.log("Logged in into WTC")))
+  .catch((e: any) => console.log("Unable to login to WTC"));
