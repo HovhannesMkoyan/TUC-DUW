@@ -1,3 +1,87 @@
 Cookie: 
     WTC_AUTHENTICATED=hmk; 
     _shibsession_7777772e74752d6368656d6e69747a2e64655f61707068747470733a2f2f7777772e74752d6368656d6e69747a2e64652f73686962626f6c657468=_7b81610e1e8a80c3d9da9c983d59b58f
+
+
+
+
+1. GET -> https://www.tu-chemnitz.de/informatik/DVS/blocklist/
+
+Redirects to https://wtc.tu-chemnitz.de/shibboleth/WAYF?entityID=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&return=https%3A%2F%2Fwww.tu-chemnitz.de%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
+
+
+
+2. GET -> https://wtc.tu-chemnitz.de/shibboleth/WAYF?entityID=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&return=https%3A%2F%2Fwww.tu-chemnitz.de%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
+    Query params: 
+        entityID: https://www.tu-chemnitz.de/shibboleth
+        return: https://www.tu-chemnitz.de/Shibboleth.sso/Login?SAMLDS=1&target=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
+
+
+
+3. POST -> https://wtc.tu-chemnitz.de/shibboleth/WAYF?entityID=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&return=https%3A%2F%2Fwww.tu-chemnitz.de%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
+    Query params: 
+        entityID: https://www.tu-chemnitz.de/shibboleth
+        return: https://www.tu-chemnitz.de/Shibboleth.sso/Login?SAMLDS=1&target=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
+    FormData:
+        session: true
+        user_idp: https://wtc.tu-chemnitz.de/shibboleth
+
+
+
+4. Fires GET -> https://www.tu-chemnitz.de/Shibboleth.sso/Login?SAMLDS=1&target=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa&entityID=https%3A%2F%2Fwtc.tu-chemnitz.de%2Fshibboleth
+    Query params: 
+        SAMLDS: 1
+        target: ss:mem:ca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
+        entityID: https://wtc.tu-chemnitz.de/shibboleth
+
+
+
+5. Fires GET -> https://wtc.tu-chemnitz.de/krb/saml2/idp/SSOService.php?SAMLRequest=fZJPT4MwGMa%2FCukdCt2Q0AwS3A4umY4IevBiCnTSCC32LaJ%2BemFMMz3s3Ke%2F50%2FeFbC26WjSm1re87eeg7E%2B2kYCPT5EqNeSKgYCqGQtB2pKmiW3O0ocl3ZaGVWqBlkJANdGKLlWEvqW64zrd1Hyh%2FtdhGpjOqAYD8PgmN4ua95KYb6ciuOsFkWhGm5qB0DhiUxwus9yZG3GKEKyCXqGMOV%2FxKsu8JSVYFF1OMv2J2unqztkbTcRei68YnEIQ4%2B54bLyvSpkBxYQzgvmB0EVHEYZQM%2B3EgyTJkLEJcR2A9u9yl2f%2Bku6IE%2FISk9tr4WshHy5PE0xi4De5Hlqz40euYZjm1GA4tUUmh6N9dnkl7HsZ2cUX1gVfldd4TOX2bKjdyN2u0lVI8pPK2kaNaw1Z4ZHyEM4nr%2F8PYn4Gw%3D%3D&RelayState=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
+    Query params: 
+        SAMLRequest: fZJPT4MwGMa/CukdCt2Q0AwS3A4umY4IevBiCnTSCC32LaJ+emFMMz3s3Ke/50/eFbC26WjSm1re87eeg7E+2kYCPT5EqNeSKgYCqGQtB2pKmiW3O0ocl3ZaGVWqBlkJANdGKLlWEvqW64zrd1Hyh/tdhGpjOqAYD8PgmN4ua95KYb6ciuOsFkWhGm5qB0DhiUxwus9yZG3GKEKyCXqGMOV/xKsu8JSVYFF1OMv2J2unqztkbTcRei68YnEIQ4+54bLyvSpkBxYQzgvmB0EVHEYZQM+3EgyTJkLEJcR2A9u9yl2f+ku6IE/ISk9tr4WshHy5PE0xi4De5Hlqz40euYZjm1GA4tUUmh6N9dnkl7HsZ2cUX1gVfldd4TOX2bKjdyN2u0lVI8pPK2kaNaw1Z4ZHyEM4nr/8PYn4Gw==
+        RelayState: ss:mem:ca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
+
+
+
+6. GET -> https://wtc.tu-chemnitz.de/krb/module.php/negotiate/backend.php?AuthState=_5f99ef09614564b72a295a25988631aac9d1014a2a%3Ahttps%3A%2F%2Fwtc.tu-chemnitz.de%2Fkrb%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttps%253A%252F%252Fwww.tu-chemnitz.de%252Fshibboleth%26RelayState%3Dss%253Amem%253Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa%26cookieTime%3D1657086874
+    Query params: 
+        AuthState: _5f99ef09614564b72a295a25988631aac9d1014a2a:https://wtc.tu-chemnitz.de/krb/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&RelayState=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa&cookieTime=1657086874
+
+
+
+7. GET -> https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=_5f99ef09614564b72a295a25988631aac9d1014a2a%3Ahttps%3A%2F%2Fwtc.tu-chemnitz.de%2Fkrb%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttps%253A%252F%252Fwww.tu-chemnitz.de%252Fshibboleth%26RelayState%3Dss%253Amem%253Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa%26cookieTime%3D1657086874     
+    Query params: 
+        AuthState: _5f99ef09614564b72a295a25988631aac9d1014a2a:https://wtc.tu-chemnitz.de/krb/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&RelayState=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa&cookieTime=1657086874
+
+
+
+8. POST -> https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?
+    FormData:
+        username: hmk
+        AuthState: _5f99ef09614564b72a295a25988631aac9d1014a2a:https://wtc.tu-chemnitz.de/krb/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&RelayState=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa&cookieTime=1657086874
+
+
+
+9. GET -> https://wtc.tu-chemnitz.de/krb/module.php/TUC/captcha.php?AuthState=_5f99ef09614564b72a295a25988631aac9d1014a2a%3Ahttps%3A%2F%2Fwtc.tu-chemnitz.de%2Fkrb%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttps%253A%252F%252Fwww.tu-chemnitz.de%252Fshibboleth%26RelayState%3Dss%253Amem%253Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa%26cookieTime%3D1657086874
+    Query params: 
+        AuthState: _5f99ef09614564b72a295a25988631aac9d1014a2a:https://wtc.tu-chemnitz.de/krb/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&RelayState=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa&cookieTime=1657086874
+
+
+
+10. GET -> https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?AuthState=_5f99ef09614564b72a295a25988631aac9d1014a2a%3Ahttps%3A%2F%2Fwtc.tu-chemnitz.de%2Fkrb%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttps%253A%252F%252Fwww.tu-chemnitz.de%252Fshibboleth%26RelayState%3Dss%253Amem%253Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa%26cookieTime%3D1657086874
+    Query params: 
+        AuthState: _5f99ef09614564b72a295a25988631aac9d1014a2a:https://wtc.tu-chemnitz.de/krb/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&RelayState=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa&cookieTime=1657086874    
+
+
+
+11. POST -> https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?
+    FormData:
+        password: 122334joh_N
+        AuthState: _5f99ef09614564b72a295a25988631aac9d1014a2a:https://wtc.tu-chemnitz.de/krb/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Fwww.tu-chemnitz.de%2Fshibboleth&RelayState=ss%3Amem%3Aca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa&cookieTime=1657086874
+
+
+
+12. POST -> https://www.tu-chemnitz.de/Shibboleth.sso/SAML2/POST
+    FormData:
+        SAMLResponse: long string
+        RelayState: ss:mem:ca03917706cfde9050d78ded17080e5c4c036a58a59a8a178eda620c24e2d3fa
