@@ -1,6 +1,9 @@
 import axios, { Axios, AxiosError } from "axios";
 import { parse } from "node-html-parser";
 import FormData from "form-data";
+import superagent from "superagent"
+
+const agent = superagent.agent();
 
 axios.defaults.withCredentials = true;
 const LOGIN_PAGE_URL = "https://www.tu-chemnitz.de/informatik/DVS/blocklist/";
@@ -8,7 +11,7 @@ const LOGIN_PAGE_URL = "https://www.tu-chemnitz.de/informatik/DVS/blocklist/";
 export const wtcLogin = async (cb: () => void) => {
   // Request 1
   console.log("----------1. GET----------", LOGIN_PAGE_URL);
-  let request = await axios.get(LOGIN_PAGE_URL);
+  let request = await axios.get(LOGIN_PAGE_URL, {withCredentials: true});
   const redirectUrl = request.request.res.responseUrl;
   const decodedRedirectURI = decodeURIComponent(redirectUrl);
   const stringAfterLogin = decodedRedirectURI.slice(
@@ -17,8 +20,7 @@ export const wtcLogin = async (cb: () => void) => {
 
   // Request 2
   console.log("----------2. GET----------", redirectUrl);
-  request = await axios.get(redirectUrl);
-
+  request = await axios.get(redirectUrl, {withCredentials: true});
 
   // Request 3
   let formData = new FormData();
@@ -27,7 +29,7 @@ export const wtcLogin = async (cb: () => void) => {
 
   try {
     console.log("----------3. POST----------", redirectUrl);
-    await axios.post(redirectUrl, formData);
+    await axios.post(redirectUrl, formData, {withCredentials: true});
   } catch (error: any) {}
 
   // Request 4
@@ -44,7 +46,7 @@ export const wtcLogin = async (cb: () => void) => {
       `https://www.tu-chemnitz.de/Shibboleth.sso/Login?${
         stringAfterLogin +
         "&entityID=https%3A%2F%2Fwtc.tu-chemnitz.de%2Fshibboleth"
-      }`
+      }`, {withCredentials: true}
     );
   } catch (error: any) {
     url1 = error.request.res.responseUrl;
@@ -54,7 +56,7 @@ export const wtcLogin = async (cb: () => void) => {
   let loginUrl;
   try {
     console.log("----------5. GET----------", url1);
-    await axios.get(url1);
+    await axios.get(url1, {withCredentials: true});
   } catch (error: any) {
     const anchorElementAttr = parse(error.response.data).querySelector(
       "a"
@@ -66,7 +68,7 @@ export const wtcLogin = async (cb: () => void) => {
   // Request 6
   try {
     console.log("----------6. GET----------", loginUrl);
-    await axios.get(loginUrl as string);
+    await axios.get(loginUrl as string, {withCredentials: true});
   } catch (error) {
     console.log(error);
   }
@@ -82,7 +84,7 @@ export const wtcLogin = async (cb: () => void) => {
       `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=${AuthState}`
     );
     await axios.get(
-      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=${AuthState}`
+      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=${AuthState}`, {withCredentials: true}
     );
   } catch (error) {
     console.log(error);
@@ -96,11 +98,11 @@ export const wtcLogin = async (cb: () => void) => {
   try {
     console.log(
       "----------8. POST----------",
-      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?`
+      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=${AuthState}`
     );
     await axios.post(
-      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?`,
-      formData
+      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=${AuthState}`,
+      formData, {withCredentials: true}
     );
   } catch (error) {
     console.log(error);
@@ -113,7 +115,7 @@ export const wtcLogin = async (cb: () => void) => {
       `https://wtc.tu-chemnitz.de/krb/module.php/TUC/captcha.php?AuthState=${AuthState}`
     );
     await axios.get(
-      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/captcha.php?AuthState=${AuthState}`
+      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/captcha.php?AuthState=${AuthState}`, {withCredentials: true}
     );
   } catch (error) {
     console.log(error);
@@ -126,12 +128,11 @@ export const wtcLogin = async (cb: () => void) => {
       `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?AuthState=${AuthState}`
     );
     await axios.get(
-      `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?AuthState=${AuthState}`
+      `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?AuthState=${AuthState}`, {withCredentials: true}
     );
   } catch (error) {
     console.log(error);
   }
-
 
   // Request 11
   formData = new FormData();
@@ -142,20 +143,31 @@ export const wtcLogin = async (cb: () => void) => {
     try {
       console.log(
         "----------11. POST----------",
-        `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?`
+        `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?AuthState=${AuthState}`
       );
       const res = await axios.post(
-        `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?`,
-        formData
+        `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?AuthState=${AuthState}`,
+        formData, {withCredentials: true}
       );
-
-      console.log(res);
+      console.log(res)
     } catch (error) {
       console.log(error);
     }
   }, 9000);
 
-
+  setTimeout(async () => {
+    await axios
+    .get(
+      "https://www.tu-chemnitz.de/informatik/DVS/blocklist/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    )
+    .then(function (response) {
+      console.log(response)
+      console.log("-----------------TEST--------------", response.status);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }, 15000);
   return;
 
   // Final request
