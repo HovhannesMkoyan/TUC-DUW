@@ -7,15 +7,20 @@ const LOGIN_PAGE_URL = "https://www.tu-chemnitz.de/informatik/DVS/blocklist/";
 
 export const wtcLogin = async (cb: () => void) => {
   // Request 1
+  console.log("----------1----------", LOGIN_PAGE_URL)
   let request = await axios.get(LOGIN_PAGE_URL);
   const redirectUrl = request.request.res.responseUrl;
-
   const decodedRedirectURI = decodeURIComponent(redirectUrl);
   const stringAfterLogin = decodedRedirectURI.slice(
     decodedRedirectURI.indexOf("Login?") + "Login?".length
   );
-
+  console.log(decodedRedirectURI);
+  return;
+  
   // Request 2
+  console.log("----------2----------", `https://www.tu-chemnitz.de/Shibboleth.sso/Login?${encodeURIComponent(
+    stringAfterLogin
+  )}`)
   request = await axios.get(
     `https://www.tu-chemnitz.de/Shibboleth.sso/Login?${encodeURIComponent(
       stringAfterLogin
@@ -32,6 +37,7 @@ export const wtcLogin = async (cb: () => void) => {
   // Request 3
   let loginUrl;
   try {
+    console.log("----------3----------", `https://wtc.tu-chemnitz.de${uri}`)
     await axios.post(`https://wtc.tu-chemnitz.de${uri}`, formData);
   } catch (error: any) {
     const anchorElementAttr = parse(error.response.data).querySelector(
@@ -40,20 +46,20 @@ export const wtcLogin = async (cb: () => void) => {
 
     loginUrl = anchorElementAttr!.substring(20, anchorElementAttr!.length - 1);
   }
-  console.log("----1----", loginUrl);
+  console.log("----------4----------", loginUrl)
   const res = await axios.get(loginUrl as string);
-  // const retryUrl = res.request.res.responseUrl.slice(
-  //   res.request.res.responseUrl.indexOf("retryURL=") + "retryURL=".length
-  // );
+  const retryUrl = res.request.res.responseUrl.slice(
+    res.request.res.responseUrl.indexOf("retryURL=") + "retryURL=".length
+  );
 
-  // const res1 = await axios.get(decodeURIComponent(retryUrl));
-  // console.log(res1);
+  console.log("----------5----------", decodeURIComponent(retryUrl))
+  const res1 = await axios.get(decodeURIComponent(retryUrl));
 
   const AuthState = loginUrl?.slice(
     loginUrl.indexOf("AuthState=") + "AuthState=".length
   );
-  console.log("----2----", AuthState);
 
+  return;
   // Username form submit
   formData = new FormData();
   formData.append("username", "hmk");
