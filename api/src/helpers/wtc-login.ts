@@ -19,6 +19,7 @@ export const wtcLogin = async (cb: () => void) => {
   console.log("----------2. GET----------", redirectUrl);
   request = await axios.get(redirectUrl);
 
+
   // Request 3
   let formData = new FormData();
   formData.append("session", "true");
@@ -131,85 +132,31 @@ export const wtcLogin = async (cb: () => void) => {
     console.log(error);
   }
 
+
+  // Request 11
   formData = new FormData();
-  formData.append("username", "hmk");
   formData.append("password", "122334joh_N");
   formData.append("AuthState", AuthState);
 
-  // Request 11
   setTimeout(async () => {
     try {
       console.log(
         "----------11. POST----------",
         `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?`
       );
-      await axios.post(
+      const res = await axios.post(
         `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php?`,
         formData
       );
+
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
-  }, 7000);
+  }, 9000);
+
 
   return;
-  formData = new FormData();
-  formData.append("password", "122334joh_N");
-  formData.append("AuthState", AuthState);
-
-  try {
-    console.log(
-      "----------11. POST----------",
-      `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php`
-    );
-    await axios.post(
-      `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php`,
-      formData
-    );
-  } catch (error) {
-    console.log(error);
-  }
-
-  return;
-  console.log(
-    "----------GET----------",
-    `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=${AuthState}&language=de`
-  );
-  await axios
-    .get(
-      `https://wtc.tu-chemnitz.de/krb/module.php/TUC/username.php?AuthState=${AuthState}`,
-      {
-        withCredentials: true,
-      }
-    )
-    .then(async (res) => {
-      console.log(res.request.res.responseUrl);
-      const retryUrl = res.request.res.responseUrl.slice(
-        res.request.res.responseUrl.indexOf("retryURL=") + "retryURL=".length
-      );
-
-      console.log("----------GET----------", decodeURIComponent(retryUrl));
-      try {
-        await axios.get(decodeURIComponent(retryUrl));
-      } catch (error) {
-        console.log(error);
-      }
-    })
-    .catch((err) => console.log(err));
-  return;
-  return;
-  // Password form submit
-  formData = new FormData();
-  formData.append("username", "hmk");
-  formData.append("password", "122334joh_N");
-  formData.append("AuthState", AuthState);
-  await axios
-    .post(
-      `https://wtc.tu-chemnitz.de/krb/module.php/core/loginuserpass.php`,
-      formData
-    )
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
 
   // Final request
   // formData = new FormData();
